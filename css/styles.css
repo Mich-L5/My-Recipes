@@ -1,0 +1,189 @@
+/* General */
+
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body {
+    background-image: url("../img/wood-wallpaper.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    color: #454545;
+}
+
+/* Nav menu */
+
+nav a {
+    text-decoration: none;
+    font-family: 'Sue Ellen Francisco', cursive;
+    font-size: 21px;
+    margin-top: -10px;
+    display: block;
+    color: #454545;
+
+}
+
+nav li {
+    list-style: none;
+    padding: 7px;
+    margin: 0 3px;
+    border-radius: 5px;
+    width: 70px;
+    height: 45px;
+    text-align: center;
+    box-shadow: 3px -3px 5px -6px #0e0e0e;
+    transition: .2s ease;
+}
+
+nav ul {
+    display: flex;
+    margin-left: 30px;
+}
+
+nav {
+    width: 80%;
+    margin: 40px auto -70px auto;
+    position: relative;
+}
+
+#add-new-tab {
+    width: 30px;
+    line-height: 17px;
+}
+
+#add-new-tab a {
+    font-size: 17px;
+    margin-top: -3.5px;
+}
+
+#index-tab {
+    position: relative;
+    z-index: 1;
+    width: 30px;
+}
+
+#index-tab a {
+    font-size: 18px;
+    margin-top: -7px;
+}
+
+nav li:nth-child(1) {
+    background-color: #90ddd1;
+}
+nav li:nth-child(2) {
+    background-color: #e2bfd8;
+}
+nav li:nth-child(3) {
+    background-color: #fcd1fd;
+}
+nav li:nth-child(4) {
+    background-color: #80d7ff;
+}
+nav li:nth-child(5) {
+    background-color: #c0ff83;
+}
+nav li:nth-child(6) {
+    background-color: #f3ff51;
+}
+nav li:nth-child(7) {
+    background-color: #ffba83;
+}
+nav li:nth-child(8) {
+    background-color: #ffb4cf;
+}
+
+nav li:hover {
+    margin-top: -3px;
+}
+
+
+
+
+.current-tab {
+    background-color: red;
+    color: red;
+}
+
+/* Home/index page */
+
+.home-title {
+    text-align: center;
+    margin: 0 0 25px 0;
+    font-family: 'Sue Ellen Francisco', cursive;
+    font-weight: normal;
+    font-size: 90px;
+}
+
+.title-container {
+    margin-top: -70px;
+}
+
+.lemon-tape {
+    width: 400px;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+
+/* Recipe book */
+
+.recipe-book {
+    width: 80%;
+    height: 600px;
+    margin: 49px auto 0 auto;
+    background-color: #FDFDFD;
+    box-shadow: 3px 3px 5px -5px #0e0e0e;
+    position: relative;
+}
+
+.gold-paperclip {
+    width: 45px;
+    height: auto;
+    position: relative;
+    margin: -8px 0 0 20px;
+}
+
+/* Add New! page */
+
+.add-new-title {
+    text-align: center;
+    margin: 50px;
+
+}
+
+.add-new-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: yellow;
+    max-width: 350px;
+    margin: auto;
+
+}
+
+.add-new-form fieldset {
+    border: none;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Form label container */
+.add-new-form > fieldset > div {
+    padding: 15px;
+    width: 100px;
+    margin: auto;
+}
+
+/* Form button container */
+
+.add-new-form > div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
