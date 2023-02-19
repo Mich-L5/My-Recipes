@@ -16,18 +16,7 @@
     <script src="https://kit.fontawesome.com/36e897625c.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<nav>
-    <ul>
-        <li><a href="add-new.php">Add New!</a></li>
-        <li><a href="index.php"><i class="fa-solid fa-house"></i></a></li>
-        <li><a href="#">Apps</a></li>
-        <li><a href="#">Mains</a></li>
-        <li><a href="#">Sides</a></li>
-        <li><a href="#">Desserts</a></li>
-        <li><a href="#">Drinks</a></li>
-        <li><a href="#">Sauces</a></li>
-    </ul>
-</nav>
+<header><?php include './header.php' ?></header>
 
 <main>
     <section>
@@ -101,6 +90,9 @@
         </form>
     </section>
 </main>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" defer></script>
+<script src="js/main.js" defer></script>
 
 </body>
 </html>

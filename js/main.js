@@ -1,13 +1,21 @@
-
 /* --------------------------------------- */
 /*    Keep active nav tab from moving      */
 /*               upon hover                */
 /* --------------------------------------- */
 
+// get all tab href links
+let pageLinks = document.links;
 
-console.log(window.location.href);
+// cycle through all the tab href links
+for (var i = 0; i < pageLinks.length; i++)
+{
+    // if the tab's href matched the current (active) href, remove hover effect
+    if(pageLinks[i].href == window.location.href) {
 
-let myLinks = document.links[0].href;
+        pageLinks[i].parentElement.classList.add("current-tab");
+    }
 
-console.log(myLinks);
+}
+
+
 

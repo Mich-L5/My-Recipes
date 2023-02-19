@@ -100,12 +100,9 @@ nav li:hover {
     margin-top: -3px;
 }
 
-
-
-
-.current-tab {
-    background-color: red;
-    color: red;
+/* class added to active tab via JS */
+.current-tab:hover {
+    margin-top: 0;
 }
 
 /* Home/index page */
