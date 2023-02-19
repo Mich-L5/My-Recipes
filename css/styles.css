@@ -100,6 +100,10 @@ nav li:hover {
     margin-top: -3px;
 }
 
+.tabs-mobile {
+    display: none;
+}
+
 /* class added to active tab via JS */
 .current-tab:hover {
     margin-top: 0;
@@ -183,4 +187,51 @@ nav li:hover {
     display: flex;
     justify-content: center;
     padding: 20px;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 768px) {
+
+    .tabs {
+        display: none;
+
+    }
+
+    .tabs-mobile {
+        display: block;
+    }
+
+    .tabs-mobile ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mobile-container {
+        display: flex;
+        flex-direction: row-reverse;
+        background-color: orange;
+        width: 90%;
+        margin: auto;
+        justify-content: center;
+    }
+
+    .recipe-book {
+        width: auto;
+        height: 600px;
+        margin: 49px auto 0 auto;
+        background-color: #FDFDFD;
+        box-shadow: 3px 3px 5px -5px #0e0e0e;
+        position: relative;
+
+    }
+
+    main {
+
+        background-color: blue;
+    }
+
+    header {
+        margin-left: -100px;
+    }
 }
