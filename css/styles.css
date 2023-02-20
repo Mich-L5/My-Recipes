@@ -15,6 +15,15 @@ body {
     color: #454545;
 }
 
+h1 {
+    font-family: 'Sue Ellen Francisco', cursive;
+    text-align: center;
+}
+
+label, input, button, select, ::-webkit-file-upload-button {
+    font-family: 'Dosis', sans-serif;
+}
+
 /* Nav menu */
 
 nav a {
@@ -61,7 +70,6 @@ nav {
 }
 
 #index-tab {
-    z-index: 1;
     width: 30px;
 }
 
@@ -141,16 +149,24 @@ nav li:hover {
 
 
 /* class added to active tab via JS */
+.current-tab {
+    z-index: 1;
+}
+
+.current-tab a {
+    cursor: default;
+}
+
 .current-tab:hover {
     margin-top: 0;
+
+
 }
 
 /* Home/index page */
 
 .home-title {
-    text-align: center;
     margin: 0 0 25px 0;
-    font-family: 'Sue Ellen Francisco', cursive;
     font-weight: normal;
     font-size: 90px;
 }
@@ -188,20 +204,43 @@ nav li:hover {
 /* Add New! page */
 
 .add-new-title {
-    text-align: center;
-    margin: 50px;
-
+    font-weight: normal;
+    font-size: 50px;
+    margin-top: -135px;
 }
 
 .add-new-form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: yellow;
     max-width: 350px;
-    margin: auto;
-
+    margin: -30px auto auto auto;
 }
+
+.add-new-form fieldset {
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    margin: -5px 0;
+}
+
+/* make input fields thinner and more narrow */
+.add-new-form input {
+    height: 20px;
+    width: 30px;
+}
+
+/* readjust first input field (upload image) */
+.add-new-form fieldset:nth-child(1) input:nth-child(2) {
+    height: 27px;
+    width: 200px;
+}
+
+/* readjust recipe name input field */
+.add-new-form fieldset:nth-child(2) input:nth-child(2) {
+    width: 200px;
+}
+
 
 .add-new-form fieldset {
     border: none;
@@ -217,12 +256,16 @@ nav li:hover {
 }
 
 /* Form button container */
-
 .add-new-form > div {
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 20px;
+}
+
+/* add cursor: pointer on form buttons */
+.add-new-form button, .add-new-form ::-webkit-file-upload-button {
+    cursor: pointer;
 }
 
 /* Media queries */
@@ -241,7 +284,7 @@ nav li:hover {
     }
 
     nav li:hover {
-        margin-top: 0px;
+        margin-top: 0;
         transform: rotate(90deg) translateY(-3px);
     }
 
@@ -258,7 +301,7 @@ nav li:hover {
 
     /* class added to active tab via JS */
     .current-tab:hover {
-        margin-left: 0px;
+        margin-left: 0;
         transform: rotate(90deg);
     }
 
