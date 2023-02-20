@@ -61,7 +61,6 @@ nav {
 }
 
 #index-tab {
-    position: relative;
     z-index: 1;
     width: 30px;
 }
@@ -74,35 +73,72 @@ nav {
 nav li:nth-child(1) {
     background-color: #90ddd1;
 }
+
+.hover-tab0:hover {
+    background-color: #78cec1;
+}
+
+
 nav li:nth-child(2) {
     background-color: #e2bfd8;
 }
+
+.hover-tab1:hover {
+    background-color: #cca8c1;
+}
+
 nav li:nth-child(3) {
     background-color: #fcd1fd;
 }
+
+.hover-tab2:hover {
+    background-color: #f2c7f3;
+}
+
 nav li:nth-child(4) {
     background-color: #80d7ff;
 }
+
+.hover-tab3:hover {
+    background-color: #78caf0;
+}
+
 nav li:nth-child(5) {
     background-color: #c0ff83;
 }
+
+.hover-tab4:hover {
+    background-color: #b7f57b;
+}
+
 nav li:nth-child(6) {
     background-color: #f3ff51;
 }
+
+.hover-tab5:hover {
+    background-color: #ecf84b;
+}
+
 nav li:nth-child(7) {
     background-color: #ffba83;
 }
+
+.hover-tab6:hover {
+    background-color: #f8b580;
+}
+
 nav li:nth-child(8) {
     background-color: #ffb4cf;
+}
+
+.hover-tab7:hover {
+    background-color: #f3aac4;
 }
 
 nav li:hover {
     margin-top: -3px;
 }
 
-.tabs-mobile {
-    display: none;
-}
 
 /* class added to active tab via JS */
 .current-tab:hover {
@@ -193,45 +229,58 @@ nav li:hover {
 
 @media screen and (max-width: 768px) {
 
-    .tabs {
-        display: none;
-
-    }
-
-    .tabs-mobile {
-        display: block;
-    }
-
-    .tabs-mobile ul {
+    nav ul {
         display: flex;
         flex-direction: column;
+    }
+
+    nav li {
+        transform: rotate(90deg);
+        margin-bottom: 27px;
+
+    }
+
+    nav li:hover {
+        margin-top: 0px;
+        transform: rotate(90deg) translateY(-3px);
+    }
+
+    #add-new-tab {
+        margin-left: 24px;
+        margin-bottom: -14px;
+
+    }
+
+    #index-tab {
+        margin-left: 24px;
+        margin-bottom: 6px;
+    }
+
+    /* class added to active tab via JS */
+    .current-tab:hover {
+        margin-left: 0px;
+        transform: rotate(90deg);
     }
 
     .mobile-container {
         display: flex;
         flex-direction: row-reverse;
-        background-color: orange;
-        width: 90%;
         margin: auto;
         justify-content: center;
+        width: 85%;
     }
 
     .recipe-book {
         width: auto;
-        height: 600px;
-        margin: 49px auto 0 auto;
-        background-color: #FDFDFD;
-        box-shadow: 3px 3px 5px -5px #0e0e0e;
-        position: relative;
-
+        height: 650px;
     }
 
     main {
-
-        background-color: blue;
+        flex-grow: 1;
     }
 
     header {
-        margin-left: -100px;
+        margin-left: -115px;
+        margin-top: 10px;
     }
 }
