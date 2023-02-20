@@ -15,7 +15,7 @@
 
     <script src="https://kit.fontawesome.com/36e897625c.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body id="add-new-page">
     <div class="mobile-container">
         <header><?php include './header.php' ?></header>
         <main>
