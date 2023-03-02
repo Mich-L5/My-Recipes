@@ -36,20 +36,39 @@
                         <div>
                             <label for="name">Recipe name:</label>
                         </div>
-                        <input name="name" id="name"/>
+                        <input name="name" id="name" maxlength="60"/>
                     </fieldset>
                     <fieldset>
                         <div>
                             <label for="category">Category:</label>
                         </div>
-                        <select name="category" id="category">
+                        <select name="categoryId" id="categoryId">
                             <option value="" disabled selected>Categories</option>
-                            <option value="app">Apps</option>
-                            <option value="main">Mains</option>
-                            <option value="side">Sides</option>
-                            <option value="dessert">Desserts</option>
-                            <option value="drink">Drinks</option>
-                            <option value="sauce">Sauces</option>
+                            <?php
+                            // connect to the database
+                            $db = new PDO('mysql:host=172.31.22.43;dbname=Micha546528','Micha546528' ,'3POKCa61FA');
+
+                            // write SQL query to select all the recipe categories
+                            $sql = "SELECT * FROM recipeCategories";
+
+                            // create the command
+                            $cmd = $db->prepare($sql);
+
+                            // execute the query
+                            $cmd->execute();
+
+                            // store SQL query results in variable
+                            $categories = $cmd->fetchAll();
+
+                            // loop and display as <option></option> each category
+                            foreach ($categories as $category) {
+                                echo '<option value="' . $category['categoryId'] .
+                                    '">'. $category['category'] . '</option>';
+                            }
+
+                            // disconnect from the database
+                            $db = null;
+                            ?>
                         </select>
                     </fieldset>
                     <fieldset>
@@ -60,21 +79,31 @@
                     </fieldset>
                     <fieldset>
                         <div>
-                            <label for="prep-time">Prep time (minutes):</label>
+                            <span>Prep time:</span>
                         </div>
-                        <input name="prep-time" id="prep-time" type="number"/>
+                        <label hidden for="prep-time-hours">Prep time (hours)</label>
+                        <input min="0" name="prep-time-hours" id="prep-time-hours" type="number"/>
+                        <span>hours &nbsp;</span>
+                        <label hidden for="prep-time-minutes">Prep time (minutes)</label>
+                        <input min="0" max="59" name="prep-time-minutes" id="prep-time-minutes" type="number"/>
+                        <span>mins</span>
                     </fieldset>
                     <fieldset>
                         <div>
-                            <label for="cook-time">Cook time (minutes):</label>
+                            <span>Cook time:</span>
                         </div>
-                        <input name="cook-time" id="cook-time" type="number"/>
+                        <label hidden for="cook-time-hours">Cook time (hours)</label>
+                        <input min="0" name="cook-time-hours" id="cook-time-hours" type="number"/>
+                        <span>hours &nbsp;</span>
+                        <label hidden for="cook-time-minutes">Cook time (minutes)</label>
+                        <input min="0" max="59" name="cook-time-minutes" id="cook-time-minutes" type="number"/>
+                        <span>mins</span>
                     </fieldset>
                     <fieldset>
                         <div>
                             <label for="rating">Rating (0-5):</label>
                         </div>
-                        <input name="rating" id="rating" type="number"/>
+                        <input min="1" max="5" name="rating" id="rating" type="number" />
                     </fieldset>
                     <fieldset>
                         <div>

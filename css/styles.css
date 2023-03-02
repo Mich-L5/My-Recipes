@@ -20,7 +20,7 @@ h1 {
     text-align: center;
 }
 
-label, input, button, select, ::-webkit-file-upload-button {
+label, input, button, select, span, ::-webkit-file-upload-button {
     font-family: 'Dosis', sans-serif;
 }
 
