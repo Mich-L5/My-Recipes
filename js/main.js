@@ -33,7 +33,7 @@ if (home === true) {
     // remove moving tab and cursor pointer on hover, and bring tab to the front of the page
     pageLinks[1].parentElement.classList.add("current-tab");
     // remove darker color on hover
-    pageLinks[1].parentElement.classList.remove("hover-tab" + i);
+    pageLinks[1].parentElement.classList.remove("hover-tab" + 1);
 }
 
 
