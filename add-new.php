@@ -84,10 +84,10 @@
                         </div>
                         <label hidden for="prep-time-hours">Prep time (hours)</label>
                         <input placeholder="0" min="0" name="prep-time-hours" id="prep-time-hours" type="number"/>
-                        <span>hours &nbsp;</span>
+                        <span class="form-time-label">hours &nbsp;</span>
                         <label hidden for="prep-time-minutes">Prep time (minutes)</label>
                         <input placeholder="25" min="0" max="59" name="prep-time-minutes" id="prep-time-minutes" type="number"/>
-                        <span>mins</span>
+                        <span class="form-time-label">mins</span>
                     </fieldset>
                     <fieldset>
                         <div>
@@ -95,10 +95,10 @@
                         </div>
                         <label hidden for="cook-time-hours">Cook time (hours)</label>
                         <input placeholder="0" min="0" name="cook-time-hours" id="cook-time-hours" type="number"/>
-                        <span>hours &nbsp;</span>
+                        <span class="form-time-label">hours &nbsp;</span>
                         <label hidden for="cook-time-minutes">Cook time (minutes)</label>
                         <input placeholder="40" min="0" max="59" name="cook-time-minutes" id="cook-time-minutes" type="number"/>
-                        <span>mins</span>
+                        <span class="form-time-label">mins</span>
                     </fieldset>
                     <fieldset>
                         <div>
@@ -108,15 +108,15 @@
                     </fieldset>
                     <fieldset>
                         <div>
-                            <label for="ingredients">Ingredients:</label>
+                            <label for="ingredients">Ingredients:<span class="seperate-comma">(Seperate with commas)</span></label>
                         </div>
-                        <textarea maxlength="2000" name="ingredients" id="ingredients"></textarea>
+                        <textarea placeholder="1 sweet potato, 1 tbsp olive oil, 1 tsp salt.." maxlength="2000" name="ingredients" id="ingredients"></textarea>
                     </fieldset>
                     <fieldset>
                         <div>
-                            <label for="directions">Directions:</label>
+                            <label for="directions">Directions:<span class="seperate-comma">(Seperate with commas)</span></label>
                         </div>
-                        <textarea maxlength="5000" name="directions" id="directions"></textarea>
+                        <textarea placeholder="1. Wash sweet potato, 2. Cut the sweet potato.." maxlength="5000" name="directions" id="directions"></textarea>
                     </fieldset>
                     <div>
                         <button>Save</button>

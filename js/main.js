@@ -4,12 +4,17 @@
 /* --------------------------------------- */
 
 
-
 // get all tab href links
 let pageLinks = document.links;
 
 // variable to check if we are on the home tab (i.e. the "/recipe/" only href)
 var home = true;
+
+// check to see if we are on a recipe page (in that case, none of the nav tabs are active, and home is false since we are not on the home page either)
+if(window.location.href.includes("recipe/recipe")) {
+    home = false;
+}
+
 
 // cycle through all the tab href links
 for (var i = 0; i < pageLinks.length; i++)
@@ -26,6 +31,7 @@ for (var i = 0; i < pageLinks.length; i++)
         home = false;
     }
 }
+
 
 // if none of the if checks above return true, then we are on the "/recipe/" only href, and we must target the effects on the home tab
 // this is necessary because the for loop above is only checking for the "/recipe/index.php" as the home tab, so we need to perform an additional check for "/recipe/"

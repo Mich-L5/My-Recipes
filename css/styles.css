@@ -222,6 +222,13 @@ nav li:hover {
     margin-top: -135px;
 }
 
+#add-new-page .recipe-book {
+    min-height: 710px;
+    max-height: 710px;
+    margin-bottom: 70px;
+}
+
+
 .add-new-form {
     display: flex;
     flex-direction: column;
@@ -237,7 +244,7 @@ nav li:hover {
     margin: -5px 0;
 }
 
-.file-format {
+.file-format, .seperate-comma {
     display: block;
     font-size: 12px;
 }
@@ -383,6 +390,23 @@ mark:hover {
     font-size: 21px;
 
 }
+
+.recipe-image {
+    width: 100px;
+    height: auto;
+}
+
+.ingredient, .direction {
+    display: block;
+}
+
+
+
+
+
+
+
+
 
 
 /* Media queries */
@@ -711,6 +735,10 @@ mark:hover {
         font-size: 14px;
         line-height: 13px;
 
+    }
+
+    .form-time-label {
+        font-size: 12px;
     }
 
 

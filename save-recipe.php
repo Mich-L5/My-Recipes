@@ -256,13 +256,18 @@
         // run the command
         $cmd->execute();
 
-        // disconnect from database
-        $db = null;
+
 
         // show confirmation to the user that the new recipe has been saved
         echo '<script>alert("Your recipe has been successfully saved!");</script>';
-        echo '<script>window.location.href = "index.php"</script>';
+
+        // disconnect from database
+        $db = null;
+
+        echo '<script>window.location.href ="index.php"</script>';
     }
+
+
 ?>
 
 </main>
