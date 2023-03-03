@@ -116,7 +116,7 @@
                         <div>
                             <label for="directions">Directions:<span class="seperate-comma">(Seperate with commas)</span></label>
                         </div>
-                        <textarea placeholder="1. Wash sweet potato, 2. Cut the sweet potato.." maxlength="5000" name="directions" id="directions"></textarea>
+                        <textarea placeholder="Wash the sweet potato, Cut the sweet potato.." maxlength="5000" name="directions" id="directions"></textarea>
                     </fieldset>
                     <div>
                         <button>Save</button>

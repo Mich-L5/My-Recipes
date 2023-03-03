@@ -76,9 +76,9 @@
         $errorMsg = "Servings must be numeric.";
         $errorFree = false;
     }
-    // check that input is above 0
-    else if ($servings < 1) {
-        $errorMsg = "Servings must be at least 1.";
+    // check that input is between 1 and 1000
+    else if ($servings < 1 || $servings > 1000) {
+        $errorMsg = "Serving size must be between 1-1000.";
         $errorFree = false;
     }
 

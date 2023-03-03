@@ -38,46 +38,60 @@
 
     <script src="https://kit.fontawesome.com/36e897625c.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="recipe">
 <div class="mobile-container">
     <header><?php include './header.php' ?></header>
     <main>
         <!-- recipe book -->
         <section class="recipe-book">
             <img src="img/gold-paperclip.png" class="gold-paperclip" alt="gold paperclip">
-            <div class="grid">
-                <div class="title-container title-image">
-                    <h1><?php echo $recipe['name'] ?></h1>
-                    <img src="./img/yellow-tape.png" alt="a piece of yellow and white striped washi tape">
-                    <?php echo '<img class="recipe-image" src="data:image;base64,' . $recipe['image'] . '" alt="recipe image">' ?>
-                </div>
-                <div class="recipe-info">
-                    <?php
-                        echo '<span class="recipe-info-piece"><h2>Servings: ' . $recipe['servings'] . '</h2></span>
-                              <span class="recipe-info-piece"><h2>Prep time: ' . $recipe['prepTimeHours'] . ":" . $recipe['prepTimeMins']. '</h2></span>
-                              <span class="recipe-info-piece"><h2>Cook time: ' . $recipe['cookTimeHours'] . ":" . $recipe['cookTimeMins']. '</h2></span>
-                              <span class="recipe-info-piece"><h2>Rating: ' . $recipe['rating']. "/5" . '</h2></span>
-                            ';
-                    ?>
-                </div>
-                <div class="recipe-details">
-                    <div class="ingredients">
-                        <h2>Ingredients: </h2>
-                        <?php
-                            $ingredientsArray = explode(',', $recipe['ingredients']);
-                            foreach ($ingredientsArray as $ingredient) {
-                                echo '<span class="ingredient">' . $ingredient . '</span>';
-                            }
-                        ?>
+            <div class="recipe-content">
+                <div class="grid">
+                    <div class="grid-col-1">
+                        <div class="title-container title-image">
+                            <h1><?php echo $recipe['name'] ?></h1>
+                            <img src="./img/yellow-tape.png" alt="a piece of yellow and white striped washi tape">
+                            <?php echo '<img src="data:image;base64,' . $recipe['image'] . '" alt="recipe image">' ?>
+                        </div>
+                        <div class="recipe-info">
+                            <?php
+                                echo '<h2>Servings: <span>' . $recipe['servings'] . '</span></h2>
+                                      <h2>Prep time: <span>' . $recipe['prepTimeHours'] . ":" . $recipe['prepTimeMins']. '</span></h2>
+                                      <h2>Cook time: <span>' . $recipe['cookTimeHours'] . ":" . $recipe['cookTimeMins']. '</span></h2>
+                                      <h2>Rating: <span>' . $recipe['rating']. "/5" . '</span></h2>
+                                    ';
+                            ?>
+                        </div>
                     </div>
-                    <div class="directions">
-                        <h2>Directions: </h2>
-                        <?php
-                        $directionsArray = explode(',', $recipe['directions']);
-                        foreach ($directionsArray as $direction) {
-                            echo '<span class="direction">' . $direction . '</span>';
-                        }
-                        ?>
+                    <div class="grid-col-2">
+                        <div class="recipe-details">
+                            <div class="ingredients">
+                                <h2>Ingredients: </h2>
+                                <p>
+                                    <ul>
+                                        <?php
+                                            $ingredientsArray = explode(',', $recipe['ingredients']);
+                                            foreach ($ingredientsArray as $ingredient) {
+                                                echo '<li><span class="ingredient">' . $ingredient . '</span></li>';
+                                            }
+                                        ?>
+                                    </ul>
+                                </p>
+                            </div>
+                            <div class="directions">
+                                <h2>Directions: </h2>
+                                <p>
+                                    <ol>
+                                        <?php
+                                        $directionsArray = explode(',', $recipe['directions']);
+                                        foreach ($directionsArray as $direction) {
+                                            echo '<li><span class="direction">' . $direction . '</li></span>';
+                                        }
+                                        ?>
+                                    </ol>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
