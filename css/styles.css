@@ -194,6 +194,18 @@ nav li:hover {
     position: relative;
 }
 
+.category-page .recipe-book {
+    height: auto;
+}
+
+.no-recipes {
+    text-align: center;
+    font-family: 'Dosis', sans-serif;
+    padding-bottom: 370px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
 .gold-paperclip {
     width: 45px;
     height: auto;
@@ -282,6 +294,17 @@ nav li:hover {
     cursor: pointer;
 }
 
+.category-page h1 {
+    font-size: 70px;
+    margin-top: -145px;
+    font-weight: 300;
+}
+
+.recipe-tn {
+    width: 80px;
+    height: auto;
+}
+
 /* Media queries */
 
 @media screen and (max-width: 768px) {
@@ -315,7 +338,7 @@ nav li:hover {
 
     /* class added to active tab via JS */
     .current-tab:hover {
-        margin-left: 0;
+       /* margin-left: 0;*/
         transform: rotate(90deg);
     }
 
@@ -330,6 +353,10 @@ nav li:hover {
     .recipe-book {
         width: auto;
         height: 650px;
+    }
+
+    .no-recipes {
+        padding-bottom: 430px;
     }
 
     .home-title {
@@ -365,6 +392,8 @@ nav li:hover {
         width: 300px;
     }
 
+
+
 }
 
 @media screen and (max-width: 540px) {
@@ -374,6 +403,16 @@ nav li:hover {
         margin-bottom: 15px;
         font-size: 50px;
     }
+
+    .category-page h1 {
+        font-size: 50px;
+        margin-top: -120px;
+    }
+
+    .no-recipes {
+        padding-bottom: 500px;
+    }
+
 
     .lemon-tape {
         width: 250px;
@@ -462,6 +501,11 @@ nav li:hover {
 
     #add-new-page .recipe-book {
         height: 685px;
+    }
+
+    .category-page h1 {
+        font-size: 40px;
+        margin-top: -100px;
     }
 
 
