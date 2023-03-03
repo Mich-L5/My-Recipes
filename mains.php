@@ -13,6 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;700&family=Sue+Ellen+Francisco&display=swap" rel="stylesheet">
 
+    <!-- https://www.kryogenix.org/code/browser/sorttable/ for column sorting-->
+    <script src="js/sorttable.js" defer></script>
+
     <script src="https://kit.fontawesome.com/36e897625c.js" crossorigin="anonymous"></script>
 </head>
 <body class="category-page">
@@ -25,7 +28,6 @@
             <div class="title-container">
                 <h1>Mains</h1>
             </div>
-
 
             <?php
 
@@ -46,30 +48,45 @@
             // $recipes is a 2-dimentional array
             $recipes = $cmd->fetchAll();
 
+
             // if no recipes exist in this category yet, display "no recepies yet" message
             if(!$recipes) {
                 echo "<p class='no-recipes'>You don't have any recipes in this category!</p>";
+
             }
             // else, print the list of recipes
             else {
 
-
                 // start html table format
-                echo '<table class="sortable"><thead><th></th><th>Recipe</th><th>Prep time</th><th>Cook time</th><th>Rating</th></thead>';
+                echo '<div class="category-table-container"><table class="sortable"><thead><th></th><th>Recipe</th><th>Total time</th><th>Rating</th></thead>';
 
                 // loop through each table row and display values in table
                 foreach ($recipes as $recipe) {
                     echo '<tr>';
-                    echo '<td><img class="recipe-tn" src="data:image;base64,' . $recipe['image'] . '" alt="recipe thumbnail"></td>';
-                    echo '<td><a href="recipe.php?recipeId=' . $recipe['recipeId'] . '">' . $recipe['name'] . '</a></td>';
-                    echo '<td>' . $recipe['prepTimeHours'] . ":" . $recipe['prepTimeMins'] . '</td>';
-                    echo '<td>' . $recipe['cookTimeHours'] . ":" . $recipe['cookTimeMins'] . '</td>';
-                    echo '<td>' . $recipe['rating'] . "/5" . '</td>';
+                    echo '<td><a href="recipe.php?recipeId=' . $recipe['recipeId'] . '"><img class="recipe-tn" src="data:image;base64,' . $recipe['image'] . '" alt="recipe thumbnail image"></a></td>';
+                    echo '<td><a href="recipe.php?recipeId=' . $recipe['recipeId'] . '"><mark>' . $recipe['name'] . '</mark></a></td>';
+
+                    // calculate and format the total time (prep time + cook time)
+                    $totalH = $recipe['prepTimeHours'] + $recipe['cookTimeHours'];
+                    $totalM = $recipe['prepTimeMins'] + $recipe['cookTimeMins'];
+
+                    if($totalM > 59) {
+                        $additionalH = floor($totalM/60);
+                        $totalH += $additionalH;
+                        $totalM = $totalM-($additionalH*60);
+                    }
+                    if($totalM < 10) {
+                        $totalM = "0" . $totalM;
+                    }
+
+                    echo '<td><a href="recipe.php?recipeId=' . $recipe['recipeId'] . '"><span>' . $totalH . ":" . $totalM . '</span></a></td>';
+                    echo '<td><a href="recipe.php?recipeId=' . $recipe['recipeId'] . '"><span>' . $recipe['rating'] . "/5" . '</span></a></td>';
                     echo '</tr>';
                 }
 
-                echo '</table>';
+                echo '</table></div>';
             }
+
             // disconnect from the database
             $db = null;
             ?>

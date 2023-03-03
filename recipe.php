@@ -49,7 +49,7 @@
                 <div class="grid">
                     <div class="grid-col-1">
                         <div class="title-container title-image">
-                            <h1><?php echo $recipe['name'] ?></h1>
+                            <h1><?php echo $recipe['name'] ?>jhfs dhjfdfhslfkhdsflkjhaflj</h1>
                             <img src="./img/yellow-tape.png" alt="a piece of yellow and white striped washi tape">
                             <?php echo '<img src="data:image;base64,' . $recipe['image'] . '" alt="recipe image">' ?>
                         </div>
@@ -88,6 +88,7 @@
                                             echo '<li><span class="direction">' . $direction . '</li></span>';
                                         }
                                         ?>
+                                    <li><span>djkghfsjkfhsafjksdgfjkgsfsdkhjfgashjfgeyrghfdshfgdsafhgdshfgsda dfgdshjfgd  sdfgdskhfga hdsgf a</span></li>
                                     </ol>
                                 </p>
                             </div>
