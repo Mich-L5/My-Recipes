@@ -467,7 +467,7 @@ mark:hover {
 }
 
 .title-image h1 {
-    font-size: 55px;
+    font-size: 45px;
     text-align: center;
     font-weight: 300;
     margin: 0 auto 20px auto;
@@ -622,6 +622,10 @@ mark:hover {
         grid-template-areas:
         "col-1"
         "col-2";
+    }
+
+    .title-image {
+        width: 100%;
     }
 
     .grid-col-1 {
@@ -789,12 +793,6 @@ mark:hover {
     .recipe .grid {
         width: auto;
     }
-/*
-    .grid-col-1 {
-        margin-left: -90px;
-        width: auto;
-    }*/
-
 
     .grid-col-1 {
         width: auto;
@@ -812,31 +810,16 @@ mark:hover {
     .recipe-info {
         margin-left: 0px;
     }
-    /*
-    .title-image h1 {
-        margin-left: -45px;
-    }*/
-
-    /* recipe image */
-    /*
-    .title-image img:nth-child(3) {
-        margin-left: -15px;
-    }*/
-
-    /* yellow washi tape */
-    /*
-    .title-image img:nth-child(2) {
-        margin-left: 85px;
-    }*/
 
     .title-image h1 {
         width: auto;
-        max-width: 400px;
-        background-color: pink;
+        max-width: 380px;
         display: block;
     }
 
-
+    .recipe-info {
+        width: 65%;
+    }
 
 
 
@@ -858,37 +841,8 @@ mark:hover {
         margin-left: 0px;
     }
 
-    .recipe-details ul li span, .recipe-details ol li span {
-
-        background-color: red;
-
-    }
-
 
 }
-
-@media screen and (max-width: 670px) {
-    .title-image h1 {
-        margin-left: -17px;
-        width: 330px;
-    }
-
-    .grid-col-1 {
-        margin-left: -110px;
-    }
-
-    .recipe-info {
-        width: 125%;
-        margin-left: 40px;
-    }
-
-    .grid-col-2 {
-        width: 200%;
-        margin-left: -100px;
-    }
-
-}
-
 
 @media screen and (max-width: 640px) {
 
@@ -914,40 +868,35 @@ mark:hover {
         font-size: 17px;
     }
 
+    .title-image h1 {
+        max-width: 330px;
+    }
+
+    .recipe-info {
+        width: 70%;
+    }
+
 
 }
 
 @media screen and (max-width: 590px) {
 
     .title-image h1 {
-        margin-left: 0px;
-        width: 280px;
+        max-width: 280px;
         font-size: 45px;
     }
 
-    /* yellow washi tape */
+    /* yellow washii tape */
     .title-image img:nth-child(2) {
-        margin-left: 90px;
         width: 100px;
-        margin-bottom: -15px;
-
     }
 
     /* recipe image */
     .title-image img:nth-child(3) {
-        margin-left: 9px;
         width: 250px;
     }
 
-    .recipe-info {
-        width: 115%;
-        margin-left: 40px;
-    }
 
-    .grid-col-2 {
-        width: 200%;
-        margin-left: -80px;
-    }
 
 }
 
@@ -1030,25 +979,23 @@ mark:hover {
 
 @media screen and (max-width: 490px) {
 
-    .title-image h1 {
-        margin-left: 5px;
-        width: 250px;
-    }
 
     /* yellow washi tape */
     .title-image img:nth-child(2) {
-        margin-left: 85px;
+        margin-bottom: -15px;
     }
 
-    /* recipe image */
-    .title-image img:nth-child(3) {
-        margin-left: 3px;
 
+    .title-image h1 {
+        max-width: 235px;
+        font-size: 35px;
+        line-height: 60px;
     }
 
-    .grid-col-2 {
-        margin-left: -65px;
+    .recipe-content {
+        margin: 0 35px;
     }
+
 
 }
 
@@ -1150,23 +1097,7 @@ mark:hover {
         font-size: 12px;
     }
 
-    .title-image h1 {
-        margin-left: 10px;
-        font-size: 40px;
-        width: 230px;
-        line-height: 60px;
-    }
 
-    /* yellow washi tape */
-    .title-image img:nth-child(2) {
-        margin-left: 75px;
-    }
-
-    /* recipe image */
-    .title-image img:nth-child(3) {
-        margin-left: -3px;
-
-    }
 
 
 }
@@ -1174,23 +1105,23 @@ mark:hover {
 @media screen and (max-width: 425px) {
 
     .title-image h1 {
-        margin-left: 34px;
-        font-size: 35px;
-        width: 160px;
+        max-width: 175px;
         line-height: 50px;
+        font-size: 30px;
     }
 
     /* yellow washi tape */
     .title-image img:nth-child(2) {
-        margin-left: 75px;
         width: 83px;
     }
 
     /* recipe image */
     .title-image img:nth-child(3) {
-        margin-left: 10px;
         width: 205px;
+    }
 
+    .recipe-content {
+        margin: 0 20px;
     }
 
 }
@@ -1198,9 +1129,7 @@ mark:hover {
 @media screen and (max-width: 340px) {
 
     .title-image h1 {
-        margin-left: 45px;
-        width: 140px;
-        line-height: 50px;
+        max-width: 140px;
     }
 
 
