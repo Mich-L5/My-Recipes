@@ -47,7 +47,19 @@
             <img src="img/gold-paperclip.png" class="gold-paperclip" alt="gold paperclip">
             <div class="action-container">
                 <a href="#"><i class="fa-regular fa-pen-to-square"></i></a>
-                <a href="#"><i class="fa-regular fa-trash-can"></i></a>
+
+
+
+
+                <?php
+               echo '<a href="delete-recipe.php?recipeId=' . $recipe['recipeId'] . '" title="delete" onclick="return confirmDelete();"><i class="fa-regular fa-trash-can"></i></a>';
+
+                ?>
+
+
+
+
+
             </div>
             <div class="recipe-content">
                 <div class="grid">

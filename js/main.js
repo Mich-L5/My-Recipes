@@ -42,5 +42,14 @@ if (home === true) {
     pageLinks[1].parentElement.classList.remove("hover-tab" + 1);
 }
 
+/* --------------------------------------- */
+/*      Confirm delete popup function      */
+/* --------------------------------------- */
+
+function confirmDelete() {
+    return confirm('Are you sure you want to delete this?');
+}
+
+
 
 
