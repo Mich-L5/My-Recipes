@@ -25,18 +25,19 @@
                 <div class="title-container">
                     <h1 class="add-new-title">Add New!</h1>
                 </div>
-                <form class="add-new-form" action="save-recipe.php" method="POST">
+                <form class="add-new-form" action="save-recipe.php" method="POST" enctype="multipart/form-data">
                     <fieldset>
                          <div>
-                             <label for="upload">Upload image:</label>
+                             <label for="image">Upload image: <span class="file-format">Formats allowed: .jpg, .jpeg, .png (max. size 2MB)</span></label>
                          </div>
-                         <input name="upload-image" id="upload-image" type="file"/>
+                         <input name="image" id="image" type="file"/>
                      </fieldset>
+
                     <fieldset>
                         <div>
                             <label for="name">Recipe name:</label>
                         </div>
-                        <input name="name" id="name" maxlength="60"/>
+                        <input placeholder="Sweet potato fries" name="name" id="name" maxlength="60"/>
                     </fieldset>
                     <fieldset>
                         <div>
@@ -75,17 +76,17 @@
                         <div>
                             <label for="servings">Servings:</label>
                         </div>
-                        <input name="servings" id="servings" type="number"/>
+                        <input placeholder="4" min="1" name="servings" id="servings" type="number"/>
                     </fieldset>
                     <fieldset>
                         <div>
                             <span>Prep time:</span>
                         </div>
                         <label hidden for="prep-time-hours">Prep time (hours)</label>
-                        <input min="0" name="prep-time-hours" id="prep-time-hours" type="number"/>
+                        <input placeholder="0" min="0" name="prep-time-hours" id="prep-time-hours" type="number"/>
                         <span>hours &nbsp;</span>
                         <label hidden for="prep-time-minutes">Prep time (minutes)</label>
-                        <input min="0" max="59" name="prep-time-minutes" id="prep-time-minutes" type="number"/>
+                        <input placeholder="25" min="0" max="59" name="prep-time-minutes" id="prep-time-minutes" type="number"/>
                         <span>mins</span>
                     </fieldset>
                     <fieldset>
@@ -93,29 +94,29 @@
                             <span>Cook time:</span>
                         </div>
                         <label hidden for="cook-time-hours">Cook time (hours)</label>
-                        <input min="0" name="cook-time-hours" id="cook-time-hours" type="number"/>
+                        <input placeholder="0" min="0" name="cook-time-hours" id="cook-time-hours" type="number"/>
                         <span>hours &nbsp;</span>
                         <label hidden for="cook-time-minutes">Cook time (minutes)</label>
-                        <input min="0" max="59" name="cook-time-minutes" id="cook-time-minutes" type="number"/>
+                        <input placeholder="40" min="0" max="59" name="cook-time-minutes" id="cook-time-minutes" type="number"/>
                         <span>mins</span>
                     </fieldset>
                     <fieldset>
                         <div>
                             <label for="rating">Rating (0-5):</label>
                         </div>
-                        <input min="1" max="5" name="rating" id="rating" type="number" />
+                        <input placeholder="5" min="1" max="5" name="rating" id="rating" type="number" />
                     </fieldset>
                     <fieldset>
                         <div>
                             <label for="ingredients">Ingredients:</label>
                         </div>
-                        <textarea name="ingredients" id="ingredients"></textarea>
+                        <textarea maxlength="2000" name="ingredients" id="ingredients"></textarea>
                     </fieldset>
                     <fieldset>
                         <div>
                             <label for="directions">Directions:</label>
                         </div>
-                        <textarea name="directions" id="directions"></textarea>
+                        <textarea maxlength="5000" name="directions" id="directions"></textarea>
                     </fieldset>
                     <div>
                         <button>Save</button>

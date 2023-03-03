@@ -224,6 +224,11 @@ nav li:hover {
     margin: -5px 0;
 }
 
+.file-format {
+    display: block;
+    font-size: 12px;
+}
+
 /* make input fields thinner and more narrow */
 .add-new-form input {
     height: 20px;

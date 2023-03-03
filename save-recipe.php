@@ -1,3 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Save Recipe</title>
+
+    <link href="./css/styles.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;700&family=Sue+Ellen+Francisco&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/36e897625c.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<main>
+
 <?php
 
     // to display php errors
@@ -16,7 +38,6 @@
     $rating = $_POST['rating'];
     $ingredients = $_POST['ingredients'];
     $directions = $_POST['directions'];
-    $image = $_POST['image'];
 
     // initialize a variable to keep track of our error checks
     $errorFree = true;
@@ -28,7 +49,7 @@
         $errorMsg = "Recipe name is required.";
         $errorFree = false;
     }
-    // check that recipe name is no longer than 60 characters as per SQL column (VARCHAR(60))
+    // check that input is no longer than 60 characters as per SQL column (VARCHAR(60))
     else if (strlen($name) > 60) {
         $errorMsg = "Recipe name must be under 60 characters.";
         $errorFree = false;
@@ -55,14 +76,14 @@
         $errorMsg = "Servings must be numeric.";
         $errorFree = false;
     }
-
-    // 4. a) PREP TIME (HOURS) - check that field is not empty
-    if (empty($prepTimeH)) {
-        $errorMsg = "Prep time hours is required.";
+    // check that input is above 0
+    else if ($servings < 1) {
+        $errorMsg = "Servings must be at least 1.";
         $errorFree = false;
     }
-    // check that input is numeric
-    else if (!is_numeric($prepTimeH)) {
+
+    // 4. a) PREP TIME (HOURS) - check that input is numeric
+    if (!is_numeric($prepTimeH)) {
         $errorMsg = "Prep time hours must be numeric.";
         $errorFree = false;
     }
@@ -88,13 +109,8 @@
         $errorFree = false;
     }
 
-    // 5. a) COOK TIME (HOURS) - check that field is not empty
-    if (empty($cookTimeH)) {
-        $errorMsg = "Cook time hours is required.";
-        $errorFree = false;
-    }
-    // check that input is numeric
-    else if (!is_numeric($cookTimeH)) {
+    // 5. a) COOK TIME (HOURS) - check that input is numeric
+    if (!is_numeric($cookTimeH)) {
         $errorMsg = "Cook time hours must be numeric.";
         $errorFree = false;
     }
@@ -141,10 +157,20 @@
         $errorMsg = "Ingredients is required.";
         $errorFree = false;
     }
+    // check that input is no longer than 2000 characters as per SQL column (TEXT(2000))
+    else if (strlen($ingredients) > 2000) {
+        $errorMsg = "Ingredients must be under 2000 characters.";
+        $errorFree = false;
+    }
 
     // 8. DIRECTIONS - check that field is not empty
     if (empty($directions)) {
         $errorMsg = "Directions is required.";
+        $errorFree = false;
+    }
+    // check that input is no longer than 5000 characters as per SQL column (TEXT(5000))
+    else if (strlen($directions) > 5000) {
+        $errorMsg = "Directions must be under 5000 characters.";
         $errorFree = false;
     }
 
@@ -154,49 +180,49 @@
         $errorFree = false;
     }
 
-    // capture the image file
-    // $_FILES['image'] returns an array with the image file information, $_FILES['image']['tmp_name'] captures the file's temp name
-    $imgTmpLoc = $_FILES['image']['tmp_name'];
-    // encode image file
-    $image = base64_encode(file_get_contents($imgTmpLoc));
+    else {
 
-    // store the image file array in a variable for easier access when error-checking below
-    $imgFile = $_FILES['image'];
+        // capture the image file
+        // $_FILES['image'] returns an array with the image file information, $_FILES['image']['tmp_name'] captures the file's temp name
+        $imgTmpLoc = $_FILES['image']['tmp_name'];
+        // encode image file
+        $image = base64_encode(file_get_contents($imgTmpLoc));
 
-    // file formats allowed
-    $formatsAllowed = array('jpg', 'jpeg', 'png');
+        // store the image file array in a variable for easier access when error-checking below
+        $imgFile = $_FILES['image'];
 
-    // grab file extension and convert it to lowercase
-    // explode() will return an array of strings seperated by our separator '.'
-    $fileExtension = explode('.', $imgFile['name']);
-    // grab the last item in our array (the file extension)
-    $fileExtension = strtolower(end($fileExtension));
+        // file formats allowed
+        $formatsAllowed = array('jpg', 'jpeg', 'png');
 
-    // check if the image's file format is allowed
-    $validExt = false;
+        // grab file extension and convert it to lowercase
+        // explode() will return an array of strings seperated by our separator '.'
+        $fileExtension = explode('.', $imgFile['name']);
+        // grab the last item in our array (the file extension)
+        $fileExtension = strtolower(end($fileExtension));
 
-    foreach ($formatsAllowed as $format) {
-        if ($format == $fileExtension) {
-            $validExt = true;
+        // check if the image's file format is allowed
+        $validExt = false;
+
+        foreach ($formatsAllowed as $format) {
+            if ($format == $fileExtension) {
+                $validExt = true;
+            }
+        }
+
+        // if the image extension is not valid (i.e. does not match any of the formats allowed), return error message
+        if (!$validExt) {
+            $errorMsg = "Image format is not allowed, please try again.";
+            $errorFree = false;
+        } // check that image size is no larger than 2MB
+        else if ($imgFile['size'] > 2000000) {
+            $errorMsg = "File size is too big, please try again.";
+            $errorFree = false;
+        } // check for any other image upload errors
+        else if ($imgFile['error'] != 0) {
+            $errorMsg = "There was an error when uploading your file, please try again.";
+            $errorFree = false;
         }
     }
-
-    // if the image extension is not valid (i.e. does not match any of the formats allowed), return error message
-    if (!$validExt) {
-        $errorMsg = "Image format is not allowed, please try again.";
-        $errorFree = false;
-    }
-    // check that image size is no larger than 2MB
-    else if ($imgFile['size'] > 2000000) {
-        $errorMsg = "File size is too big, please try again.";
-        $errorFree = false;
-    }
-    // check for any other image upload errors
-    else if ($imgFile['error'] != 0) {
-        $errorMsg = "There was an error when uploading your file, please try again.";
-        $errorFree = false;
-    }
-
 
     // if any errors occured during error-checking, alert the user with custom error message, and re-direct them to the form page
     if (!$errorFree) {
@@ -210,31 +236,21 @@
         $db = new PDO('mysql:host=172.31.22.43;dbname=Micha546528', 'Micha546528', '3POKCa61FA');
 
         // set up SQL query
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        $sql = "INSERT INTO carWishlist (user, makeId, model, color, year, price, image) 
-                        VALUES (:user, :makeId, :model, :color, :year, :price, :image)";
+        $sql = "INSERT INTO recipes (name, categoryId, servings, prepTimeHours, prepTimeMins, cookTimeHours, cookTimeMins, rating, ingredients, directions, image) 
+                        VALUES (:name, :categoryId, :servings, :prepTimeH, :prepTimeM, :cookTimeH, :cookTimeM, :rating, :ingredients, :directions, :image)";
 
         // create pdo command and populate variables into parameters
         $cmd = $db->prepare($sql);
-        $cmd->bindParam(':user', $user, PDO::PARAM_STR, 100);
-        $cmd->bindParam(':makeId', $makeId, PDO::PARAM_INT);
-        $cmd->bindParam(':model', $model, PDO::PARAM_STR, 30);
-        $cmd->bindParam(':color', $color, PDO::PARAM_STR, 30);
-        $cmd->bindParam(':year', $year, PDO::PARAM_INT);
-        $cmd->bindParam(':price', $price, PDO::PARAM_STR, 10);
+        $cmd->bindParam(':name', $name, PDO::PARAM_STR, 60);
+        $cmd->bindParam(':categoryId', $categoryId, PDO::PARAM_INT);
+        $cmd->bindParam(':servings', $servings, PDO::PARAM_INT);
+        $cmd->bindParam(':prepTimeH', $prepTimeH, PDO::PARAM_INT);
+        $cmd->bindParam(':prepTimeM', $prepTimeM, PDO::PARAM_INT);
+        $cmd->bindParam(':cookTimeH', $cookTimeH, PDO::PARAM_INT);
+        $cmd->bindParam(':cookTimeM', $cookTimeM, PDO::PARAM_INT);
+        $cmd->bindParam(':rating', $rating, PDO::PARAM_INT);
+        $cmd->bindParam(':ingredients', $ingredients, PDO::PARAM_STR, 2000);
+        $cmd->bindParam(':directions', $directions, PDO::PARAM_STR, 5000);
         $cmd->bindParam(':image', $image, PDO::PARAM_LOB);
 
         // run the command
@@ -247,5 +263,8 @@
         echo '<script>alert("Your recipe has been successfully saved!");</script>';
         echo '<script>window.location.href = "index.php"</script>';
     }
-
 ?>
+
+</main>
+</body>
+</html>
