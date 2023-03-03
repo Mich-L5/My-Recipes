@@ -524,7 +524,25 @@ mark:hover {
     margin-bottom: 80px;
 }
 
+.action-container {
+    display: flex;
+    flex-display: row;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    margin-top: -135px;
+    padding-right: 25px;
+    position: absolute;
+    width: 100%;
+}
 
+.action-container a {
+    color: #454545;
+}
+
+.action-container i {
+    font-size: 20px;
+    padding-left: 10px;
+}
 
 
 
@@ -772,20 +790,6 @@ mark:hover {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     .title-image {
         margin-left: 0px;
     }
@@ -821,26 +825,16 @@ mark:hover {
         width: 65%;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     .grid-col-2 {
         width: 100%;
         margin-left: 0px;
     }
 
+    .action-container i {
+        font-size: 22px;
+        padding-left: 10px;
+
+    }
 
 }
 
@@ -974,6 +968,11 @@ mark:hover {
         margin-top: 35px;
     }
 
+    .action-container {
+        margin-top: -100px;
+    }
+
+
 }
 
 
@@ -1093,11 +1092,24 @@ mark:hover {
 
     }
 
+    .title-image h1 {
+        margin-top: 60px;
+        margin-bottom: 25px;
+    }
+
     .form-time-label {
         font-size: 12px;
     }
 
+    .action-container i {
+        font-size: 23px;
+        padding-left: 12px;
 
+    }
+
+    .action-container {
+        margin-top: -85px;
+    }
 
 
 }

@@ -45,6 +45,10 @@
         <!-- recipe book -->
         <section class="recipe-book">
             <img src="img/gold-paperclip.png" class="gold-paperclip" alt="gold paperclip">
+            <div class="action-container">
+                <a href="#"><i class="fa-regular fa-pen-to-square"></i></a>
+                <a href="#"><i class="fa-regular fa-trash-can"></i></a>
+            </div>
             <div class="recipe-content">
                 <div class="grid">
                     <div class="grid-col-1">
