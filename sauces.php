@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="robots" content="noindex, nofollow">
-    <title>Apps</title>
+    <title>Sauces</title>
     <link href="./css/styles.css" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,7 @@
         <section class="recipe-book">
             <img src="img/gold-paperclip.png" class="gold-paperclip" alt="gold paperclip">
             <div class="title-container">
-                <h1>Apps</h1>
+                <h1>Sauces</h1>
             </div>
 
             <?php
@@ -35,7 +35,7 @@
             $db = new PDO('mysql:host=172.31.22.43;dbname=Micha546528','Micha546528' ,'3POKCa61FA');
 
             // SQL query that reads all table records and returns the recipes in the "apps" category
-            $sql = "SELECT * FROM recipes WHERE categoryId = 1";
+            $sql = "SELECT * FROM recipes WHERE categoryId = 6";
 
             // create the command
             $cmd = $db->prepare($sql);
