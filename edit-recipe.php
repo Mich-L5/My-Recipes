@@ -38,6 +38,7 @@ $cookTimeM = $recipe['cookTimeMins'];
 $rating = $recipe['rating'];
 $ingredients = $recipe['ingredients'];
 $directions = $recipe['directions'];
+$image = $recipe['image'];
 
 
 
@@ -62,7 +63,7 @@ $directions = $recipe['directions'];
     <script src="https://kit.fontawesome.com/36e897625c.js" crossorigin="anonymous"></script>
 </head>
 <body id="add-new-page">
-<div class="mobile-container">
+<div class="mobile-container" id="edit-recipe">
     <header><?php include './header.php' ?></header>
     <main>
         <!-- recipe book -->
@@ -71,12 +72,15 @@ $directions = $recipe['directions'];
             <div class="title-container">
                 <h1 class="add-new-title">Edit Recipe</h1>
             </div>
-            <form class="add-new-form" action="save-recipe.php" method="POST" enctype="multipart/form-data">
-                <fieldset>
+            <form class="add-new-form" action="update-recipe.php" method="POST" enctype="multipart/form-data">
+                <fieldset class="image-fieldset">
                     <div>
                         <label for="image">Upload image: <span class="file-format">Formats allowed: .jpg, .jpeg, .png (max. size 2MB)</span></label>
                     </div>
-                    <input name="image" id="image" type="file"/>
+                    <div class="upload-img-container">
+                        <?php echo '<img id="upload-tn" src="data:image;base64,' . $recipe['image'] . '" alt="recipe image">'?>
+                        <input id="uploadInput" name="image" id="image" type="file"/>
+                    </div>
                 </fieldset>
 
                 <fieldset>
@@ -172,6 +176,8 @@ $directions = $recipe['directions'];
                 </fieldset>
                 <div>
                     <button>Save</button>
+                    <!-- to pass our primary key value to update-recipe.php -->
+                    <input name="recipeId" id="recipeId" value="<?php echo $recipeId; ?>" type="hidden"/>
                 </div>
             </form>
         </section>

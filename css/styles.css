@@ -544,7 +544,23 @@ mark:hover {
     padding-left: 10px;
 }
 
+#upload-tn {
+    height: 40px;
+    width: 40px;
+    margin-bottom: 2px;
+    object-fit: cover;
+}
 
+/* added via JS when user uploads an image */
+.img-uploaded {
+    display: none;
+}
+
+.upload-img-container {
+    display: flex;
+    flex-direction: column;
+
+}
 
 
 /* Media queries */
@@ -1110,6 +1126,29 @@ mark:hover {
     .action-container {
         margin-top: -85px;
     }
+
+    #edit-recipe h1 {
+        font-size: 40px;
+    }
+
+    #edit-recipe .recipe-book {
+        height: 740px;
+        max-height: 740px;
+    }
+
+    #edit-recipe button {
+        margin-bottom: 40px;
+    }
+
+    .upload-img-container {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image-fieldset > div:nth-child(1), .image-fieldset > div:nth-child(2) {
+       margin: 0;
+    }
+
 
 
 }

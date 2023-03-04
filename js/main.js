@@ -50,6 +50,23 @@ function confirmDelete() {
     return confirm('Are you sure you want to delete this?');
 }
 
+/* --------------------------------------- */
+/*      Remove the existing recipe---------*/
+/* -----thumbnail when new img is -------- */
+/* -------------uploaded------------------ */
+/* --------------------------------------- */
+
+// get image input field
+var uploadInput = document.getElementById("uploadInput");
+// listen for any change in input filed (i.e. a new file uploaded)
+uploadInput.addEventListener("change", fileUploaded);
+// get image to add the class that will make it "display:none"
+var existingImg = document.getElementById("upload-tn");
+
+function fileUploaded() {
+    existingImg.classList.add("img-uploaded");
+}
+
 
 
 
