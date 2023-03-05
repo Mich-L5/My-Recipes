@@ -75,7 +75,7 @@ $image = $recipe['image'];
             <form class="add-new-form" action="update-recipe.php" method="POST" enctype="multipart/form-data">
                 <fieldset class="image-fieldset">
                     <div>
-                        <label for="image">Upload image: <span class="file-format">Formats allowed: .jpg, .jpeg, .png (max. size 2MB)</span></label>
+                        <label for="image">Upload image: <span class="file-format">Formats allowed: .jpg, .jpeg, .png <span>(max. size 2MB)</span></span></label>
                     </div>
                     <div class="upload-img-container">
                         <?php echo '<img id="upload-tn" src="data:image;base64,' . $recipe['image'] . '" alt="recipe image">'?>
@@ -164,13 +164,13 @@ $image = $recipe['image'];
                 </fieldset>
                 <fieldset>
                     <div>
-                        <label for="ingredients">Ingredients:<span class="seperate">(Seperate with semicolons)</span></label>
+                        <label for="ingredients">Ingredients:<span class="seperate"><mark>(Seperate with semicolons)</mark></span></label>
                     </div>
                     <textarea placeholder="1 sweet potato; 1 tsp salt.." maxlength="2000" name="ingredients" id="ingredients"><?php echo $ingredients; ?></textarea>
                 </fieldset>
                 <fieldset>
                     <div>
-                        <label for="directions">Directions:<span class="seperate">(Seperate with semicolons)</span></label>
+                        <label for="directions">Directions:<span class="seperate"><mark>(Seperate with semicolons)</mark></span></label>
                     </div>
                     <textarea placeholder="Wash the sweet potato.." maxlength="5000" name="directions" id="directions"><?php echo $directions; ?></textarea>
                 </fieldset>

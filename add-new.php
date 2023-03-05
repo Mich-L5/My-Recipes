@@ -28,7 +28,7 @@
                 <form class="add-new-form" action="save-recipe.php" method="POST" enctype="multipart/form-data">
                     <fieldset>
                          <div>
-                             <label for="image">Upload image: <span class="file-format">Formats allowed: .jpg, .jpeg, .png (max. size 2MB)</span></label>
+                             <label for="image">Upload image: <span class="file-format">Formats allowed: .jpg, .jpeg, .png <span>(max. size 2MB)<span></span></label>
                          </div>
                          <input name="image" id="image" type="file"/>
                      </fieldset>
@@ -108,13 +108,13 @@
                     </fieldset>
                     <fieldset>
                         <div>
-                            <label for="ingredients">Ingredients:<span class="seperate">(Seperate with semicolons)</span></label>
+                            <label for="ingredients">Ingredients:<span class="seperate"><mark>Seperate with semicolons</mark></span></label>
                         </div>
                         <textarea placeholder="1 sweet potato; 1 tsp salt.." maxlength="2000" name="ingredients" id="ingredients"></textarea>
                     </fieldset>
                     <fieldset>
                         <div>
-                            <label for="directions">Directions:<span class="seperate">(Seperate with semicolons)</span></label>
+                            <label for="directions">Directions:<span class="seperate"><mark>Seperate with semicolons</mark></span></label>
                         </div>
                         <textarea placeholder="Wash the sweet potato.." maxlength="5000" name="directions" id="directions"></textarea>
                     </fieldset>

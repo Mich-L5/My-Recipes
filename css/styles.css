@@ -247,7 +247,7 @@ nav li:hover {
 
 .file-format, .seperate {
     display: block;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 /* make input fields thinner and more narrow */
@@ -343,6 +343,11 @@ mark {
 
 mark:hover {
     background-color: #f4ff00;
+}
+
+.seperate mark {
+    background-color: #f4ff00;
+    font-weight: bold;
 }
 
 .recipe-tn {
@@ -1174,6 +1179,15 @@ mark:hover {
     .recipe-content {
         margin: 0 20px;
     }
+
+}
+
+@media screen and (max-width: 400px) {
+
+    .file-format span {
+        display: block;
+    }
+
 
 }
 
