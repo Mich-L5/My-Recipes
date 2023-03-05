@@ -164,15 +164,15 @@ $image = $recipe['image'];
                 </fieldset>
                 <fieldset>
                     <div>
-                        <label for="ingredients">Ingredients:<span class="seperate-comma">(Seperate with commas)</span></label>
+                        <label for="ingredients">Ingredients:<span class="seperate">(Seperate with semicolons)</span></label>
                     </div>
-                    <textarea placeholder="1 sweet potato, 1 tbsp olive oil, 1 tsp salt.." maxlength="2000" name="ingredients" id="ingredients"><?php echo $ingredients; ?></textarea>
+                    <textarea placeholder="1 sweet potato; 1 tsp salt.." maxlength="2000" name="ingredients" id="ingredients"><?php echo $ingredients; ?></textarea>
                 </fieldset>
                 <fieldset>
                     <div>
-                        <label for="directions">Directions:<span class="seperate-comma">(Seperate with commas)</span></label>
+                        <label for="directions">Directions:<span class="seperate">(Seperate with semicolons)</span></label>
                     </div>
-                    <textarea placeholder="Wash the sweet potato, Cut the sweet potato.." maxlength="5000" name="directions" id="directions"><?php echo $directions; ?></textarea>
+                    <textarea placeholder="Wash the sweet potato.." maxlength="5000" name="directions" id="directions"><?php echo $directions; ?></textarea>
                 </fieldset>
                 <div>
                     <button>Save</button>

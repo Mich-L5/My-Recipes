@@ -245,7 +245,7 @@ nav li:hover {
     margin: -5px 0;
 }
 
-.file-format, .seperate-comma {
+.file-format, .seperate {
     display: block;
     font-size: 12px;
 }

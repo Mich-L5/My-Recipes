@@ -108,13 +108,13 @@
                     </fieldset>
                     <fieldset>
                         <div>
-                            <label for="ingredients">Ingredients:<span class="seperate-comma">(Seperate with commas)</span></label>
+                            <label for="ingredients">Ingredients:<span class="seperate">(Seperate with semicolons)</span></label>
                         </div>
-                        <textarea placeholder="1 sweet potato, 1 tsp salt.." maxlength="2000" name="ingredients" id="ingredients"></textarea>
+                        <textarea placeholder="1 sweet potato; 1 tsp salt.." maxlength="2000" name="ingredients" id="ingredients"></textarea>
                     </fieldset>
                     <fieldset>
                         <div>
-                            <label for="directions">Directions:<span class="seperate-comma">(Seperate with commas)</span></label>
+                            <label for="directions">Directions:<span class="seperate">(Seperate with semicolons)</span></label>
                         </div>
                         <textarea placeholder="Wash the sweet potato.." maxlength="5000" name="directions" id="directions"></textarea>
                     </fieldset>
