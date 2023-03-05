@@ -230,7 +230,7 @@
             $errorFree = false;
         } // check for any other image upload errors
         else if ($imgFile['error'] != 0) {
-            $errorMsg = "There was an error when uploading your file, please try again.";
+            $errorMsg = "There was an error when uploading your file, please ensure your file is in a valid format and does not exceed 2MB.";
             $errorFree = false;
         }
     }
