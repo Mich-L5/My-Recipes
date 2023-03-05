@@ -82,8 +82,14 @@
         $errorFree = false;
     }
 
-    // 4. a) PREP TIME (HOURS) - check that input is numeric
-    if (!is_numeric($prepTimeH)) {
+    // 4. a) PREP TIME (HOURS) - check that field is not empty
+    if (empty($prepTimeH) && $prepTimeH != 0) {
+        $errorMsg = "Prep time hours is required.";
+        $errorFree = false;
+    }
+
+    // check that input is numeric
+    else if (!is_numeric($prepTimeH)) {
         $errorMsg = "Prep time hours must be numeric.";
         $errorFree = false;
     }
@@ -94,7 +100,7 @@
     }
 
     // 4. b) PREP TIME (MINUTES) - check that field is not empty
-    if (empty($prepTimeM)) {
+    if (empty($prepTimeM) && $prepTimeM != 0) {
         $errorMsg = "Prep time minutes is required.";
         $errorFree = false;
     }
@@ -109,8 +115,13 @@
         $errorFree = false;
     }
 
-    // 5. a) COOK TIME (HOURS) - check that input is numeric
-    if (!is_numeric($cookTimeH)) {
+    // 5. a) COOK TIME (HOURS) - check that field is not empty
+    if (empty($cookTimeH) && $cookTimeH != 0) {
+        $errorMsg = "Cook time hours is required.";
+        $errorFree = false;
+    }
+    // check that input is numeric
+    else if (!is_numeric($cookTimeH)) {
         $errorMsg = "Cook time hours must be numeric.";
         $errorFree = false;
     }
@@ -121,7 +132,7 @@
     }
 
     // 5. b) COOK TIME (MINUTES) - check that field is not empty
-    if (empty($cookTimeM)) {
+    if (empty($cookTimeM) && $cookTimeM != 0) {
         $errorMsg = "Cook time minutes is required.";
         $errorFree = false;
     }
