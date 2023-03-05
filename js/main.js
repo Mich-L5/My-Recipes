@@ -51,9 +51,9 @@ function confirmDelete() {
 }
 
 /* --------------------------------------- */
-/*      Remove the existing recipe---------*/
-/* -----thumbnail when new img is -------- */
-/* -------------uploaded------------------ */
+/*      Remove the existing recipe         */
+/*      thumbnail when new img is          */
+/*              uploaded                   */
 /* --------------------------------------- */
 
 // get image input field
