@@ -10,8 +10,8 @@ let pageLinks = document.links;
 // variable to check if we are on the home tab (i.e. the "/recipe/" only href)
 var home = true;
 
-// check to see if we are on a recipe page (in that case, none of the nav tabs are active, and home is false since we are not on the home page either)
-if(window.location.href.includes("recipe/recipe")) {
+// check to see if we are on a recipe page or an edit page (in that case, none of the nav tabs are active, and home is false since we are not on the home page either)
+if(window.location.href.includes("recipe/recipe") || window.location.href.includes("recipe/edit-recipe.php")) {
     home = false;
 }
 
