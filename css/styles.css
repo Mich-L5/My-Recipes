@@ -502,13 +502,13 @@ mark:hover {
     line-height: 30px;
     margin: 2px 0 0 -20px;
     width: 80%;
-    word-break: break-all;
+    word-break: break-word;
     border-bottom: solid 1px lightgray;
 
 }
 
 .recipe-details ul li span, .recipe-details ol li span {
-    word-break: break-all;
+    word-break: break-word;
 }
 
 
