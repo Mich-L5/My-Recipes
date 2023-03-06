@@ -59,6 +59,7 @@ $image = $recipe['image'];
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;700&family=Sue+Ellen+Francisco&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./img/lemon.png">
 
     <script src="https://kit.fontawesome.com/36e897625c.js" crossorigin="anonymous"></script>
 </head>
