@@ -1,6 +1,6 @@
 <?php
 
-// read the selected taskId from the url param using $_GET
+// read the selected recipeId from the url param using $_GET
 $recipeId = $_GET['recipeId'];
 
 
