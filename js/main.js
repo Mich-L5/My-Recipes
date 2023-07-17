@@ -3,7 +3,6 @@
 /*               upon hover                */
 /* --------------------------------------- */
 
-
 // get all tab href links
 let pageLinks = document.links;
 
@@ -11,7 +10,8 @@ let pageLinks = document.links;
 var home = true;
 
 // check to see if we are on a recipe page or an edit page (in that case, none of the nav tabs are active, and home is false since we are not on the home page either)
-if(window.location.href.includes("recipe-book/recipe") || window.location.href.includes("recipe-book/edit-recipe.php")) {
+// change links based on hosting and URL paths when live
+if(window.location.href.includes("recipebook.000webhostapp.com/recipe") || window.location.href.includes("recipebook.000webhostapp.com/edit-recipe")) {
     home = false;
 }
 
@@ -56,12 +56,15 @@ function confirmDelete() {
 /*              uploaded                   */
 /* --------------------------------------- */
 
-// get image input field
-var uploadInput = document.getElementById("uploadInput");
+if (document.getElementById("edit-recipe")) {
+    // get image input field
+    var uploadInput = document.getElementById("uploadInput");
 // listen for any change in input filed (i.e. a new file uploaded)
-uploadInput.addEventListener("change", fileUploaded);
+    uploadInput.addEventListener("change", fileUploaded);
 // get image to add the class that will make it "display:none"
-var existingImg = document.getElementById("upload-tn");
+    var existingImg = document.getElementById("upload-tn");
+
+}
 
 function fileUploaded() {
     existingImg.classList.add("img-uploaded");

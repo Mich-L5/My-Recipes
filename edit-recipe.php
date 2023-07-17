@@ -66,7 +66,7 @@ $image = $recipe['image'];
 <body id="add-new-page">
 <div class="mobile-container" id="edit-recipe">
     <header><?php include './header.php' ?></header>
-    <main>
+    <main id="edit-recipe">
         <!-- recipe book -->
         <section class="recipe-book">
             <img src="img/gold-paperclip.png" class="gold-paperclip" alt="gold paperclip">
