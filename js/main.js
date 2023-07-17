@@ -59,9 +59,9 @@ function confirmDelete() {
 if (document.getElementById("edit-recipe")) {
     // get image input field
     var uploadInput = document.getElementById("uploadInput");
-// listen for any change in input filed (i.e. a new file uploaded)
+    // listen for any change in input filed (i.e. a new file uploaded)
     uploadInput.addEventListener("change", fileUploaded);
-// get image to add the class that will make it "display:none"
+    // get image to add the class that will make it "display:none"
     var existingImg = document.getElementById("upload-tn");
 
 }
