@@ -10,7 +10,7 @@
     }
 
     // connect to the database
-    $db = new PDO('mysql:host=172.31.22.43;dbname=Micha546528','Micha546528' ,'3POKCa61FA');
+    $db = new PDO('mysql:host=localhost;dbname=Micha546528', 'Micha546528', 'your_password_here');
 
     // fetch the selected recipe record with this recipeId
     $sql = "SELECT * FROM recipes WHERE recipeId = :recipeId";
@@ -29,7 +29,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="robots" content="noindex, nofollow">
-    <title>Home</title>
+    <title><?php echo $recipe['name'] ?></title>
     <link href="./css/styles.css" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">

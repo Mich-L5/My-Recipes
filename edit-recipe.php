@@ -12,8 +12,7 @@ if(empty($recipeId) || !is_numeric($recipeId)) {
 }
 
 // connect to the database
-$db = new PDO('mysql:host=172.31.22.43;dbname=Micha546528','Micha546528' ,'3POKCa61FA');
-
+$db = new PDO('mysql:host=localhost;dbname=Micha546528', 'Micha546528', 'your_password_here');
 
 // fetch the selected recipe record with this recipeId. use fetch (not fetchAll) for single row queries
 $sql = "SELECT * FROM recipes WHERE recipeId = :recipeId";

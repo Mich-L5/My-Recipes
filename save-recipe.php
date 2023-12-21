@@ -245,7 +245,7 @@
     else {
 
         // connect to the database
-        $db = new PDO('mysql:host=172.31.22.43;dbname=Micha546528', 'Micha546528', '3POKCa61FA');
+        $db = new PDO('mysql:host=localhost;dbname=Micha546528', 'Micha546528', 'your_password_here');
 
         // set up SQL query
         $sql = "INSERT INTO recipes (name, categoryId, servings, prepTimeHours, prepTimeMins, cookTimeHours, cookTimeMins, rating, ingredients, directions, image) 
