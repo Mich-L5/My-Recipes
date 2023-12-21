@@ -8,13 +8,10 @@
     <meta name="robots" content="noindex, nofollow">
     <title>Add New!</title>
     <link href="./css/styles.css" rel="stylesheet">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;700&family=Sue+Ellen+Francisco&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="./img/lemon.png">
-
-
     <script src="https://kit.fontawesome.com/36e897625c.js" crossorigin="anonymous"></script>
 </head>
 <body id="add-new-page">
@@ -123,7 +120,7 @@
                         <div>
                             <label for="directions">Directions:<span class="seperate"><mark>Seperate with semicolons</mark></span></label>
                         </div>
-                        <textarea placeholder="Wash the sweet potato.." maxlength="5000" name="directions" id="directions"></textarea>
+                        <textarea placeholder="Wash the potato; Cut the potato into.." maxlength="5000" name="directions" id="directions"></textarea>
                     </fieldset>
                     <div>
                         <button>Save</button>

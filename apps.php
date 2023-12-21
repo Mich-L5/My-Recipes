@@ -8,7 +8,6 @@
     <meta name="robots" content="noindex, nofollow">
     <title>Apps</title>
     <link href="./css/styles.css" rel="stylesheet">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;700&family=Sue+Ellen+Francisco&display=swap" rel="stylesheet">
@@ -16,7 +15,6 @@
 
     <!-- https://www.kryogenix.org/code/browser/sorttable/ for column sorting-->
     <script src="js/sorttable.js" defer></script>
-
     <script src="https://kit.fontawesome.com/36e897625c.js" crossorigin="anonymous"></script>
 </head>
 <body class="category-page">

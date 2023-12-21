@@ -256,6 +256,11 @@ nav li:hover {
     width: 30px;
 }
 
+.add-new-form textarea {
+    width: 200px;
+    height: 55px;
+}
+
 /* readjust first input field (upload image) */
 .add-new-form fieldset:nth-child(1) input:nth-child(2) {
     height: 27px;
