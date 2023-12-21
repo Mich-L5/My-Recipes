@@ -1,48 +1,42 @@
 <?php
 
+    // get recipeId from url param using $_GET
+    $recipeId = $_GET['recipeId'];
 
-// get recipeId from url param using $_GET
+    if(empty($recipeId) || !is_numeric($recipeId)) {
+        header('location:400.php'); // bad request http 400 error
+        exit();
+    }
 
-$recipeId = $_GET['recipeId'];
+    // connect to the database
+    $db = new PDO('mysql:host=localhost;dbname=Micha546528', 'Micha546528', 'your_password_here');
 
+    // fetch the selected recipe record with this recipeId. use fetch (not fetchAll) for single row queries
+    $sql = "SELECT * FROM recipes WHERE recipeId = :recipeId";
+    $cmd = $db->prepare($sql);
+    $cmd->bindParam(':recipeId', $recipeId, PDO::PARAM_INT);
+    $cmd->execute();
+    $recipe = $cmd->fetch();
 
-if(empty($recipeId) || !is_numeric($recipeId)) {
-    header('location:400.php'); // bad request http 400 error
-    exit();
-}
+    if (empty($recipeId)) {
+        header('location:404.php');
+        exit(); // exit is like a return statement
+    }
 
-// connect to the database
-$db = new PDO('mysql:host=localhost;dbname=Micha546528', 'Micha546528', 'your_password_here');
-
-// fetch the selected recipe record with this recipeId. use fetch (not fetchAll) for single row queries
-$sql = "SELECT * FROM recipes WHERE recipeId = :recipeId";
-$cmd = $db->prepare($sql);
-$cmd->bindParam(':recipeId', $recipeId, PDO::PARAM_INT);
-$cmd->execute();
-$recipe = $cmd->fetch();
-
-if (empty($recipeId)) {
-    header('location:404.php');
-    exit(); // exit is like a return statement
-}
-
-// store variables in local vars
-$name = $recipe['name'];
-$currentCategory = $recipe['categoryId'];
-$servings = $recipe['servings'];
-$prepTimeH = $recipe['prepTimeHours'];
-$prepTimeM = $recipe['prepTimeMins'];
-$cookTimeH = $recipe['cookTimeHours'];
-$cookTimeM = $recipe['cookTimeMins'];
-$rating = $recipe['rating'];
-$ingredients = $recipe['ingredients'];
-$directions = $recipe['directions'];
-$image = $recipe['image'];
-
-
+    // store variables in local vars
+    $name = $recipe['name'];
+    $currentCategory = $recipe['categoryId'];
+    $servings = $recipe['servings'];
+    $prepTimeH = $recipe['prepTimeHours'];
+    $prepTimeM = $recipe['prepTimeMins'];
+    $cookTimeH = $recipe['cookTimeHours'];
+    $cookTimeM = $recipe['cookTimeMins'];
+    $rating = $recipe['rating'];
+    $ingredients = $recipe['ingredients'];
+    $directions = $recipe['directions'];
+    $image = $recipe['image'];
 
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -70,7 +64,6 @@ $image = $recipe['image'];
                         <input id="uploadInput" name="image" id="image" type="file"/>
                     </div>
                 </fieldset>
-
                 <fieldset>
                     <div>
                         <label for="name">Recipe name:</label>
@@ -97,16 +90,17 @@ $image = $recipe['image'];
                         // store SQL query results in variable
                         $categories = $cmd->fetchAll();
 
-
                         // loop and display as <option></option> each category
-                        foreach ($categories as $category) {
+                        foreach ($categories as $category)
+                        {
 
                             // if recipe category matches the category in loop, select it
                             if ($currentCategory == $category['categoryId']) {
                                 echo '<option selected value="' . $category['categoryId'] .
                                     '">' . $category['category'] . '</option>';
+                            }
 
-                            } else {
+                            else {
 
                                 echo '<option value="' . $category['categoryId'] .
                                     '">' . $category['category'] . '</option>';
@@ -174,8 +168,5 @@ $image = $recipe['image'];
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" defer></script>
 <script src="js/main.js" defer></script>
 <script src="https://kit.fontawesome.com/36e897625c.js" crossorigin="anonymous"></script>
-
-
-
 </body>
 </html>

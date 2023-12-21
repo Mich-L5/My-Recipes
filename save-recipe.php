@@ -1,5 +1,3 @@
-
-
 <?php
 
     // to display php errors
@@ -247,8 +245,6 @@
         // run the command
         $cmd->execute();
 
-
-
         // show confirmation to the user that the new recipe has been saved
         echo '<script>alert("Your recipe has been successfully saved!");</script>';
 
@@ -257,6 +253,5 @@
 
         echo '<script>window.location.href ="index.php"</script>';
     }
-
 
 ?>

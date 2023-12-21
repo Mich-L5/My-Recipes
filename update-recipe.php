@@ -1,11 +1,4 @@
-
-
-    <?php
-
-    // to display php errors
-    ini_set ('display_errors', 1);
-    ini_set ('display_startup_errors', 1);
-    error_reporting (E_ALL);
+<?php
 
     // capture form inputs to vars
     $name = $_POST['name'];
@@ -211,7 +204,6 @@
         }
     }
 
-
     // if any errors occured during error-checking, alert the user with custom error message, and re-direct them to the form page
     if (!$errorFree) {
         echo '<script>alert("' . $errorMsg . '")</script>';
@@ -229,7 +221,6 @@
                    cookTimeMins = :cookTimeM, rating = :rating, ingredients = :ingredients, directions = :directions
                    WHERE recipeId= :recipeId";
 
-
         // create pdo command and populate variables into parameters
         $cmd = $db->prepare($sql);
         $cmd->bindParam(':name', $name, PDO::PARAM_STR, 60);
@@ -244,10 +235,8 @@
         $cmd->bindParam(':directions', $directions, PDO::PARAM_STR, 5000);
         $cmd->bindParam(':recipeId', $recipeId, PDO::PARAM_INT);
 
-
         // run the command
         $cmd->execute();
-
 
         // if an image has been uploaded:
         if($_FILES && $_FILES['image']['name'] != "") {
@@ -261,7 +250,6 @@
             $cmd->execute();
         }
 
-
         // show confirmation to the user that the new recipe has been saved
         echo '<script>alert("Your recipe has been successfully saved!");</script>';
 
@@ -270,7 +258,5 @@
 
         echo '<script>window.location.href ="index.php"</script>';
     }
-
-
-    ?>
+?>
 

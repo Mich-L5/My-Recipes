@@ -35,10 +35,9 @@
                         <select name="categoryId" id="categoryId">
                             <option value="" disabled selected>Categories</option>
                             <?php
+
                             // connect to the database
                             $db = new PDO('mysql:host=localhost;dbname=Micha546528', 'Micha546528', 'your_password_here');
-
-
 
                             // write SQL query to select all the recipe categories
                             $sql = "SELECT * FROM recipeCategories";
@@ -60,6 +59,7 @@
 
                             // disconnect from the database
                             $db = null;
+
                             ?>
                         </select>
                     </fieldset>

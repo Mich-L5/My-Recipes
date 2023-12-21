@@ -14,7 +14,6 @@
             <div class="title-container">
                 <h1>Desserts</h1>
             </div>
-
             <?php
 
             // connect to the database
@@ -34,12 +33,11 @@
             // $recipes is a 2-dimentional array
             $recipes = $cmd->fetchAll();
 
-
             // if no recipes exist in this category yet, display "no recepies yet" message
             if(!$recipes) {
                 echo "<p class='no-recipes'>You don't have any recipes in this category!</p>";
-
             }
+
             // else, print the list of recipes
             else {
 
@@ -47,7 +45,8 @@
                 echo '<div class="category-table-container"><table class="sortable"><thead><th></th><th>Recipe</th><th>Total time</th><th>Rating</th></thead>';
 
                 // loop through each table row and display values in table
-                foreach ($recipes as $recipe) {
+                foreach ($recipes as $recipe)
+                {
                     echo '<tr>';
                     echo '<td><a href="recipe.php?recipeId=' . $recipe['recipeId'] . '"><img class="recipe-tn" src="data:image;base64,' . $recipe['image'] . '" alt="recipe thumbnail image"></a></td>';
                     echo '<td><a href="recipe.php?recipeId=' . $recipe['recipeId'] . '"><mark>' . $recipe['name'] . '</mark></a></td>';
@@ -75,8 +74,8 @@
 
             // disconnect from the database
             $db = null;
-            ?>
 
+            ?>
         </section>
     </main>
 </div>

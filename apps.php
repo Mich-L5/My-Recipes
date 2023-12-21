@@ -14,7 +14,6 @@
             <div class="title-container">
                 <h1>Apps</h1>
             </div>
-
             <?php
 
             // connect to the database
@@ -34,12 +33,11 @@
             // $recipes is a 2-dimentional array
             $recipes = $cmd->fetchAll();
 
-
             // if no recipes exist in this category yet, display "no recepies yet" message
             if(!$recipes) {
                 echo "<p class='no-recipes'>You don't have any recipes in this category!</p>";
-
             }
+
             // else, print the list of recipes
             else {
 

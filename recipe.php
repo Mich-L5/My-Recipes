@@ -1,7 +1,6 @@
 <?php
 
     // get recipeId from url param using $_GET
-
     $recipeId = $_GET['recipeId'];
 
     if(empty($recipeId) || !is_numeric($recipeId)) {
@@ -35,13 +34,12 @@
         <section class="recipe-book">
             <img src="img/gold-paperclip.png" class="gold-paperclip" alt="gold paperclip">
             <div class="action-container">
-
                 <?php
-               echo '<a href="edit-recipe.php?recipeId=' . $recipe['recipeId'] . '"><i class="fa-regular fa-pen-to-square"></i></a>
+
+                    echo '<a href="edit-recipe.php?recipeId=' . $recipe['recipeId'] . '"><i class="fa-regular fa-pen-to-square"></i></a>
                         <a href="delete-recipe.php?recipeId=' . $recipe['recipeId'] . '" title="delete" onclick="return confirmDelete();"><i class="fa-regular fa-trash-can"></i></a>';
 
-                ?>
-
+               ?>
             </div>
             <div class="recipe-content">
                 <div class="grid">
@@ -53,6 +51,7 @@
                         </div>
                         <div class="recipe-info">
                             <?php
+
                                 echo '<h2>Servings: <span>' . $recipe['servings'] . '</span></h2>
                                       <h2>Prep time: <span>' . $recipe['prepTimeHours'] . ":" . $recipe['prepTimeMins']. '</span></h2>
                                       <h2>Cook time: <span>' . $recipe['cookTimeHours'] . ":" . $recipe['cookTimeMins']. '</span></h2>
@@ -68,10 +67,13 @@
                                 <p>
                                     <ul>
                                         <?php
+
                                             $ingredientsArray = explode(';', $recipe['ingredients']);
-                                            foreach ($ingredientsArray as $ingredient) {
+                                            foreach ($ingredientsArray as $ingredient)
+                                            {
                                                 echo '<li><span class="ingredient">' . $ingredient . '</span></li>';
                                             }
+
                                         ?>
                                     </ul>
                                 </p>
@@ -81,10 +83,13 @@
                                 <p>
                                     <ol>
                                         <?php
-                                        $directionsArray = explode(';', $recipe['directions']);
-                                        foreach ($directionsArray as $direction) {
-                                            echo '<li><span class="direction">' . $direction . '</li></span>';
-                                        }
+
+                                            $directionsArray = explode(';', $recipe['directions']);
+                                            foreach ($directionsArray as $direction)
+                                            {
+                                                echo '<li><span class="direction">' . $direction . '</li></span>';
+                                            }
+
                                         ?>
                                     </ol>
                                 </p>
@@ -96,12 +101,12 @@
         </section>
     </main>
 </div>
-
 <?php
-// disconnect from the database
-$db = null;
-?>
 
+    // disconnect from the database
+    $db = null;
+
+?>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" defer></script>
 <script src="js/main.js" defer></script>
 <script src="https://kit.fontawesome.com/36e897625c.js" crossorigin="anonymous"></script>
