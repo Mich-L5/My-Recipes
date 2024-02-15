@@ -1,7 +1,15 @@
 <?php
 
+// Restricted IDs (demo recipes that shouldn't be deleted)
+include 'restricted-ids.php';
+
 // read the selected recipeId from the url param using $_GET
 $recipeId = $_GET['recipeId'];
+
+// Check if the recipe ID is in the restricted list
+if (in_array($recipeId, $restrictedRecipeIds)) {
+    exit("This recipe is a demo recipe and cannot be deleted.");
+}
 
 // connect to the database
 $db = new PDO('mysql:host=localhost;dbname=Micha546528', 'Micha546528', 'your_password_here');

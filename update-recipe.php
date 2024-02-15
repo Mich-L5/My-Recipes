@@ -1,5 +1,15 @@
 <?php
 
+// Restricted IDs (demo recipes that shouldn't be edited)
+include 'restricted-ids.php';
+
+$recipeId = $_POST['recipeId'];
+
+// Check if the recipe ID is in the restricted list
+if (in_array($recipeId, $restrictedRecipeIds)) {
+    exit("This recipe is a demo recipe and cannot be edited.");
+}
+
 // capture form inputs to vars
 $name = $_POST['name'];
 $categoryId = $_POST['categoryId'];
@@ -11,7 +21,6 @@ $cookTimeM = $_POST['cook-time-minutes'];
 $rating = $_POST['rating'];
 $ingredients = $_POST['ingredients'];
 $directions = $_POST['directions'];
-$recipeId = $_POST['recipeId'];
 
 // initialize a variable to keep track of our error checks
 $errorFree = true;

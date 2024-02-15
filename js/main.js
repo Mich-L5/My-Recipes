@@ -6,6 +6,22 @@ function confirmDelete() {
 }
 
 /* --------------------------------------- */
+/*     UNABLE TO DELETE POPUP FUNCTION     */
+/* --------------------------------------- */
+
+function unableToDelete() {
+    alert('This recipe is a demo recipe and cannot be deleted. To try the delete functionality, please add a new recipe and try again.');
+}
+
+/* --------------------------------------- */
+/*     UNABLE TO EDIT POPUP FUNCTION     */
+/* --------------------------------------- */
+
+function unableToEdit() {
+    alert('This recipe is a demo recipe and cannot be edited. To try the edit functionality, please add a new recipe and try again.');
+}
+
+/* --------------------------------------- */
 /*             DEMO MODE ALERT             */
 /* --------------------------------------- */
 function displayWelcomeAlert() {
