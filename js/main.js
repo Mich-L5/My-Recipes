@@ -4,7 +4,17 @@
 function confirmDelete() {
     return confirm('Are you sure you want to delete this?');
 }
+
+/* --------------------------------------- */
+/*             DEMO MODE ALERT             */
+/* --------------------------------------- */
+function displayWelcomeAlert() {
+    alert('Welcome to the Recipe Book app! You are currently in demo mode. Feel free to try the app by adding new recipes!');
+}
+
 document.addEventListener("DOMContentLoaded",(loaded) => {
+
+    console.log("helllo");
 
     /* --------------------------------------- */
     /*    KEEP ACTIVE NAV TAB FROM MOVING      */
@@ -69,8 +79,5 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
 
         // Listen for any change in input filed (i.e. a new file uploaded)
         uploadInput.addEventListener("change", fileUploaded);
-    }
+    }   
 });
-
-
-
