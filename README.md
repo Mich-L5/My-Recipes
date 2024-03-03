@@ -1,9 +1,12 @@
 # Recipe Book
 
-###### Contributors
 <picture>
-  <img alt="Micha Laforest badge" src="https://img.shields.io/badge/Mich--L5-[Micha_Laforest]-e9e9e9">
+  <img alt="Developer badge" src="https://img.shields.io/badge/Developer-Mich--L5-e9e9e9">
 </picture>
+<picture>
+  <img alt="Designer badge" src="https://img.shields.io/badge/Designer-Mich--L5-e9e9e9">
+</picture>
+
 
 ![recipe-book-preview](https://github.com/Mich-L5/My-Recipes/assets/99766541/d716a499-00c4-4a61-8568-fec14b9eee05)
 
