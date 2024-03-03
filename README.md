@@ -1,10 +1,10 @@
 # Recipe Book
 
 <picture>
-  <img alt="Developer badge" src="https://img.shields.io/badge/Developer-Mich--L5-e9e9e9">
+  <img alt="Developer badge" src="https://img.shields.io/badge/Developer-Mich--L5-9fdfdf">
 </picture>
 <picture>
-  <img alt="Designer badge" src="https://img.shields.io/badge/Designer-Mich--L5-e9e9e9">
+  <img alt="Designer badge" src="https://img.shields.io/badge/Designer-Mich--L5-fdf45d">
 </picture>
 
 
