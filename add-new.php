@@ -1,9 +1,11 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <?php include './meta.php'; ?>
     <title>Add New!</title>
 </head>
+
 <body id="add-new-page">
     <div class="mobile-container">
         <header><?php include './header.php'; ?></header>
@@ -16,21 +18,21 @@
                 </div>
                 <form class="add-new-form" action="save-recipe.php" method="POST" enctype="multipart/form-data">
                     <fieldset>
-                         <div>
-                             <label for="image">Upload image: <span class="file-format">Formats allowed: .jpg, .jpeg, .png <span>(max. size 2MB)<span></span></label>
-                         </div>
-                         <input name="image" id="image" type="file"/>
-                     </fieldset>
+                        <div>
+                            <label for="image">*Upload image: <span class="file-format">Formats allowed: .jpg, .jpeg, .png <span>(max. size 2MB)<span></span></label>
+                        </div>
+                        <input name="image" id="image" type="file" />
+                    </fieldset>
 
                     <fieldset>
                         <div>
-                            <label for="name">Recipe name:</label>
+                            <label for="name">*Recipe name:</label>
                         </div>
-                        <input placeholder="Sweet potato fries" name="name" id="name" maxlength="60"/>
+                        <input placeholder="Sweet potato fries" name="name" id="name" maxlength="60" />
                     </fieldset>
                     <fieldset>
                         <div>
-                            <label for="category">Category:</label>
+                            <label for="category">*Category:</label>
                         </div>
                         <select name="categoryId" id="categoryId">
                             <option value="" disabled selected>Categories</option>
@@ -54,7 +56,7 @@
                             // loop and display as <option></option> each category
                             foreach ($categories as $category) {
                                 echo '<option value="' . $category['categoryId'] .
-                                    '">'. $category['category'] . '</option>';
+                                    '">' . $category['category'] . '</option>';
                             }
 
                             // disconnect from the database
@@ -65,47 +67,47 @@
                     </fieldset>
                     <fieldset>
                         <div>
-                            <label for="servings">Servings:</label>
+                            <label for="servings">*Servings:</label>
                         </div>
-                        <input placeholder="4" min="1" name="servings" id="servings" type="number"/>
+                        <input placeholder="4" min="1" name="servings" id="servings" type="number" />
                     </fieldset>
                     <fieldset>
                         <div>
-                            <span>Prep time:</span>
+                            <span>*Prep time:</span>
                         </div>
                         <label hidden for="prep-time-hours">Prep time (hours)</label>
-                        <input placeholder="0" min="0" name="prep-time-hours" id="prep-time-hours" type="number"/>
+                        <input placeholder="0" min="0" name="prep-time-hours" id="prep-time-hours" type="number" />
                         <span class="form-time-label">hours &nbsp;</span>
                         <label hidden for="prep-time-minutes">Prep time (minutes)</label>
-                        <input placeholder="25" min="0" max="59" name="prep-time-minutes" id="prep-time-minutes" type="number"/>
+                        <input placeholder="25" min="0" max="59" name="prep-time-minutes" id="prep-time-minutes" type="number" />
                         <span class="form-time-label">mins</span>
                     </fieldset>
                     <fieldset>
                         <div>
-                            <span>Cook time:</span>
+                            <span>*Cook time:</span>
                         </div>
                         <label hidden for="cook-time-hours">Cook time (hours)</label>
-                        <input placeholder="0" min="0" name="cook-time-hours" id="cook-time-hours" type="number"/>
+                        <input placeholder="0" min="0" name="cook-time-hours" id="cook-time-hours" type="number" />
                         <span class="form-time-label">hours &nbsp;</span>
                         <label hidden for="cook-time-minutes">Cook time (minutes)</label>
-                        <input placeholder="40" min="0" max="59" name="cook-time-minutes" id="cook-time-minutes" type="number"/>
+                        <input placeholder="40" min="0" max="59" name="cook-time-minutes" id="cook-time-minutes" type="number" />
                         <span class="form-time-label">mins</span>
                     </fieldset>
                     <fieldset>
                         <div>
-                            <label for="rating">Rating (0-5):</label>
+                            <label for="rating">*Rating (0-5):</label>
                         </div>
                         <input placeholder="5" min="1" max="5" name="rating" id="rating" type="number" />
                     </fieldset>
                     <fieldset>
                         <div>
-                            <label for="ingredients">Ingredients:<span class="seperate"><mark>Seperate with semicolons</mark></span></label>
+                            <label for="ingredients">*Ingredients:<span class="seperate"><mark>Seperate with semicolons</mark></span></label>
                         </div>
                         <textarea placeholder="1 sweet potato; 1 tsp salt.." maxlength="2000" name="ingredients" id="ingredients"></textarea>
                     </fieldset>
                     <fieldset>
                         <div>
-                            <label for="directions">Directions:<span class="seperate"><mark>Seperate with semicolons</mark></span></label>
+                            <label for="directions">*Directions:<span class="seperate"><mark>Seperate with semicolons</mark></span></label>
                         </div>
                         <textarea placeholder="Wash the potato; Cut the potato into.." maxlength="5000" name="directions" id="directions"></textarea>
                     </fieldset>
@@ -120,4 +122,5 @@
     <script src="js/main.js" defer></script>
     <script src="https://kit.fontawesome.com/36e897625c.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
