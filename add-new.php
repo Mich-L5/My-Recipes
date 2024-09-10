@@ -39,7 +39,7 @@
                             <?php
 
                             // connect to the database
-                            $db = new PDO('mysql:host=localhost;dbname=Micha546528', 'Micha546528', 'your_password_here');
+                            include './db.php';
 
                             // write SQL query to select all the recipe categories
                             $sql = "SELECT * FROM recipeCategories";

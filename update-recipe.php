@@ -222,7 +222,7 @@ if (!$errorFree) {
 else {
 
     // connect to the database
-    $db = new PDO('mysql:host=localhost;dbname=Micha546528', 'Micha546528', 'your_password_here');
+    include './db.php';
 
     // set up SQL query
     $sql = "UPDATE recipes SET name = :name, categoryId = :categoryId, servings = :servings, 

@@ -19,7 +19,7 @@
                 <?php
 
                 // connect to the database
-                $db = new PDO('mysql:host=localhost;dbname=Micha546528', 'Micha546528', 'your_password_here');
+                include './db.php';
 
                 // SQL query that reads all table records and returns the recipes in the "apps" category
                 $sql = "SELECT * FROM recipes WHERE categoryId = 1";

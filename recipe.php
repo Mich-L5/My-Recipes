@@ -9,7 +9,7 @@ if (empty($recipeId) || !is_numeric($recipeId)) {
 }
 
 // connect to the database
-$db = new PDO('mysql:host=localhost;dbname=Micha546528', 'Micha546528', 'your_password_here');
+include './db.php';
 
 // fetch the selected recipe record with this recipeId
 $sql = "SELECT * FROM recipes WHERE recipeId = :recipeId";

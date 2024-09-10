@@ -12,7 +12,7 @@ if (in_array($recipeId, $restrictedRecipeIds)) {
 }
 
 // connect to the database
-$db = new PDO('mysql:host=localhost;dbname=Micha546528', 'Micha546528', 'your_password_here');
+include './db.php';
 
 // set up the SQL DELETE
 $sql = "DELETE FROM recipes WHERE recipeId = :recipeId";
