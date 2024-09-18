@@ -19,7 +19,7 @@
                 <form class="add-new-form" action="save-recipe.php" method="POST" enctype="multipart/form-data">
                     <fieldset>
                         <div>
-                            <label for="image">*Upload image: <span class="file-format">Formats allowed: .jpg, .jpeg, .png <span>(max. size 2MB)<span></span></label>
+                            <label for="image">Upload image: <span class="file-format">Formats allowed: .jpg, .jpeg, .png <span>(max. size 2MB)<span></span></label>
                         </div>
                         <input name="image" id="image" type="file" />
                     </fieldset>
@@ -28,48 +28,58 @@
                         <div>
                             <label for="name">*Recipe name:</label>
                         </div>
-                        <input placeholder="Sweet potato fries" name="name" id="name" maxlength="60" />
+                        <div>
+                            <input placeholder="Sweet potato fries" name="name" id="name" maxlength="60" />
+                            <small class="missing-value">Recipe name is required.</small>
+                        </div>
                     </fieldset>
+
                     <fieldset>
                         <div>
                             <label for="category">*Category:</label>
                         </div>
-                        <select name="categoryId" id="categoryId">
-                            <option value="" disabled selected>Categories</option>
-                            <?php
+                        <div>
+                            <select name="categoryId" id="categoryId">
+                                <option value="" disabled selected>Categories</option>
+                                <?php
 
-                            // connect to the database
-                            include './db.php';
+                                // connect to the database
+                                include './db.php';
 
-                            // write SQL query to select all the recipe categories
-                            $sql = "SELECT * FROM recipeCategories";
+                                // write SQL query to select all the recipe categories
+                                $sql = "SELECT * FROM recipeCategories";
 
-                            // create the command
-                            $cmd = $db->prepare($sql);
+                                // create the command
+                                $cmd = $db->prepare($sql);
 
-                            // execute the query
-                            $cmd->execute();
+                                // execute the query
+                                $cmd->execute();
 
-                            // store SQL query results in variable
-                            $categories = $cmd->fetchAll();
+                                // store SQL query results in variable
+                                $categories = $cmd->fetchAll();
 
-                            // loop and display as <option></option> each category
-                            foreach ($categories as $category) {
-                                echo '<option value="' . $category['categoryId'] .
-                                    '">' . $category['category'] . '</option>';
-                            }
+                                // loop and display as <option></option> each category
+                                foreach ($categories as $category) {
+                                    echo '<option value="' . $category['categoryId'] .
+                                        '">' . $category['category'] . '</option>';
+                                }
 
-                            // disconnect from the database
-                            $db = null;
+                                // disconnect from the database
+                                $db = null;
 
-                            ?>
-                        </select>
+                                ?>
+                            </select>
+                            <small class="missing-value">Category is required.</small>
+                        </div>
                     </fieldset>
                     <fieldset>
                         <div>
                             <label for="servings">*Servings:</label>
                         </div>
-                        <input placeholder="4" min="1" name="servings" id="servings" type="number" />
+                        <div>
+                            <input placeholder="4" min="1" name="servings" id="servings" type="number" />
+                            <small class="missing-value">Serving size is required.</small>
+                        </div>
                     </fieldset>
                     <fieldset>
                         <div>
@@ -97,19 +107,28 @@
                         <div>
                             <label for="rating">*Rating (0-5):</label>
                         </div>
-                        <input placeholder="5" min="1" max="5" name="rating" id="rating" type="number" />
+                        <div>
+                            <input placeholder="5" min="1" max="5" name="rating" id="rating" type="number" />
+                            <small class="missing-value">Rating is required.</small>
+                        </div>
                     </fieldset>
                     <fieldset>
                         <div>
                             <label for="ingredients">*Ingredients:<span class="seperate"><mark>Seperate with semicolons</mark></span></label>
                         </div>
-                        <textarea placeholder="1 sweet potato; 1 tsp salt.." maxlength="2000" name="ingredients" id="ingredients"></textarea>
+                        <div>
+                            <textarea placeholder="1 sweet potato; 1 tsp salt.." maxlength="2000" name="ingredients" id="ingredients"></textarea>
+                            <small class="missing-value">At least one ingredient is required.</small>
+                        </div>
                     </fieldset>
                     <fieldset>
                         <div>
                             <label for="directions">*Directions:<span class="seperate"><mark>Seperate with semicolons</mark></span></label>
                         </div>
-                        <textarea placeholder="Wash the potato; Cut the potato into.." maxlength="5000" name="directions" id="directions"></textarea>
+                        <div>
+                            <textarea placeholder="Wash the potato; Cut the potato into.." maxlength="5000" name="directions" id="directions"></textarea>
+                            <small class="missing-value">At least one direction is required.</small>
+                        </div>
                     </fieldset>
                     <div>
                         <button>Save</button>
