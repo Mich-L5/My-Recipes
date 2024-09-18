@@ -30,8 +30,6 @@ function displayWelcomeAlert() {
 
 document.addEventListener("DOMContentLoaded",(loaded) => {
 
-    console.log("helllo");
-
     /* --------------------------------------- */
     /*    KEEP ACTIVE NAV TAB FROM MOVING      */
     /*               UPON HOVER                */
