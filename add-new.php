@@ -85,23 +85,29 @@
                         <div>
                             <span>*Prep time:</span>
                         </div>
-                        <label hidden for="prep-time-hours">Prep time (hours)</label>
-                        <input placeholder="0" min="0" name="prep-time-hours" id="prep-time-hours" type="number" />
-                        <span class="form-time-label">hours &nbsp;</span>
-                        <label hidden for="prep-time-minutes">Prep time (minutes)</label>
-                        <input placeholder="25" min="0" max="59" name="prep-time-minutes" id="prep-time-minutes" type="number" />
-                        <span class="form-time-label">mins</span>
+                        <div>
+                            <label hidden for="prep-time-hours">Prep time (hours)</label>
+                            <input placeholder="0" min="0" name="prep-time-hours" id="prep-time-hours" type="number" />
+                            <span class="form-time-label">hours &nbsp;</span>
+                            <label hidden for="prep-time-minutes">Prep time (minutes)</label>
+                            <input placeholder="25" min="0" max="59" name="prep-time-minutes" id="prep-time-minutes" type="number" />
+                            <span class="form-time-label">mins</span>
+                            <small class="missing-value">Prep time is required.</small>
+                        </div>
                     </fieldset>
                     <fieldset>
                         <div>
                             <span>*Cook time:</span>
                         </div>
-                        <label hidden for="cook-time-hours">Cook time (hours)</label>
-                        <input placeholder="0" min="0" name="cook-time-hours" id="cook-time-hours" type="number" />
-                        <span class="form-time-label">hours &nbsp;</span>
-                        <label hidden for="cook-time-minutes">Cook time (minutes)</label>
-                        <input placeholder="40" min="0" max="59" name="cook-time-minutes" id="cook-time-minutes" type="number" />
-                        <span class="form-time-label">mins</span>
+                        <div>
+                            <label hidden for="cook-time-hours">Cook time (hours)</label>
+                            <input placeholder="0" min="0" name="cook-time-hours" id="cook-time-hours" type="number" />
+                            <span class="form-time-label">hours &nbsp;</span>
+                            <label hidden for="cook-time-minutes">Cook time (minutes)</label>
+                            <input placeholder="40" min="0" max="59" name="cook-time-minutes" id="cook-time-minutes" type="number" />
+                            <span class="form-time-label">mins</span>
+                            <small class="missing-value">Cook time is required.</small>
+                        </div>
                     </fieldset>
                     <fieldset>
                         <div>
