@@ -209,6 +209,10 @@ input[type="file"]::file-selector-button {
     font-size: 14px;
 }
 
+input[type="file"]::file-selector-button:hover {
+    background-color: #ecf84b;
+}
+
 .button-styles {
     background-color: #f3ff51;
     color: black;
@@ -220,14 +224,37 @@ input[type="file"]::file-selector-button {
     font-size: 14px;
 }
 
+.button-styles:hover {
+    background-color: #ecf84b;
+}
+
+.round-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+}
+
 .clear-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
     margin-left: 5px;
+}
+
+#add-ingredient-btn, #add-direction-button {
+    margin-bottom: 15px;
+}
+
+#ingredient-container > div:nth-child(2), #direction-container > div:nth-child(2) {
+    width: 230px;
+}
+
+.plus-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
 }
 
 .add-new-title {
@@ -263,7 +290,6 @@ input[type="file"]::file-selector-button {
 
 /* make input fields thinner and more narrow */
 .add-new-form input {
-    /*height: 20px;*/
     width: 30px;
 }
 
@@ -280,7 +306,13 @@ input[type="file"]::file-selector-button {
 
 /* readjust recipe name input field */
 .add-new-form fieldset:nth-child(2) input {
-    width: 200px;
+    width: 180px;
+}
+
+/* readjust ingredient/direction inputs */
+#ingredient-container input, #direction-container input {
+    width: 180px;
+    margin-bottom: 8px;
 }
 
 .add-new-form fieldset {
@@ -968,7 +1000,11 @@ mark:hover {
     }
 
     /* readjust recipe name input field */
-    .add-new-form fieldset:nth-child(2) input:nth-child(2) {
+    .add-new-form fieldset:nth-child(2) input {
+        width: 150px;
+    }
+
+    #ingredient-container input, #direction-container input {
         width: 150px;
     }
 
@@ -1035,6 +1071,14 @@ mark:hover {
 
     /* readjust recipe name input field and ingredients + directions textareas */
     .add-new-form fieldset:nth-child(2) input, .add-new-form textarea {
+        width: 120px;
+    }
+
+    #ingredient-container input, #direction-container input {
+        width: 120px;
+    }
+
+    .plus-button-container {
         width: 120px;
     }
 
@@ -1202,6 +1246,22 @@ mark:hover {
 
     .file-format span {
         display: block;
+    }
+}
+
+@media screen and (max-width: 390px) {
+
+    /* readjust recipe name input field and ingredients + directions textareas */
+    .add-new-form fieldset:nth-child(2) input, .add-new-form textarea {
+        width: 100px;
+    }
+
+    #ingredient-container input, #direction-container input {
+        width: 100px;
+    }
+
+    .plus-button-container {
+        width: 100px;
     }
 }
 

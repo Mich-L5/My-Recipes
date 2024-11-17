@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
         // add input field and "X" button inside the new div
         newIngredientField.innerHTML = `
         <input type="text" name="ingredient[]" class="ingredient-input" />
-        <button type="button" class="remove-ingredient-btn"><i class="fa-solid fa-x"></i></button>
+        <button type="button" class="remove-ingredient-btn round-button button-styles inline-button"><i class="fa-regular fa-trash-can"></i></button>
     `;
 
         // add the new field to the container
@@ -330,7 +330,7 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
                            clearButton = document.createElement('a');
                            clearButton.innerHTML = '<i class="fa-solid fa-x"></i>';
                            clearButton.id = 'clearFileButton';
-                           clearButton.classList.add('button-styles', 'clear-button');
+                           clearButton.classList.add('button-styles', 'round-button', 'clear-button');
                            uploadField.parentNode.appendChild(clearButton);
 
                            // event listener for the clear button

@@ -127,10 +127,10 @@
                     </fieldset>
                     <fieldset>
                         <div>
-                            <label for="ingredients">*Ingredients:<span class="seperate"><mark>Seperate with semicolons</mark></span></label>
+                            <label for="ingredients">*Ingredients:</label>
                         </div>
                         <div>
-<!--                            <textarea maxlength="2000" name="ingredients" id="ingredients"></textarea>-->
+
 
 
 
@@ -141,11 +141,13 @@
                             <div id="ingredient-container">
 
                                 <div class="ingredient-item">
-                                    <input type="text" name="ingredient[]" placeholder="Enter ingredient" class="ingredient-input" />
+                                    <input type="text" name="ingredient[]" class="ingredient-input" />
                                 </div>
                             </div>
-                            <button type="button" id="add-ingredient-btn">+</button>
-
+                            <div class="plus-button-container">
+                                <button class="round-button button-styles" type="button" id="add-ingredient-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <!-- hidden input field where ingredient string gets submitted -->
                             <input type="hidden" id="ingredients" name="ingredients" />
 
 
