@@ -79,28 +79,32 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
     /*              UPLOADED                   */
     /* --------------------------------------- */
 
-    function fileUploaded() {
-        existingImg.classList.add("img-uploaded");
-    }
-
-    if (document.getElementById("edit-recipe")) {
-
-        // Get image input field
-        var uploadInput = document.getElementById("uploadInput");
-
-        // Get image to add the class that will make it "display:none"
-        var existingImg = document.getElementById("upload-tn");
-
-        // Listen for any change in input filed (i.e. a new file uploaded)
-        uploadInput.addEventListener("change", fileUploaded);
-    }
+    // function fileUploaded() {
+    //     existingImg.classList.add("img-uploaded");
+    // }
+    //
+    // if (document.getElementById("edit-recipe")) {
+    //
+    //     // Get image input field
+    //     var uploadInput = document.getElementById("uploadInput");
+    //
+    //     // Get image to add the class that will make it "display:none"
+    //     var existingImg = document.getElementById("upload-tn");
+    //
+    //     // Listen for any change in input filed (i.e. a new file uploaded)
+    //     uploadInput.addEventListener("change", fileUploaded);
+    // }
 
     /* --------------------------------------- */
     /*          FORM CHECK FOR ERRORS          */
     /* --------------------------------------- */
 
     const form = document.getElementById("form");
-    form.addEventListener("submit", validateForm);
+
+    if (form)
+    {
+        form.addEventListener("submit", validateForm);
+    }
     function validateForm(event)
     {
         // Get form inputs
@@ -117,31 +121,7 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
         const directions = document.getElementById("directions").value.trim();
 
         // check file
-        if (imgUpload)
-        {
-            const allowedFormats = ["image/jpeg", "image/png"];
-
-            if (!allowedFormats.includes(imgUpload.type))
-            {
-                event.preventDefault();
-                document.getElementById("invalidFormat").classList.add("form-error");
-            }
-            else
-            {
-                document.getElementById("invalidFormat").classList.remove("form-error");
-            }
-
-            // file size
-            if (imgUpload.size > 2097152)
-            {
-                event.preventDefault();
-                document.getElementById("imgTooBig").classList.add("form-error");
-            }
-            else
-            {
-                document.getElementById("imgTooBig").classList.remove("form-error");
-            }
-        }
+        fileSizeTypeValidation(imgUpload, event);
 
         // check name
         emptyCheck(event, name, "emptyName");
@@ -198,6 +178,105 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
             document.getElementById(minsFieldID).value = 0;
             document.getElementById(errorFieldID).classList.remove("form-error");
         }
+    }
+
+    function fileSizeTypeValidation(imgUpload, event)
+    {
+        let error = false;
+
+        if (imgUpload)
+        {
+            const allowedFormats = ["image/jpeg", "image/png"];
+
+            if (!allowedFormats.includes(imgUpload.type))
+            {
+                if(event)
+                {
+                    event.preventDefault();
+                }
+                document.getElementById("invalidFormat").classList.add("form-error");
+                error = true;
+            }
+            else
+            {
+                document.getElementById("invalidFormat").classList.remove("form-error");
+            }
+
+            // file size
+            if (imgUpload.size > 2097152)
+            {
+                if(event)
+                {
+                    event.preventDefault();
+                }
+                document.getElementById("imgTooBig").classList.add("form-error");
+                error = true;
+            }
+            else
+            {
+                document.getElementById("imgTooBig").classList.remove("form-error");
+            }
+        }
+
+        return error === true ? false : true;
+    }
+
+
+    /* --------------------------------------- */
+    /*    HANDLE IMAGE UPLOAD CLIENT-SIDE      */
+    /* --------------------------------------- */
+
+    const uploadField = document.getElementById('image');
+    let uploadTn = document.getElementById('upload-tn');
+
+    if (uploadField)
+    {
+        uploadField.addEventListener('change', function (event) {
+
+            const file = event.target.files[0];
+
+            if (file)
+            {
+
+                // validate - check for errors
+                const errorFree = fileSizeTypeValidation(file, event = null);
+
+               if (errorFree)
+               {
+                   // create file reader object and read the file as a data URL
+                   const reader = new FileReader();
+                   reader.readAsDataURL(file);
+
+                   // when the file is read successfully, update the img src
+                   reader.onload = function (e)
+                   {
+                       if (uploadTn)
+                       {
+                           uploadTn.src = e.target.result;
+                       }
+                       else
+                       {
+                           // create the img element if it doesn't exist
+                           const newImg = document.createElement('img');
+                           newImg.id = 'upload-tn';
+                           newImg.src = e.target.result;
+                           newImg.alt = 'recipe image';
+                           uploadField.parentNode.insertBefore(newImg, uploadField);
+                           uploadTn = document.getElementById('upload-tn');
+                       }
+                   };
+               }
+               else
+               {
+                   if (uploadTn)
+                   {
+                        uploadTn.remove();
+                   }
+               }
+
+            }
+        });
+
     }
 
 });

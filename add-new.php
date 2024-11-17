@@ -21,12 +21,11 @@
                         <div>
                             <label for="image">Upload image: <span class="file-format">Formats allowed: .jpg, .jpeg, .png <span>(max. size 2MB)</span></label>
                         </div>
-                        <div>
+                        <div class="upload-img-container">
                             <input name="image" id="image" type="file" />
                             <small id="imgTooBig" class="form-error-hide">Image is too large.</small>
                             <small id="invalidFormat" class="form-error-hide">Image format not supported.</small>
                         </div>
-
                     </fieldset>
 
                     <fieldset>

@@ -188,6 +188,21 @@ nav li:hover {
 }
 
 /*** ADD NEW! PAGE ***/
+
+#image {
+    width: 100px;
+}
+
+input[type="file"]::file-selector-button {
+    background-color: #f3ff51;
+    color: black;
+    border: solid 1px #fbe356;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+}
+
 .add-new-title {
     font-weight: normal;
     font-size: 50px;
@@ -214,14 +229,6 @@ nav li:hover {
 
 }
 
-/*.add-new-form .missing-value {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    padding: 0 0 10px 0;*/
-/*    width: 100%;*/
-/*    color: red;*/
-/*}*/
-
 .file-format, .seperate {
     display: block;
     font-size: 13px;
@@ -229,7 +236,7 @@ nav li:hover {
 
 /* make input fields thinner and more narrow */
 .add-new-form input {
-    height: 20px;
+    /*height: 20px;*/
     width: 30px;
 }
 
@@ -240,7 +247,7 @@ nav li:hover {
 
 /* readjust first input field (upload image) */
 .add-new-form fieldset:nth-child(1) input {
-    height: 27px;
+    /*height: 27px;*/
     width: 200px;
 }
 
@@ -557,14 +564,14 @@ mark:hover {
 #upload-tn {
     height: 40px;
     width: 40px;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
     object-fit: cover;
 }
 
 /* added via JS when user uploads an image */
-.img-uploaded {
-    display: none;
-}
+/*.img-uploaded {*/
+/*    display: none;*/
+/*}*/
 
 .upload-img-container {
     display: flex;
@@ -1030,6 +1037,11 @@ mark:hover {
         justify-content: center;
     }
 
+    .upload-img-container {
+        justify-content: center;
+        align-items: center;
+    }
+
 }
 
 
@@ -1127,11 +1139,6 @@ mark:hover {
 
     #edit-recipe button {
         margin-bottom: 40px;
-    }
-
-    .upload-img-container {
-        justify-content: center;
-        align-items: center;
     }
 
     .image-fieldset > div:nth-child(1), .image-fieldset > div:nth-child(2) {

@@ -44,18 +44,6 @@ $ingredients = $recipe['ingredients'];
 $directions = $recipe['directions'];
 $image = $recipe['image'];
 
-// Generate image src
-$imgSrc = "";
-
-if ($recipe['image'] === "placeholder")
-{
-    $imgSrc = "./img/placeholder.jpg";
-}
-else
-{
-    $imgSrc = "data:image;base64," . $recipe['image'];
-}
-
 ?>
 
 <!doctype html>
@@ -82,8 +70,13 @@ else
                             <label for="image">Upload image: <span class="file-format">Formats allowed: .jpg, .jpeg, .png <span>(max. size 2MB)</span></span></label>
                         </div>
                         <div class="upload-img-container">
-                            <?php echo '<img id="upload-tn" src="' . $imgSrc . '" alt="recipe image">' ?>
-                            <input id="uploadInput" name="image" id="image" type="file" />
+                            <?php
+                                if ($recipe['image'] !== "placeholder")
+                                {
+                                    echo '<img id="upload-tn" src="data:image;base64,' . $recipe['image'] . '" alt="recipe image">';
+                                }
+                             ?>
+                            <input name="image" id="image" type="file" />
                         </div>
                     </fieldset>
                     <fieldset>
