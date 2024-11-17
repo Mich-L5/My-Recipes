@@ -74,84 +74,64 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
     }
 
 
+    /* --------------------------------------- */
+    /*        ADD FIELDS FUNCTIONALITY         */
+    /* --------------------------------------- */
 
+    function addFields(addButtonId, containerId, inputClass, nameAttribute) {
 
+        document.getElementById(addButtonId).addEventListener('click', function () {
+            const container = document.getElementById(containerId);
 
+            // Create a new input field with an "X" button
+            const newField = document.createElement('div');
+            newField.innerHTML = `
+            <input type="text" name="${nameAttribute}[]" class="${inputClass}" />
+            <button type="button" class="remove-field-btn round-button button-styles inline-button">
+                <i class="fa-regular fa-trash-can"></i>
+            </button>
+        `;
 
+            // Add the new field to the container
+            container.appendChild(newField);
 
+            // Attach event listener to the "X" button to remove the field
+            newField.querySelector('.remove-field-btn').addEventListener('click', function () {
+                container.removeChild(newField);
+            });
+        });
+    }
 
-
-
-
+    addFields('add-ingredient-button', 'ingredient-container', 'ingredient-input', 'ingredient');
+    addFields('add-direction-button', 'direction-container', 'direction-input', 'direction');
 
 
     /* --------------------------------------- */
-    /*       COMBINE INGREDIENT FIELDS         */
+    /*  COMBINE FIELDS INTO A SINGLE STRING    */
     /* --------------------------------------- */
 
-    // add new ingredient field when "+" is clicked
-    document.getElementById('add-ingredient-btn').addEventListener('click', function() {
+    function combineFields(formId, inputClass, hiddenInputId) {
+        document.getElementById(formId).addEventListener('submit', function () {
+            const values = [];
+            const inputs = document.querySelectorAll(`.${inputClass}`);
 
-        const container = document.getElementById('ingredient-container');
+            // Collect values from each input field and ignore empty ones
+            inputs.forEach(input => {
+                if (input.value.trim() !== '') {
+                    values.push(input.value.trim());
+                }
+            });
 
-        // create a new ingredient input field and the "X" button
-        const newIngredientField = document.createElement('div');
+            // Convert the array to a string with delimiter
+            const combinedString = values.join('#**@$seperator^+><%');
 
-        // add input field and "X" button inside the new div
-        newIngredientField.innerHTML = `
-        <input type="text" name="ingredient[]" class="ingredient-input" />
-        <button type="button" class="remove-ingredient-btn round-button button-styles inline-button"><i class="fa-regular fa-trash-can"></i></button>
-    `;
-
-        // add the new field to the container
-        container.appendChild(newIngredientField);
-
-        // add event listener to the "x" button to remove the field
-        newIngredientField.querySelector('.remove-ingredient-btn').addEventListener('click', function() {
-            container.removeChild(newIngredientField);
+            // Set the hidden input field with the combined string
+            document.getElementById(hiddenInputId).value = combinedString;
         });
-    });
+    }
 
-// event listener for form submission - combine ingredients into a single string
-    document.getElementById('form').addEventListener('submit', function(event) {
-
-        // get all ingredient inputs
-        const ingredients = [];
-        const ingredientInputs = document.querySelectorAll('.ingredient-input');
-
-        // collect values from each input field and join them with semicolons
-        ingredientInputs.forEach(input => {
-            if (input.value.trim() !== '') {
-                ingredients.push(input.value.trim());
-            }
-        });
-
-        // convert the array to a semicolon-separated string
-        const ingredientsString = ingredients.join(';');
-
-        // set the hidden input field with the semicolon-separated string
-        document.getElementById('ingredients').value = ingredientsString;
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    combineFields('form', 'ingredient-input', 'ingredients');
+    combineFields('form', 'direction-input', 'directions');
 
 
     /* --------------------------------------- */

@@ -98,7 +98,7 @@ else
                                     <ul>
                                         <?php
 
-                                        $ingredientsArray = explode(';', $recipe['ingredients']);
+                                        $ingredientsArray = explode('#**@$seperator^+><%', $recipe['ingredients']);
                                         foreach ($ingredientsArray as $ingredient) {
                                             echo '<li><span class="ingredient">' . $ingredient . '</span></li>';
                                         }
@@ -113,7 +113,7 @@ else
                                     <ol>
                                         <?php
 
-                                        $directionsArray = explode(';', $recipe['directions']);
+                                        $directionsArray = explode('#**@$seperator^+><%', $recipe['directions']);
                                         foreach ($directionsArray as $direction) {
                                             echo '<li><span class="direction">' . $direction . '</li></span>';
                                         }

@@ -232,7 +232,6 @@ input[type="file"]::file-selector-button:hover {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-
 }
 
 .clear-button {
@@ -242,8 +241,9 @@ input[type="file"]::file-selector-button:hover {
     margin-left: 5px;
 }
 
-#add-ingredient-btn, #add-direction-button {
-    margin-bottom: 15px;
+#add-ingredient-button, #add-direction-button {
+    margin-bottom: 20px;
+    margin-top: 5px;
 }
 
 #ingredient-container > div:nth-child(2), #direction-container > div:nth-child(2) {
@@ -255,6 +255,7 @@ input[type="file"]::file-selector-button:hover {
     justify-content: center;
     align-items: center;
     width: 180px;
+    height: 60px;
 }
 
 .add-new-title {
