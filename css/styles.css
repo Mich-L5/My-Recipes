@@ -193,6 +193,11 @@ nav li:hover {
     width: 100px;
 }
 
+#button-container {
+    display: flex;
+    flex-direction: row;
+}
+
 input[type="file"]::file-selector-button {
     background-color: #f3ff51;
     color: black;
@@ -201,6 +206,28 @@ input[type="file"]::file-selector-button {
     cursor: pointer;
     width: 100px;
     height: 30px;
+    font-size: 14px;
+}
+
+.button-styles {
+    background-color: #f3ff51;
+    color: black;
+    border: solid 1px #fbe356;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+}
+
+.clear-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 5px;
 }
 
 .add-new-title {
@@ -283,10 +310,10 @@ input[type="file"]::file-selector-button {
     padding: 20px 20px 40px 20px;
 }
 
-.add-new-form button {
-    font-size: 20px;
-    margin-top: 10px;
-}
+/*.add-new-form button {*/
+/*    font-size: 20px;*/
+/*    margin-top: 10px;*/
+/*}*/
 
 
 /* add cursor: pointer on form buttons */
@@ -946,10 +973,10 @@ mark:hover {
     }
 
     /* align save button */
-    .add-new-form button {
-        margin-right: 25px;
-        margin-top: 10px;
-    }
+    /*.add-new-form button {*/
+    /*    margin-right: 25px;*/
+    /*    margin-top: 10px;*/
+    /*}*/
 
     /* recipe title column width */
     .category-table-container table td:nth-child(2) {
@@ -1072,9 +1099,9 @@ mark:hover {
         font-size: 15px;
     }
 
-    .add-new-form button {
-        margin-top: 0;
-    }
+    /*.add-new-form button {*/
+    /*    margin-top: 0;*/
+    /*}*/
 
     .category-page h1 {
         font-size: 40px;

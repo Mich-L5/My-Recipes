@@ -227,17 +227,20 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
     /* --------------------------------------- */
 
     const uploadField = document.getElementById('image');
-    let uploadTn = document.getElementById('upload-tn');
 
     if (uploadField)
     {
-        uploadField.addEventListener('change', function (event) {
+        let uploadTn = document.getElementById('upload-tn');
+        let clearButton;
 
+        // event listener for a change in the file input
+        uploadField.addEventListener('input', function (event) {
+
+            uploadTn = document.getElementById('upload-tn');
             const file = event.target.files[0];
 
             if (file)
             {
-
                 // validate - check for errors
                 const errorFree = fileSizeTypeValidation(file, event = null);
 
@@ -261,8 +264,22 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
                            newImg.id = 'upload-tn';
                            newImg.src = e.target.result;
                            newImg.alt = 'recipe image';
-                           uploadField.parentNode.insertBefore(newImg, uploadField);
+                           uploadField.parentNode.parentNode.insertBefore(newImg, document.getElementById("button-container"));
                            uploadTn = document.getElementById('upload-tn');
+
+                           // create clear file button
+                           clearButton = document.createElement('a');
+                           clearButton.innerHTML = '<i class="fa-solid fa-x"></i>';
+                           clearButton.id = 'clearFileButton';
+                           clearButton.classList.add('button-styles', 'clear-button');
+                           uploadField.parentNode.appendChild(clearButton);
+
+                           // event listener for the clear button
+                           clearButton.addEventListener('click', function () {
+                               uploadTn.remove();
+                               clearButton.remove();
+                               uploadField.value = "";
+                           });
                        }
                    };
                }
@@ -271,12 +288,23 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
                    if (uploadTn)
                    {
                         uploadTn.remove();
+                        clearButton.remove();
                    }
                }
+            }
 
+            // this check is for when a user clicks to select a file and cancels
+            if (!uploadField.files.length) {
+
+                // if no file is selected, remove thumbnail
+                if (uploadTn) {
+                    uploadTn.remove();
+                    clearButton.remove();
+                }
             }
         });
 
-    }
 
+
+    }
 });
