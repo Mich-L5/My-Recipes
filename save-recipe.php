@@ -149,11 +149,8 @@ else if (mb_strlen($directions) > 5000) {
     $errorFree = false;
 }
 
-// 9. IMAGE - check that a file has been uploaded
-if ($_FILES && $_FILES['image']['name'] == "") {
-    $errorMsg = "Image upload is required.";
-    $errorFree = false;
-} else {
+// 9. IMAGE - if an image has been uploaded
+if ($_FILES && $_FILES['image']['name'] != "") {
 
     // capture the image file
     // $_FILES['image'] returns an array with the image file information, $_FILES['image']['tmp_name'] captures the file's temp name
@@ -196,6 +193,13 @@ if ($_FILES && $_FILES['image']['name'] == "") {
         $errorFree = false;
     }
 }
+else {
+    // If no image has been uploaded, set placeholder
+    $image = "placeholder";
+}
+
+
+
 
 // if any errors occurred during error-checking, alert the user with custom error message, and re-direct them to the form page
 if (!$errorFree) {

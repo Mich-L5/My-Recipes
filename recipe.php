@@ -24,6 +24,19 @@ include 'restricted-ids.php';
 // Check if the recipe ID is in the array of restricted IDs
 $isRestrictedRecipe = in_array($recipe['recipeId'], $restrictedRecipeIds);
 
+// Generate image src
+$imgSrc = "";
+
+if ($recipe['image'] === "placeholder")
+{
+    $imgSrc = "./img/placeholder.jpg";
+}
+else
+{
+    $imgSrc = "data:image;base64," . $recipe['image'];
+}
+
+
 ?>
 
 <!doctype html>
@@ -64,7 +77,7 @@ $isRestrictedRecipe = in_array($recipe['recipeId'], $restrictedRecipeIds);
                             <div class="title-container title-image">
                                 <h1><?php echo $recipe['name'] ?></h1>
                                 <img src="./img/yellow-tape.png" alt="a piece of yellow and white striped washi tape">
-                                <?php echo '<img src="data:image;base64,' . $recipe['image'] . '" alt="recipe image">' ?>
+                                <?php echo '<img src="' . $imgSrc . '" alt="recipe image">' ?>
                             </div>
                             <div class="recipe-info">
                                 <?php
