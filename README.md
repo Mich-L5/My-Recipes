@@ -14,7 +14,7 @@
 Recipe Book is a PHP web application that simulates a physical recipe book. Users are able to add new recipes, which are then categorized under the appropriate category tab for ease of retrievability.
 
 ## Live site
-This live site can be accesses [here](https://yellow-mouse-694769.hostingersite.com/).
+This live site can be accessed [here](https://yellow-mouse-694769.hostingersite.com/).
 
 ## Technologies
 <picture>
