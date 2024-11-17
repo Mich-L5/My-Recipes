@@ -16,12 +16,17 @@
                 <div class="title-container">
                     <h1 class="add-new-title">Add New!</h1>
                 </div>
-                <form class="add-new-form" action="save-recipe.php" method="POST" enctype="multipart/form-data">
+                <form id="form" class="add-new-form" action="save-recipe.php" method="POST" enctype="multipart/form-data">
                     <fieldset>
                         <div>
-                            <label for="image">Upload image: <span class="file-format">Formats allowed: .jpg, .jpeg, .png <span>(max. size 2MB)<span></span></label>
+                            <label for="image">Upload image: <span class="file-format">Formats allowed: .jpg, .jpeg, .png <span>(max. size 2MB)</span></label>
                         </div>
-                        <input name="image" id="image" type="file" />
+                        <div>
+                            <input name="image" id="image" type="file" />
+                            <small id="imgTooBig" class="form-error-hide">Image is too large.</small>
+                            <small id="invalidFormat" class="form-error-hide">Image format not supported.</small>
+                        </div>
+
                     </fieldset>
 
                     <fieldset>
@@ -29,8 +34,8 @@
                             <label for="name">*Recipe name:</label>
                         </div>
                         <div>
-                            <input placeholder="Sweet potato fries" name="name" id="name" maxlength="60" />
-                            <small class="missing-value">Recipe name is required.</small>
+                            <input name="name" id="name" maxlength="60" />
+                            <small id="emptyName" class="form-error-hide">Recipe name is required.</small>
                         </div>
                     </fieldset>
 
@@ -69,7 +74,7 @@
 
                                 ?>
                             </select>
-                            <small class="missing-value">Category is required.</small>
+                            <small id="emptyCategory" class="form-error-hide">Category is required.</small>
                         </div>
                     </fieldset>
                     <fieldset>
@@ -77,8 +82,8 @@
                             <label for="servings">*Servings:</label>
                         </div>
                         <div>
-                            <input placeholder="4" min="1" name="servings" id="servings" type="number" />
-                            <small class="missing-value">Serving size is required.</small>
+                            <input min="1" name="servings" id="servings" type="number" />
+                            <small id="emptyServings" class="form-error-hide">Serving size is required.</small>
                         </div>
                     </fieldset>
                     <fieldset>
@@ -87,12 +92,12 @@
                         </div>
                         <div>
                             <label hidden for="prep-time-hours">Prep time (hours)</label>
-                            <input placeholder="0" min="0" name="prep-time-hours" id="prep-time-hours" type="number" />
+                            <input min="0" name="prep-time-hours" id="prep-time-hours" type="number" />
                             <span class="form-time-label">hours &nbsp;</span>
                             <label hidden for="prep-time-minutes">Prep time (minutes)</label>
-                            <input placeholder="25" min="0" max="59" name="prep-time-minutes" id="prep-time-minutes" type="number" />
+                            <input min="0" max="59" name="prep-time-minutes" id="prep-time-minutes" type="number" />
                             <span class="form-time-label">mins</span>
-                            <small class="missing-value">Prep time is required.</small>
+                            <small id="emptyPrepTime" class="form-error-hide">Prep time is required.</small>
                         </div>
                     </fieldset>
                     <fieldset>
@@ -101,12 +106,12 @@
                         </div>
                         <div>
                             <label hidden for="cook-time-hours">Cook time (hours)</label>
-                            <input placeholder="0" min="0" name="cook-time-hours" id="cook-time-hours" type="number" />
+                            <input min="0" name="cook-time-hours" id="cook-time-hours" type="number" />
                             <span class="form-time-label">hours &nbsp;</span>
                             <label hidden for="cook-time-minutes">Cook time (minutes)</label>
-                            <input placeholder="40" min="0" max="59" name="cook-time-minutes" id="cook-time-minutes" type="number" />
+                            <input min="0" max="59" name="cook-time-minutes" id="cook-time-minutes" type="number" />
                             <span class="form-time-label">mins</span>
-                            <small class="missing-value">Cook time is required.</small>
+                            <small id="emptyCookTime" class="form-error-hide">Cook time is required.</small>
                         </div>
                     </fieldset>
                     <fieldset>
@@ -114,8 +119,8 @@
                             <label for="rating">*Rating (0-5):</label>
                         </div>
                         <div>
-                            <input placeholder="5" min="1" max="5" name="rating" id="rating" type="number" />
-                            <small class="missing-value">Rating is required.</small>
+                            <input min="1" max="5" name="rating" id="rating" type="number" />
+                            <small id="emptyRating" class="form-error-hide">Rating is required.</small>
                         </div>
                     </fieldset>
                     <fieldset>
@@ -123,8 +128,8 @@
                             <label for="ingredients">*Ingredients:<span class="seperate"><mark>Seperate with semicolons</mark></span></label>
                         </div>
                         <div>
-                            <textarea placeholder="1 sweet potato; 1 tsp salt.." maxlength="2000" name="ingredients" id="ingredients"></textarea>
-                            <small class="missing-value">At least one ingredient is required.</small>
+                            <textarea maxlength="2000" name="ingredients" id="ingredients"></textarea>
+                            <small id="emptyIngredients" class="form-error-hide">At least one ingredient is required.</small>
                         </div>
                     </fieldset>
                     <fieldset>
@@ -132,8 +137,8 @@
                             <label for="directions">*Directions:<span class="seperate"><mark>Seperate with semicolons</mark></span></label>
                         </div>
                         <div>
-                            <textarea placeholder="Wash the potato; Cut the potato into.." maxlength="5000" name="directions" id="directions"></textarea>
-                            <small class="missing-value">At least one direction is required.</small>
+                            <textarea maxlength="5000" name="directions" id="directions"></textarea>
+                            <small id="emptyDirections" class="form-error-hide">At least one direction is required.</small>
                         </div>
                     </fieldset>
                     <div>

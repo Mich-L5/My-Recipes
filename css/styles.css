@@ -214,13 +214,13 @@ nav li:hover {
 
 }
 
-.add-new-form .missing-value {
-    display: flex;
-    flex-direction: column;
-    padding: 0 0 10px 0;
-    width: 100%;
-    color: red;
-}
+/*.add-new-form .missing-value {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    padding: 0 0 10px 0;*/
+/*    width: 100%;*/
+/*    color: red;*/
+/*}*/
 
 .file-format, .seperate {
     display: block;
@@ -285,6 +285,22 @@ nav li:hover {
 /* add cursor: pointer on form buttons */
 .add-new-form button, .add-new-form ::-webkit-file-upload-button {
     cursor: pointer;
+}
+
+/* form errors */
+
+.form-error-hide
+{
+    display: none;
+}
+
+.form-error
+{
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 10px 0;
+    width: 100%;
+    color: red;
 }
 
 /*** HOME PAGE ***/

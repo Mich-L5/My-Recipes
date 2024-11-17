@@ -93,5 +93,111 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
 
         // Listen for any change in input filed (i.e. a new file uploaded)
         uploadInput.addEventListener("change", fileUploaded);
-    }   
+    }
+
+    /* --------------------------------------- */
+    /*          FORM CHECK FOR ERRORS          */
+    /* --------------------------------------- */
+
+    const form = document.getElementById("form");
+    form.addEventListener("submit", validateForm);
+    function validateForm(event)
+    {
+        // Get form inputs
+        const imgUpload = document.getElementById("image").files[0];
+        const name = document.getElementById("name").value.trim();
+        const categoryId = document.getElementById("categoryId").value.trim();
+        const servings = document.getElementById("servings").value.trim();
+        let prepTimeH = document.getElementById("prep-time-hours").value.trim();
+        let prepTimeM = document.getElementById("prep-time-minutes").value.trim();
+        let cookTimeH = document.getElementById("cook-time-hours").value.trim();
+        let cookTimeM = document.getElementById("cook-time-minutes").value.trim();
+        const rating = document.getElementById("rating").value.trim();
+        const ingredients = document.getElementById("ingredients").value.trim();
+        const directions = document.getElementById("directions").value.trim();
+
+        // check file
+        if (imgUpload)
+        {
+            const allowedFormats = ["image/jpeg", "image/png"];
+
+            if (!allowedFormats.includes(imgUpload.type))
+            {
+                event.preventDefault();
+                document.getElementById("invalidFormat").classList.add("form-error");
+            }
+            else
+            {
+                document.getElementById("invalidFormat").classList.remove("form-error");
+            }
+
+            // file size
+            if (imgUpload.size > 2097152)
+            {
+                event.preventDefault();
+                document.getElementById("imgTooBig").classList.add("form-error");
+            }
+            else
+            {
+                document.getElementById("imgTooBig").classList.remove("form-error");
+            }
+        }
+
+        // check name
+        emptyCheck(event, name, "emptyName");
+
+        // check category
+        emptyCheck(event, categoryId, "emptyCategory");
+
+        // check servings
+        emptyCheck(event, servings, "emptyServings");
+
+        // check prep time
+        emptyTimeCheck(event, prepTimeH, prepTimeM, "prep-time-hours", "prep-time-minutes", "emptyPrepTime");
+
+        // check cook time
+        emptyTimeCheck(event, cookTimeH, cookTimeM, "cook-time-hours", "cook-time-minutes", "emptyCookTime");
+
+        // check rating
+        emptyCheck(event, rating, "emptyRating");
+
+        // check ingredients
+        emptyCheck(event, ingredients, "emptyIngredients");
+
+        // check directions
+        emptyCheck(event, directions, "emptyDirections");
+    }
+
+    function emptyCheck(event, field, fieldID)
+    {
+        if (!field)
+        {
+            event.preventDefault();
+            document.getElementById(fieldID).classList.add("form-error");
+        }
+        else
+        {
+            document.getElementById(fieldID).classList.remove("form-error");
+        }
+    }
+
+    function emptyTimeCheck(event, hours, mins, hoursFieldID, minsFieldID, errorFieldID)
+    {
+        if (hours == "" && mins == "")
+        {
+            event.preventDefault();
+            document.getElementById(errorFieldID).classList.add("form-error");
+        }
+        else if (hours == "")
+        {
+            document.getElementById(hoursFieldID).value = 0;
+            document.getElementById(errorFieldID).classList.remove("form-error");
+        }
+        else
+        {
+            document.getElementById(minsFieldID).value = 0;
+            document.getElementById(errorFieldID).classList.remove("form-error");
+        }
+    }
+
 });
