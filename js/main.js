@@ -285,6 +285,10 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
                }
                else
                {
+                   // clear file
+                   uploadField.value = "";
+
+                   // clear thumbnail
                    if (uploadTn)
                    {
                         uploadTn.remove();
