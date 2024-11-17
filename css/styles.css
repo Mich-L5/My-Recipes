@@ -1069,8 +1069,25 @@ mark:hover {
         align-items: center;
     }
 
-}
+    .form-time-label {
+        font-size: 12px;
+    }
 
+
+    .add-new-form fieldset div {
+        margin-right: -25px;
+    }
+
+    .add-new-form fieldset:nth-child(1) input {
+        font-size: 15px;
+    }
+
+    .add-new-form fieldset:nth-child(3) select {
+        font-size: 15px;
+    }
+
+
+}
 
 @media screen and (max-width: 440px) {
 
@@ -1087,17 +1104,6 @@ mark:hover {
         margin-top: -95px;
     }
 
-    .add-new-form fieldset div {
-        margin-right: -25px;
-    }
-
-    .add-new-form fieldset:nth-child(1) input {
-        font-size: 15px;
-    }
-
-    .add-new-form fieldset:nth-child(3) select {
-        font-size: 15px;
-    }
 
     /*.add-new-form button {*/
     /*    margin-top: 0;*/
@@ -1140,10 +1146,6 @@ mark:hover {
     .title-image h1 {
         margin-top: 60px;
         margin-bottom: 25px;
-    }
-
-    .form-time-label {
-        font-size: 12px;
     }
 
     .action-container i {
