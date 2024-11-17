@@ -294,6 +294,10 @@ input[type="file"]::file-selector-button:hover {
     width: 30px;
 }
 
+.add-new-form input, .add-new-form select {
+    margin-bottom: 5px;
+}
+
 .add-new-form textarea {
     width: 200px;
     height: 55px;
@@ -308,6 +312,11 @@ input[type="file"]::file-selector-button:hover {
 /* readjust recipe name input field */
 .add-new-form fieldset:nth-child(2) input {
     width: 180px;
+}
+
+/* readjust categories drop down menu */
+.add-new-form select {
+    width: 188px;
 }
 
 /* readjust ingredient/direction inputs */
@@ -1005,6 +1014,11 @@ mark:hover {
         width: 150px;
     }
 
+    /* readjust categories drop down menu */
+    .add-new-form select {
+        width: 158px;
+    }
+
     #ingredient-container input, #direction-container input {
         width: 150px;
     }
@@ -1073,6 +1087,11 @@ mark:hover {
     /* readjust recipe name input field and ingredients + directions textareas */
     .add-new-form fieldset:nth-child(2) input, .add-new-form textarea {
         width: 120px;
+    }
+
+    /* readjust categories drop down menu */
+    .add-new-form select {
+        width: 128px;
     }
 
     #ingredient-container input, #direction-container input {
@@ -1255,6 +1274,11 @@ mark:hover {
     /* readjust recipe name input field and ingredients + directions textareas */
     .add-new-form fieldset:nth-child(2) input, .add-new-form textarea {
         width: 100px;
+    }
+
+    /* readjust categories drop down menu */
+    .add-new-form select {
+        width: 108px;
     }
 
     #ingredient-container input, #direction-container input {

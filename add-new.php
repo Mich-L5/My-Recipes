@@ -135,12 +135,12 @@
                                     <input type="text" name="ingredient[]" class="ingredient-input" />
                                 </div>
                             </div>
+                            <small id="emptyIngredients" class="form-error-hide">Ingredients are required.</small>
                             <div class="plus-button-container">
                                 <button class="round-button button-styles" type="button" id="add-ingredient-button"><i class="fa-solid fa-plus"></i></button>
                             </div>
                             <!-- hidden input field where ingredient string gets submitted -->
                             <input type="hidden" id="ingredients" name="ingredients" />
-                            <small id="emptyIngredients" class="form-error-hide">At least one ingredient is required.</small>
                         </div>
                     </fieldset>
                     <fieldset>
@@ -153,12 +153,12 @@
                                     <input type="text" name="direction[]" class="direction-input" />
                                 </div>
                             </div>
+                            <small id="emptyDirections" class="form-error-hide">Directions are required.</small>
                             <div class="plus-button-container">
                                 <button class="round-button button-styles" type="button" id="add-direction-button"><i class="fa-solid fa-plus"></i></button>
                             </div>
                             <!-- hidden input field where directions string gets submitted -->
                             <input type="hidden" id="directions" name="directions" />
-                            <small id="emptyDirections" class="form-error-hide">At least one direction is required.</small>
                         </div>
                     </fieldset>
                     <div>

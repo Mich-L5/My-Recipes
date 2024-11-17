@@ -102,9 +102,11 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
         });
     }
 
-    addFields('add-ingredient-button', 'ingredient-container', 'ingredient-input', 'ingredient');
-    addFields('add-direction-button', 'direction-container', 'direction-input', 'direction');
-
+    if (document.getElementById("add-ingredient-button"))
+    {
+        addFields('add-ingredient-button', 'ingredient-container', 'ingredient-input', 'ingredient');
+        addFields('add-direction-button', 'direction-container', 'direction-input', 'direction');
+    }
 
     /* --------------------------------------- */
     /*  COMBINE FIELDS INTO A SINGLE STRING    */
@@ -130,9 +132,11 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
         });
     }
 
-    combineFields('form', 'ingredient-input', 'ingredients');
-    combineFields('form', 'direction-input', 'directions');
-
+    if (document.getElementById("add-ingredient-button"))
+    {
+        combineFields('form', 'ingredient-input', 'ingredients');
+        combineFields('form', 'direction-input', 'directions');
+    }
 
     /* --------------------------------------- */
     /*          FORM CHECK FOR ERRORS          */
