@@ -73,27 +73,86 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
         pageLinks[1].parentElement.classList.remove("hover-tab" + 1);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
     /* --------------------------------------- */
-    /*      REMOVE THE EXISTING RECIPE         */
-    /*      THUMBNAIL WHEN NEW IMG IS          */
-    /*              UPLOADED                   */
+    /*       COMBINE INGREDIENT FIELDS         */
     /* --------------------------------------- */
 
-    // function fileUploaded() {
-    //     existingImg.classList.add("img-uploaded");
-    // }
-    //
-    // if (document.getElementById("edit-recipe")) {
-    //
-    //     // Get image input field
-    //     var uploadInput = document.getElementById("uploadInput");
-    //
-    //     // Get image to add the class that will make it "display:none"
-    //     var existingImg = document.getElementById("upload-tn");
-    //
-    //     // Listen for any change in input filed (i.e. a new file uploaded)
-    //     uploadInput.addEventListener("change", fileUploaded);
-    // }
+    // add new ingredient field when "+" is clicked
+    document.getElementById('add-ingredient-btn').addEventListener('click', function() {
+
+        const container = document.getElementById('ingredient-container');
+
+        // create a new ingredient input field and the "X" button
+        const newIngredientField = document.createElement('div');
+
+        // add input field and "X" button inside the new div
+        newIngredientField.innerHTML = `
+        <input type="text" name="ingredient[]" class="ingredient-input" />
+        <button type="button" class="remove-ingredient-btn"><i class="fa-solid fa-x"></i></button>
+    `;
+
+        // add the new field to the container
+        container.appendChild(newIngredientField);
+
+        // add event listener to the "x" button to remove the field
+        newIngredientField.querySelector('.remove-ingredient-btn').addEventListener('click', function() {
+            container.removeChild(newIngredientField);
+        });
+    });
+
+// event listener for form submission - combine ingredients into a single string
+    document.getElementById('form').addEventListener('submit', function(event) {
+
+        // get all ingredient inputs
+        const ingredients = [];
+        const ingredientInputs = document.querySelectorAll('.ingredient-input');
+
+        // collect values from each input field and join them with semicolons
+        ingredientInputs.forEach(input => {
+            if (input.value.trim() !== '') {
+                ingredients.push(input.value.trim());
+            }
+        });
+
+        // convert the array to a semicolon-separated string
+        const ingredientsString = ingredients.join(';');
+
+        // set the hidden input field with the semicolon-separated string
+        document.getElementById('ingredients').value = ingredientsString;
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /* --------------------------------------- */
     /*          FORM CHECK FOR ERRORS          */
@@ -173,7 +232,7 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
             document.getElementById(hoursFieldID).value = 0;
             document.getElementById(errorFieldID).classList.remove("form-error");
         }
-        else
+        else if (mins == "")
         {
             document.getElementById(minsFieldID).value = 0;
             document.getElementById(errorFieldID).classList.remove("form-error");
@@ -307,8 +366,6 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
                 }
             }
         });
-
-
-
     }
+
 });

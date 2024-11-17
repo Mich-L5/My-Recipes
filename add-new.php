@@ -130,8 +130,34 @@
                             <label for="ingredients">*Ingredients:<span class="seperate"><mark>Seperate with semicolons</mark></span></label>
                         </div>
                         <div>
-                            <textarea maxlength="2000" name="ingredients" id="ingredients"></textarea>
+<!--                            <textarea maxlength="2000" name="ingredients" id="ingredients"></textarea>-->
+
+
+
+
+
+
+
+                            <div id="ingredient-container">
+
+                                <div class="ingredient-item">
+                                    <input type="text" name="ingredient[]" placeholder="Enter ingredient" class="ingredient-input" />
+                                </div>
+                            </div>
+                            <button type="button" id="add-ingredient-btn">+</button>
+
+                            <input type="hidden" id="ingredients" name="ingredients" />
+
+
+
+
+
+
+
+
                             <small id="emptyIngredients" class="form-error-hide">At least one ingredient is required.</small>
+
+
                         </div>
                     </fieldset>
                     <fieldset>
