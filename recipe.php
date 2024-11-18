@@ -82,10 +82,10 @@ else
                                 <?php
 
                                 // format minutes
-                                if ($recipe['prepTimeMins']) {
+                                if ($recipe['prepTimeMins'] < 10 ) {
                                     $recipe['prepTimeMins'] = "0" . $recipe['prepTimeMins'];
                                 }
-                                if ($recipe['cookTimeMins']) {
+                                if ($recipe['cookTimeMins'] < 10) {
                                     $recipe['cookTimeMins'] = "0" . $recipe['cookTimeMins'];
                                 }
 
