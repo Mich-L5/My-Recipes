@@ -25,7 +25,28 @@ function unableToEdit() {
 /*             DEMO MODE ALERT             */
 /* --------------------------------------- */
 function displayWelcomeAlert() {
-    alert('Welcome to the Recipe Book app! You are currently in demo mode. Feel free to try the app by adding new recipes!');
+
+    const popupOverlay = document.getElementById('welcome-popup-overlay');
+    const okButton = document.getElementById('popup-ok-button');
+
+    // Show the popup
+    popupOverlay.classList.remove('hidden');
+
+    // Close the popup when clicking the "OK" button
+    okButton.addEventListener('click', closePopup);
+
+    // Close the popup when clicking the overlay
+    popupOverlay.addEventListener('click', (e) => {
+        if (e.target === popupOverlay) {
+            closePopup();
+        }
+    });
+
+    // Function to hide the popup
+    function closePopup() {
+        popupOverlay.classList.add('hidden');
+    }
+
 }
 
 document.addEventListener("DOMContentLoaded",(loaded) => {
