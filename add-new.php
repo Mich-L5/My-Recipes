@@ -162,7 +162,7 @@
                         </div>
                     </fieldset>
                     <div>
-                        <button>Save</button>
+                        <button class="button-styles save-button">Save</button>
                     </div>
                 </form>
             </section>

@@ -241,6 +241,19 @@ input[type="file"]::file-selector-button:hover {
     margin-left: 5px;
 }
 
+.save-button {
+    background-color: #90ddd1;
+    color: black;
+    border: solid 1px #57a498;
+    width: 150px;
+    height: 50px;
+    font-size: 25px;
+}
+
+.save-button:hover {
+    background-color: #78cec1;
+}
+
 #add-ingredient-button, #add-direction-button {
     margin-bottom: 20px;
     margin-top: 5px;
@@ -350,13 +363,8 @@ input[type="file"]::file-selector-button:hover {
     display: flex;
     justify-content: center;
     padding: 20px 20px 40px 20px;
+    box-sizing: border-box;
 }
-
-/*.add-new-form button {*/
-/*    font-size: 20px;*/
-/*    margin-top: 10px;*/
-/*}*/
-
 
 /* add cursor: pointer on form buttons */
 .add-new-form button, .add-new-form ::-webkit-file-upload-button {
