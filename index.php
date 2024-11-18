@@ -7,7 +7,6 @@
 </head>
 
 <body>
-
     <div class="mobile-container">
         <header><?php include './header.php'; ?></header>
         <main>
@@ -30,6 +29,15 @@
             <button id="popup-ok-button" class="popup-button">OK</button>
         </div>
     </div>
+
+    <!-- loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <p>Loading...</p>
+            <img src="./img/lemon.png" alt="lemon icon" class="rotating-lemon">
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" defer></script>
     <script src="js/main.js"></script>
     <script src="https://kit.fontawesome.com/36e897625c.js" crossorigin="anonymous"></script>

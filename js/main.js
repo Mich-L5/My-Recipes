@@ -70,6 +70,18 @@ function displayWelcomeAlert() {
     });
 }
 
+/* --------------------------------------- */
+/*         REMOVE LOADING SCREEN           */
+/* --------------------------------------- */
+window.addEventListener('load', function () {
+    const loadingScreen = document.getElementById('loading-screen');
+
+    if (loadingScreen) {
+        loadingScreen.style.display = 'none';
+    }
+});
+
+
 document.addEventListener("DOMContentLoaded",(loaded) => {
 
     /* --------------------------------------- */
