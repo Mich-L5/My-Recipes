@@ -215,7 +215,6 @@ if ($_FILES && $_FILES['image']['name'] != "") {
 }
 else {
     // if no image has been uploaded, set previous image value
-    //$image = "placeholder";
     $image = $previousImg;
 }
 
