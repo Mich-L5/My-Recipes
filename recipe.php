@@ -82,6 +82,14 @@ else
                             <div class="recipe-info">
                                 <?php
 
+                                // format minutes
+                                if ($recipe['prepTimeMins']) {
+                                    $recipe['prepTimeMins'] = "0" . $recipe['prepTimeMins'];
+                                }
+                                if ($recipe['cookTimeMins']) {
+                                    $recipe['cookTimeMins'] = "0" . $recipe['cookTimeMins'];
+                                }
+
                                 echo '<h2>Servings: <span>' . $recipe['servings'] . '</span></h2>
                                       <h2>Prep time: <span>' . $recipe['prepTimeHours'] . ":" . $recipe['prepTimeMins'] . '</span></h2>
                                       <h2>Cook time: <span>' . $recipe['cookTimeHours'] . ":" . $recipe['cookTimeMins'] . '</span></h2>
