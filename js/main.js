@@ -1,3 +1,40 @@
+
+/* --------------------------------------- */
+/*           POPUP FUNCTIONALITY           */
+/* --------------------------------------- */
+function displayPopup({ title, message, onClose }) {
+    const popupOverlay = document.getElementById('generic-popup-overlay');
+    const popupTitle = document.getElementById('popup-title');
+    const popupMessage = document.getElementById('popup-message');
+    const okButton = document.getElementById('popup-ok-button');
+
+    // set content
+    popupTitle.textContent = title;
+    popupMessage.textContent = message;
+
+    // show the popup
+    popupOverlay.classList.remove('hidden');
+
+    // close the popup
+    function closePopup() {
+        popupOverlay.classList.add('hidden');
+    }
+
+    // attach event listeners to button and overlay to close the popup upon click
+    okButton.addEventListener('click', closePopup);
+    popupOverlay.addEventListener('click', (e) => {
+        if (e.target === popupOverlay) {
+            closePopup();
+        }
+    });
+
+    // remove listeners after the popup is closed to avoid duplication
+    popupOverlay.addEventListener('transitionend', () => {
+        okButton.removeEventListener('click', closePopup);
+        popupOverlay.removeEventListener('click', closePopup);
+    });
+}
+
 /* --------------------------------------- */
 /*      CONFIRM DELETE POPUP FUNCTION      */
 /* --------------------------------------- */
@@ -10,43 +47,34 @@ function confirmDelete() {
 /* --------------------------------------- */
 
 function unableToDelete() {
-    alert('This recipe is a demo recipe and cannot be deleted. To try the delete functionality, please add a new recipe and try again.');
+    displayPopup({
+        title: "NOTE:",
+        message: "This recipe is a demo recipe and cannot be deleted. To try the delete functionality, please add a new recipe and try again.",
+        onClose: () => console.log("Popup closed")
+    });
 }
 
 /* --------------------------------------- */
-/*     UNABLE TO EDIT POPUP FUNCTION     */
+/*     UNABLE TO EDIT POPUP FUNCTION       */
 /* --------------------------------------- */
 
 function unableToEdit() {
-    alert('This recipe is a demo recipe and cannot be edited. To try the edit functionality, please add a new recipe and try again.');
+    displayPopup({
+        title: "NOTE:",
+        message: "This recipe is a demo recipe and cannot be edited. To try the edit functionality, please add a new recipe and try again.",
+        onClose: () => console.log("Popup closed")
+    });
 }
 
 /* --------------------------------------- */
-/*             DEMO MODE ALERT             */
+/*             DEMO MODE POPUP             */
 /* --------------------------------------- */
 function displayWelcomeAlert() {
-
-    const popupOverlay = document.getElementById('welcome-popup-overlay');
-    const okButton = document.getElementById('popup-ok-button');
-
-    // Show the popup
-    popupOverlay.classList.remove('hidden');
-
-    // Close the popup when clicking the "OK" button
-    okButton.addEventListener('click', closePopup);
-
-    // Close the popup when clicking the overlay
-    popupOverlay.addEventListener('click', (e) => {
-        if (e.target === popupOverlay) {
-            closePopup();
-        }
+    displayPopup({
+        title: "WELCOME!",
+        message: "Welcome to the Recipe Book app! You are currently in demo mode. Feel free to try the app by adding new recipes!",
+        onClose: () => console.log("Popup closed")
     });
-
-    // Function to hide the popup
-    function closePopup() {
-        popupOverlay.classList.add('hidden');
-    }
-
 }
 
 document.addEventListener("DOMContentLoaded",(loaded) => {

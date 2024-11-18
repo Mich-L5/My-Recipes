@@ -143,6 +143,14 @@ else
     $db = null;
 
     ?>
+    <!-- popup that is displayed when user tries to edit/delete a demo recipe -->
+    <div id="generic-popup-overlay" class="popup-overlay hidden">
+        <div id="generic-popup" class="popup">
+            <h2 id="popup-title">Title</h2>
+            <p id="popup-message">Message</p>
+            <button id="popup-ok-button" class="popup-button">OK</button>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" defer></script>
     <script src="js/main.js" defer></script>
     <script src="https://kit.fontawesome.com/36e897625c.js" crossorigin="anonymous"></script>
