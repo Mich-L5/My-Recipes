@@ -230,11 +230,33 @@ else {
     // run the command
     $cmd->execute();
 
-    // show confirmation to the user that the new recipe has been saved
-    echo '<script>alert("Your recipe has been successfully saved!");</script>';
-
     // disconnect from database
     $db = null;
 
-    echo '<script>window.location.href ="home.php"</script>';
+    // link meta content to display popup success notification
+    include './meta.php';
+    echo '<title>Success!</title>';
+
+    // success notification
+    echo '<div id="generic-popup-overlay" class="popup-overlay hidden">
+            <div id="generic-popup" class="popup">
+                <h2 id="popup-title">SUCCESS!</h2>
+                <p id="popup-message">Your recipe has been successfully saved!</p>
+                <button id="popup-ok-button" class="popup-button">OK</button>
+            </div>
+          </div>';
+
+    // JS to handle showing/closing the popup
+    echo '<script>
+        document.getElementById("generic-popup-overlay").classList.remove("hidden");
+        document.getElementById("popup-ok-button").onclick = function() {
+            document.getElementById("generic-popup-overlay").classList.add("hidden");
+            window.location.href = "home.php"; 
+        };
+        document.getElementById("generic-popup-overlay").onclick = function() {
+            document.getElementById("generic-popup-overlay").classList.add("hidden");
+            window.location.href = "home.php"; 
+        };
+    </script>';
+
 }
