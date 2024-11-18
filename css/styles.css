@@ -653,8 +653,11 @@ mark:hover {
     flex-direction: column;
 }
 
-/*** POP UP ***/
+#delete-button:hover {
+    cursor: pointer;
+}
 
+/*** POP UP ***/
 /* overlay that dims the background */
 .popup-overlay {
     position: fixed;
@@ -708,8 +711,26 @@ mark:hover {
     font-size: 30px;
 }
 
-.popup-button:hover {
+.popup-button:hover, #delete-popup-confirm:hover {
     background-color: #78cec1;
+}
+
+.popup-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.popup-buttons a, .popup-buttons button {
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 1px 6px;
+    height: 50px;
+    box-sizing: border-box;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .popup-overlay h2 {

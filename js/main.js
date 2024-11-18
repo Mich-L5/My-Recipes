@@ -36,13 +36,6 @@ function displayPopup({ title, message, onClose }) {
 }
 
 /* --------------------------------------- */
-/*      CONFIRM DELETE POPUP FUNCTION      */
-/* --------------------------------------- */
-function confirmDelete() {
-    return confirm('Are you sure you want to delete this?');
-}
-
-/* --------------------------------------- */
 /*     UNABLE TO DELETE POPUP FUNCTION     */
 /* --------------------------------------- */
 
@@ -78,6 +71,34 @@ function displayWelcomeAlert() {
 }
 
 document.addEventListener("DOMContentLoaded",(loaded) => {
+
+    /* --------------------------------------- */
+    /*      CONFIRM DELETE POPUP FUNCTION      */
+    /* --------------------------------------- */
+
+    const recipeDeleteButton = document.getElementById("delete-button");
+
+    if (recipeDeleteButton)
+    {
+        recipeDeleteButton.addEventListener('click', function () {
+
+            const deletePopupOverlay = document.getElementById('delete-popup-overlay');
+
+            // show the delete confirmation popup
+            deletePopupOverlay.classList.remove('hidden');
+            const deleteCancelButton = document.getElementById('delete-popup-cancel');
+
+            deleteCancelButton.addEventListener('click', function() {
+                deletePopupOverlay.classList.add('hidden');
+            });
+
+            deletePopupOverlay.addEventListener('click', function() {
+                deletePopupOverlay.classList.add('hidden');
+            });
+
+
+        });
+    }
 
     /* --------------------------------------- */
     /*    KEEP ACTIVE NAV TAB FROM MOVING      */

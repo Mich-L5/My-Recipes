@@ -66,10 +66,9 @@ else
                         echo '
                         <a href="edit-recipe.php?recipeId=' . $recipe['recipeId'] . '"><i class="fa-regular fa-pen-to-square"></i></a>
 
-                        <a href="delete-recipe.php?recipeId=' . $recipe['recipeId'] . '" title="delete" onclick="return confirmDelete();"><i class="fa-regular fa-trash-can"></i></a>';
+                        <div id="delete-button" title="delete""><i class="fa-regular fa-trash-can"></i></div>';
                     }
                     ?>
-
                 </div>
                 <div class="recipe-content">
                     <div class="grid">
@@ -137,13 +136,8 @@ else
             </section>
         </main>
     </div>
-    <?php
 
-    // disconnect from the database
-    $db = null;
-
-    ?>
-    <!-- popup that is displayed when user tries to edit/delete a demo recipe -->
+    <!-- popup that is displayed when user tries to edit a demo recipe -->
     <div id="generic-popup-overlay" class="popup-overlay hidden">
         <div id="generic-popup" class="popup">
             <h2 id="popup-title">Title</h2>
@@ -151,6 +145,28 @@ else
             <button id="popup-ok-button" class="popup-button">OK</button>
         </div>
     </div>
+
+    <!-- popup that is displayed to confirm delete a recipe -->
+    <div id="delete-popup-overlay" class="popup-overlay hidden">
+        <div id="delete-popup" class="popup">
+            <h2 id="delete-popup-title">WARNING!</h2>
+            <p id="delete-popup-message">Are you sure you want to delete this recipe?</p>
+            <div class="popup-buttons">
+                <?php
+                    echo '<a href="delete-recipe.php?recipeId=' . $recipe['recipeId'] . '" id="delete-popup-confirm" class="popup-button">YES</a>';
+                ?>
+                <button id="delete-popup-cancel" class="popup-button">NO</button>
+            </div>
+        </div>
+    </div>
+
+    <?php
+
+    // disconnect from the database
+    $db = null;
+
+    ?>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" defer></script>
     <script src="js/main.js" defer></script>
     <script src="https://kit.fontawesome.com/36e897625c.js" crossorigin="anonymous"></script>
