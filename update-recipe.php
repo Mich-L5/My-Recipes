@@ -168,60 +168,6 @@ else if (strlen($directions) > 5000) {
     $errorFree = false;
 }
 
-
-
-
-
-
-
-
-
-// 9. IMAGE - if an image file has been uploaded
-//if ($_FILES && $_FILES['image']['name'] != "") {
-//
-//    // capture the image file
-//    // $_FILES['image'] returns an array with the image file information, $_FILES['image']['tmp_name'] captures the file's temp name
-//    $imgTmpLoc = $_FILES['image']['tmp_name'];
-//    // encode image file
-//    $image = base64_encode(file_get_contents($imgTmpLoc));
-//
-//    // store the image file array in a variable for easier access when error-checking below
-//    $imgFile = $_FILES['image'];
-//
-//    // file formats allowed
-//    $formatsAllowed = array('jpg', 'jpeg', 'png');
-//
-//    // grab file extension and convert it to lowercase
-//    // explode() will return an array of strings seperated by our separator '.'
-//    $fileExtension = explode('.', $imgFile['name']);
-//    // grab the last item in our array (the file extension)
-//    $fileExtension = strtolower(end($fileExtension));
-//
-//    // check if the image's file format is allowed
-//    $validExt = false;
-//
-//    foreach ($formatsAllowed as $format) {
-//        if ($format == $fileExtension) {
-//            $validExt = true;
-//        }
-//    }
-//
-//    // if the image extension is not valid (i.e. does not match any of the formats allowed), return error message
-//    if (!$validExt) {
-//        $errorMsg = "Image format is not allowed, please try again.";
-//        $errorFree = false;
-//    } // check that image size is no larger than 2MB
-//    else if ($imgFile['size'] > 2000000) {
-//        $errorMsg = "File size is too big, please try again.";
-//        $errorFree = false;
-//    } // check for any other image upload errors
-//    else if ($imgFile['error'] != 0) {
-//        $errorMsg = "There was an error when uploading your file, please ensure your file is in a valid format and does not exceed 2MB.";
-//        $errorFree = false;
-//    }
-//}
-
-
 // 9. IMAGE - if an image has been uploaded
 if ($_FILES && $_FILES['image']['name'] != "") {
 
