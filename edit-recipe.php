@@ -72,15 +72,16 @@ $image = $recipe['image'];
                         </div>
                         <div class="upload-img-container">
                             <?php
-                            if ($recipe['image'] !== "placeholder")
+                            if ($image !== "placeholder")
                             {
-                                echo '<img id="upload-tn" src="data:image;base64,' . $recipe['image'] . '" alt="recipe image">';
+                                echo '<img id="upload-tn" src="data:image;base64,' . $image . '" alt="recipe image">';
                             }
                             ?>
                             <div id="button-container">
                                 <input name="image" id="image" type="file" />
+                                <input type="hidden" name="previous-image" value="<?php echo $image; ?>">
                                 <?php
-                                if ($recipe['image'] !== "placeholder")
+                                if ($image !== "placeholder")
                                 {
                                     echo '<a id="clearFileButton" class="button-styles round-button clear-button"><i class="fa-solid fa-x" aria-hidden="true"></i></a>';
                                 }

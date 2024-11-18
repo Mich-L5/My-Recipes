@@ -11,6 +11,7 @@ if (in_array($recipeId, $restrictedRecipeIds)) {
 }
 
 // capture form inputs to vars
+$previousImg = $_POST['previous-image'];
 $name = $_POST['name'];
 $categoryId = $_POST['categoryId'];
 $servings = $_POST['servings'];
@@ -213,17 +214,10 @@ if ($_FILES && $_FILES['image']['name'] != "") {
     }
 }
 else {
-    // If no image has been uploaded, set placeholder
-    $image = "placeholder";
+    // if no image has been uploaded, set previous image value
+    //$image = "placeholder";
+    $image = $previousImg;
 }
-
-
-
-
-
-
-
-
 
 // if any errors occured during error-checking, alert the user with custom error message, and re-direct them to the form page
 if (!$errorFree) {
