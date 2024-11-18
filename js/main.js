@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
 
     if (form)
     {
-        form.addEventListener("submit", validateForm);
+       form.addEventListener("submit", validateForm);
     }
     function validateForm(event)
     {
@@ -264,7 +264,6 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
         return error === true ? false : true;
     }
 
-
     /* --------------------------------------- */
     /*    HANDLE IMAGE UPLOAD CLIENT-SIDE      */
     /* --------------------------------------- */
@@ -275,6 +274,16 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
     {
         let uploadTn = document.getElementById('upload-tn');
         let clearButton;
+
+        // assign event listener to clear button if it already exists on the page
+        if (document.getElementById("clearFileButton"))
+        {
+            clearButton = document.getElementById("clearFileButton");
+
+            clearButton.addEventListener('click', function() {
+                clearFile(uploadTn, clearButton);
+            });
+        }
 
         // event listener for a change in the file input
         uploadField.addEventListener('input', function (event) {
@@ -318,10 +327,8 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
                            uploadField.parentNode.appendChild(clearButton);
 
                            // event listener for the clear button
-                           clearButton.addEventListener('click', function () {
-                               uploadTn.remove();
-                               clearButton.remove();
-                               uploadField.value = "";
+                           clearButton.addEventListener('click', function() {
+                               clearFile(uploadTn, clearButton);
                            });
                        }
                    };
@@ -350,6 +357,13 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
                 }
             }
         });
+    }
+
+    function clearFile(uploadThumbnail, clearBtn)
+    {
+        uploadThumbnail.remove();
+        clearBtn.remove();
+        uploadField.value = "";
     }
 
 });

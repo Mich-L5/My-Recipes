@@ -43,7 +43,7 @@
 
                     <fieldset>
                         <div>
-                            <label for="category">*Category:</label>
+                            <label for="categoryId">*Category:</label>
                         </div>
                         <div>
                             <select name="categoryId" id="categoryId">
@@ -79,6 +79,7 @@
                             <small id="emptyCategory" class="form-error-hide">Category is required.</small>
                         </div>
                     </fieldset>
+
                     <fieldset>
                         <div>
                             <label for="servings">*Servings:</label>
@@ -88,6 +89,7 @@
                             <small id="emptyServings" class="form-error-hide">Serving size is required.</small>
                         </div>
                     </fieldset>
+
                     <fieldset>
                         <div>
                             <span>*Prep time:</span>
@@ -102,6 +104,7 @@
                             <small id="emptyPrepTime" class="form-error-hide">Prep time is required.</small>
                         </div>
                     </fieldset>
+
                     <fieldset>
                         <div>
                             <span>*Cook time:</span>
@@ -116,6 +119,7 @@
                             <small id="emptyCookTime" class="form-error-hide">Cook time is required.</small>
                         </div>
                     </fieldset>
+
                     <fieldset>
                         <div>
                             <label for="rating">*Rating (0-5):</label>
@@ -125,14 +129,15 @@
                             <small id="emptyRating" class="form-error-hide">Rating is required.</small>
                         </div>
                     </fieldset>
+
                     <fieldset>
                         <div>
-                            <label for="ingredients">*Ingredients:</label>
+                            <label for="ingredient-list">*Ingredients:</label>
                         </div>
                         <div>
                             <div id="ingredient-container">
                                 <div class="ingredient-item">
-                                    <input type="text" name="ingredient[]" class="ingredient-input" />
+                                    <input type="text" name="ingredient[]" id="ingredient-list" class="ingredient-input" />
                                 </div>
                             </div>
                             <small id="emptyIngredients" class="form-error-hide">Ingredients are required.</small>
@@ -143,14 +148,15 @@
                             <input type="hidden" id="ingredients" name="ingredients" />
                         </div>
                     </fieldset>
+
                     <fieldset>
                         <div>
-                            <label for="directions">*Directions:</label>
+                            <label for="direction-list">*Directions:</label>
                         </div>
                         <div>
                             <div id="direction-container">
                                 <div class="direction-item">
-                                    <input type="text" name="direction[]" class="direction-input" />
+                                    <input type="text" name="direction[]" id="direction-list" class="direction-input" />
                                 </div>
                             </div>
                             <small id="emptyDirections" class="form-error-hide">Directions are required.</small>
@@ -161,6 +167,7 @@
                             <input type="hidden" id="directions" name="directions" />
                         </div>
                     </fieldset>
+
                     <div>
                         <button class="button-styles save-button">Save</button>
                     </div>

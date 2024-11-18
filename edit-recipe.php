@@ -64,112 +64,416 @@ $image = $recipe['image'];
                 <div class="title-container">
                     <h1 class="add-new-title">Edit Recipe</h1>
                 </div>
-                <form class="add-new-form" action="update-recipe.php" method="POST" enctype="multipart/form-data">
-                    <fieldset class="image-fieldset">
+                <form id="form" class="add-new-form" action="update-recipe.php" method="POST" enctype="multipart/form-data">
+
+
+<!--                    <fieldset class="image-fieldset">-->
+<!--                        <div>-->
+<!--                            <label for="image">Upload image: <span class="file-format">Formats allowed: .jpg, .jpeg, .png <span>(max. size 2MB)</span></span></label>-->
+<!--                        </div>-->
+<!--                        <div class="upload-img-container">-->
+<!--                            --><?php
+//                                if ($recipe['image'] !== "placeholder")
+//                                {
+//                                    echo '<img id="upload-tn" src="data:image;base64,' . $recipe['image'] . '" alt="recipe image">';
+//                                }
+//                             ?>
+<!--                            <input name="image" id="image" type="file" />-->
+<!--                        </div>-->
+<!--                    </fieldset>-->
+
+
+                    <fieldset>
                         <div>
-                            <label for="image">Upload image: <span class="file-format">Formats allowed: .jpg, .jpeg, .png <span>(max. size 2MB)</span></span></label>
+                            <label for="image">Upload image: <span class="file-format">Formats allowed: .jpg, .jpeg, .png <span>(max. size 2MB)</span></label>
                         </div>
                         <div class="upload-img-container">
                             <?php
+                            if ($recipe['image'] !== "placeholder")
+                            {
+                                echo '<img id="upload-tn" src="data:image;base64,' . $recipe['image'] . '" alt="recipe image">';
+                            }
+                            ?>
+                            <div id="button-container">
+                                <input name="image" id="image" type="file" />
+                                <?php
                                 if ($recipe['image'] !== "placeholder")
                                 {
-                                    echo '<img id="upload-tn" src="data:image;base64,' . $recipe['image'] . '" alt="recipe image">';
+                                    echo '<a id="clearFileButton" class="button-styles round-button clear-button"><i class="fa-solid fa-x" aria-hidden="true"></i></a>';
                                 }
-                             ?>
-                            <input name="image" id="image" type="file" />
+                                ?>
+                            </div>
+                            <small id="imgTooBig" class="form-error-hide">Image is too large.</small>
+                            <small id="invalidFormat" class="form-error-hide">Image format not supported.</small>
                         </div>
                     </fieldset>
+
+
+
+
+<!--                    <fieldset>-->
+<!--                        <div>-->
+<!--                            <label for="name">Recipe name:</label>-->
+<!--                        </div>-->
+<!--                        <input value="--><?php //echo $name; ?><!--" name="name" id="name" maxlength="60" />-->
+<!--                    </fieldset>-->
+
                     <fieldset>
                         <div>
-                            <label for="name">Recipe name:</label>
+                            <label for="name">*Recipe name:</label>
                         </div>
-                        <input value="<?php echo $name; ?>" name="name" id="name" maxlength="60" />
+                        <div>
+                            <input value="<?php echo $name; ?>" name="name" id="name" maxlength="60" />
+                            <small id="emptyName" class="form-error-hide">Recipe name is required.</small>
+                        </div>
                     </fieldset>
+
+
+
+<!---->
+<!--                    <fieldset>-->
+<!--                        <div>-->
+<!--                            <label for="category">Category:</label>-->
+<!--                        </div>-->
+<!--                        <select name="categoryId" id="categoryId">-->
+<!--                            <option value="" disabled selected>Categories</option>-->
+<!--                            --><?php
+//
+//                            // write SQL query to select all the recipe categories
+//                            $sql = "SELECT * FROM recipeCategories";
+//
+//                            // create the command
+//                            $cmd = $db->prepare($sql);
+//
+//                            // execute the query
+//                            $cmd->execute();
+//
+//                            // store SQL query results in variable
+//                            $categories = $cmd->fetchAll();
+//
+//                            // loop and display as <option></option> each category
+//                            foreach ($categories as $category) {
+//
+//                                // if recipe category matches the category in loop, select it
+//                                if ($currentCategory == $category['categoryId']) {
+//                                    echo '<option selected value="' . $category['categoryId'] .
+//                                        '">' . $category['category'] . '</option>';
+//                                } else {
+//
+//                                    echo '<option value="' . $category['categoryId'] .
+//                                        '">' . $category['category'] . '</option>';
+//                                }
+//                            }
+//
+//                            ?>
+<!--                        </select>-->
+<!--                    </fieldset>-->
+
+
+
+
+
+
+
+
+
                     <fieldset>
                         <div>
-                            <label for="category">Category:</label>
+                            <label for="categoryId">*Category:</label>
                         </div>
-                        <select name="categoryId" id="categoryId">
-                            <option value="" disabled selected>Categories</option>
-                            <?php
+                        <div>
+                            <select name="categoryId" id="categoryId">
+                                <option value="" disabled selected>Categories</option>
+                                <?php
 
-                            // write SQL query to select all the recipe categories
-                            $sql = "SELECT * FROM recipeCategories";
+                                // write SQL query to select all the recipe categories
+                                $sql = "SELECT * FROM recipeCategories";
 
-                            // create the command
-                            $cmd = $db->prepare($sql);
+                                // create the command
+                                $cmd = $db->prepare($sql);
 
-                            // execute the query
-                            $cmd->execute();
+                                // execute the query
+                                $cmd->execute();
 
-                            // store SQL query results in variable
-                            $categories = $cmd->fetchAll();
+                                // store SQL query results in variable
+                                $categories = $cmd->fetchAll();
 
-                            // loop and display as <option></option> each category
-                            foreach ($categories as $category) {
+                                // loop and display as <option></option> each category
+                                foreach ($categories as $category) {
 
-                                // if recipe category matches the category in loop, select it
-                                if ($currentCategory == $category['categoryId']) {
-                                    echo '<option selected value="' . $category['categoryId'] .
-                                        '">' . $category['category'] . '</option>';
-                                } else {
+                                    // if recipe category matches the category in loop, select it
+                                    if ($currentCategory == $category['categoryId']) {
+                                        echo '<option selected value="' . $category['categoryId'] .
+                                            '">' . $category['category'] . '</option>';
+                                    } else {
 
-                                    echo '<option value="' . $category['categoryId'] .
-                                        '">' . $category['category'] . '</option>';
+                                        echo '<option value="' . $category['categoryId'] .
+                                            '">' . $category['category'] . '</option>';
+                                    }
                                 }
-                            }
 
-                            ?>
-                        </select>
+                                ?>
+                            </select>
+                            <small id="emptyCategory" class="form-error-hide">Category is required.</small>
+                        </div>
                     </fieldset>
+
+
+
+
+
+
+
+<!--                    <fieldset>-->
+<!--                        <div>-->
+<!--                            <label for="servings">Servings:</label>-->
+<!--                        </div>-->
+<!--                        <input value="--><?php //echo $servings; ?><!--" min="1" name="servings" id="servings" type="number" />-->
+<!--                    </fieldset>-->
+
+
+
                     <fieldset>
                         <div>
-                            <label for="servings">Servings:</label>
+                            <label for="servings">*Servings:</label>
                         </div>
-                        <input value="<?php echo $servings; ?>" min="1" name="servings" id="servings" type="number" />
+                        <div>
+                            <input value="<?php echo $servings; ?>" min="1" name="servings" id="servings" type="number" />
+                            <small id="emptyServings" class="form-error-hide">Serving size is required.</small>
+                        </div>
                     </fieldset>
+
+
+
+
+
+<!--                    <fieldset>-->
+<!--                        <div>-->
+<!--                            <span>Prep time:</span>-->
+<!--                        </div>-->
+<!--                        <label hidden for="prep-time-hours">Prep time (hours)</label>-->
+<!--                        <input value="--><?php //echo $prepTimeH; ?><!--" min="0" name="prep-time-hours" id="prep-time-hours" type="number" />-->
+<!--                        <span class="form-time-label">hours &nbsp;</span>-->
+<!--                        <label hidden for="prep-time-minutes">Prep time (minutes)</label>-->
+<!--                        <input value="--><?php //echo $prepTimeM; ?><!--" min="0" max="59" name="prep-time-minutes" id="prep-time-minutes" type="number" />-->
+<!--                        <span class="form-time-label">mins</span>-->
+<!--                    </fieldset>-->
+
+
                     <fieldset>
                         <div>
-                            <span>Prep time:</span>
+                            <span>*Prep time:</span>
                         </div>
-                        <label hidden for="prep-time-hours">Prep time (hours)</label>
-                        <input value="<?php echo $prepTimeH; ?>" min="0" name="prep-time-hours" id="prep-time-hours" type="number" />
-                        <span class="form-time-label">hours &nbsp;</span>
-                        <label hidden for="prep-time-minutes">Prep time (minutes)</label>
-                        <input value="<?php echo $prepTimeM; ?>" min="0" max="59" name="prep-time-minutes" id="prep-time-minutes" type="number" />
-                        <span class="form-time-label">mins</span>
+                        <div>
+                            <label hidden for="prep-time-hours">Prep time (hours)</label>
+                            <input value="<?php echo $prepTimeH; ?>" min="0" name="prep-time-hours" id="prep-time-hours" type="number" />
+                            <span class="form-time-label">hours &nbsp;</span>
+                            <label hidden for="prep-time-minutes">Prep time (minutes)</label>
+                            <input value="<?php echo $prepTimeM; ?>" min="0" max="59" name="prep-time-minutes" id="prep-time-minutes" type="number" />
+                            <span class="form-time-label">mins</span>
+                            <small id="emptyPrepTime" class="form-error-hide">Prep time is required.</small>
+                        </div>
                     </fieldset>
+
+
+
+
+
+
+
+<!--                    <fieldset>-->
+<!--                        <div>-->
+<!--                            <span>Cook time:</span>-->
+<!--                        </div>-->
+<!--                        <label hidden for="cook-time-hours">Cook time (hours)</label>-->
+<!--                        <input value="--><?php //echo $cookTimeH; ?><!--" min="0" name="cook-time-hours" id="cook-time-hours" type="number" />-->
+<!--                        <span class="form-time-label">hours &nbsp;</span>-->
+<!--                        <label hidden for="cook-time-minutes">Cook time (minutes)</label>-->
+<!--                        <input value="--><?php //echo $cookTimeM; ?><!--" min="0" max="59" name="cook-time-minutes" id="cook-time-minutes" type="number" />-->
+<!--                        <span class="form-time-label">mins</span>-->
+<!--                    </fieldset>-->
+
+
+
                     <fieldset>
                         <div>
-                            <span>Cook time:</span>
+                            <span>*Cook time:</span>
                         </div>
-                        <label hidden for="cook-time-hours">Cook time (hours)</label>
-                        <input value="<?php echo $cookTimeH; ?>" min="0" name="cook-time-hours" id="cook-time-hours" type="number" />
-                        <span class="form-time-label">hours &nbsp;</span>
-                        <label hidden for="cook-time-minutes">Cook time (minutes)</label>
-                        <input value="<?php echo $cookTimeM; ?>" min="0" max="59" name="cook-time-minutes" id="cook-time-minutes" type="number" />
-                        <span class="form-time-label">mins</span>
+                        <div>
+                            <label hidden for="cook-time-hours">Cook time (hours)</label>
+                            <input value="<?php echo $cookTimeH; ?>" min="0" name="cook-time-hours" id="cook-time-hours" type="number" />
+                            <span class="form-time-label">hours &nbsp;</span>
+                            <label hidden for="cook-time-minutes">Cook time (minutes)</label>
+                            <input value="<?php echo $cookTimeM; ?>" min="0" max="59" name="cook-time-minutes" id="cook-time-minutes" type="number" />
+                            <span class="form-time-label">mins</span>
+                            <small id="emptyCookTime" class="form-error-hide">Cook time is required.</small>
+                        </div>
                     </fieldset>
+
+
+
+
+<!--                    <fieldset>-->
+<!--                        <div>-->
+<!--                            <label for="rating">Rating (0-5):</label>-->
+<!--                        </div>-->
+<!--                        <input value="--><?php //echo $rating; ?><!--" min="1" max="5" name="rating" id="rating" type="number" />-->
+<!--                    </fieldset>-->
+
+
                     <fieldset>
                         <div>
-                            <label for="rating">Rating (0-5):</label>
+                            <label for="rating">*Rating (0-5):</label>
                         </div>
-                        <input value="<?php echo $rating; ?>" min="1" max="5" name="rating" id="rating" type="number" />
-                    </fieldset>
-                    <fieldset>
                         <div>
-                            <label for="ingredients">Ingredients:<span class="seperate"><mark>(Seperate with semicolons)</mark></span></label>
+                            <input value="<?php echo $rating; ?>" min="1" max="5" name="rating" id="rating" type="number" />
+                            <small id="emptyRating" class="form-error-hide">Rating is required.</small>
                         </div>
-                        <textarea placeholder="1 sweet potato; 1 tsp salt.." maxlength="2000" name="ingredients" id="ingredients"><?php echo $ingredients; ?></textarea>
                     </fieldset>
+
+
+
+
+
+<!--                    <fieldset>-->
+<!--                        <div>-->
+<!--                            <label for="ingredients">Ingredients:<span class="seperate"><mark>(Seperate with semicolons)</mark></span></label>-->
+<!--                        </div>-->
+<!--                        <textarea placeholder="1 sweet potato; 1 tsp salt.." maxlength="2000" name="ingredients" id="ingredients">--><?php //echo $ingredients; ?><!--</textarea>-->
+<!--                    </fieldset>-->
+
+
+<!--                    <fieldset>-->
+<!--                        <div>-->
+<!--                            <label for="ingredient-list">*Ingredients:</label>-->
+<!--                        </div>-->
+<!--                        <div>-->
+<!--                            <div id="ingredient-container">-->
+<!--                                <div class="ingredient-item">-->
+<!--                                    <input type="text" name="ingredient[]" id="ingredient-list" class="ingredient-input" />-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <small id="emptyIngredients" class="form-error-hide">Ingredients are required.</small>-->
+<!--                            <div class="plus-button-container">-->
+<!--                                <button class="round-button button-styles" type="button" id="add-ingredient-button"><i class="fa-solid fa-plus"></i></button>-->
+<!--                            </div>-->
+
+<!--                            <input type="hidden" id="ingredients" name="ingredients" />-->
+<!--                        </div>-->
+<!--                    </fieldset>-->
+
+
+
+
+
+
+
                     <fieldset>
+                        <?php
+                        // Split the ingredients string into an array
+                        $ingredientList = explode('#**@$seperator^+><%', $ingredients);
+                        ?>
                         <div>
-                            <label for="directions">Directions:<span class="seperate"><mark>(Seperate with semicolons)</mark></span></label>
+                            <label for="ingredient-list">*Ingredients:</label>
                         </div>
-                        <textarea placeholder="Wash the sweet potato.." maxlength="5000" name="directions" id="directions"><?php echo $directions; ?></textarea>
+                        <div>
+                            <div id="ingredient-container">
+
+                                <?php foreach ($ingredientList as $index => $ingredient): ?>
+                                    <div class="ingredient-item">
+                                        <input type="text" name="ingredient[]" class="ingredient-input" value="<?php echo $ingredient ?>" />
+
+                                        <!-- only add the remove button for additional fields -->
+                                        <?php if ($index > 0): ?>
+                                            <button type="button" class="remove-field-btn round-button button-styles inline-button" onclick="this.parentElement.remove();"><i class="fa-regular fa-trash-can"></i></button>
+                                        <?php endif; ?>
+
+                                    </div>
+                                <?php endforeach; ?>
+
+                            </div>
+                            <small id="emptyIngredients" class="form-error-hide">Ingredients are required.</small>
+                            <div class="plus-button-container">
+                                <button class="round-button button-styles" type="button" id="add-ingredient-button"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <!-- hidden input field where ingredient string gets submitted -->
+                            <input type="hidden" id="ingredients" name="ingredients" />
+                        </div>
                     </fieldset>
+
+                    <fieldset>
+                        <?php
+                        // Split the directions string into an array
+                        $directionList = explode('#**@$seperator^+><%', $directions);
+                        ?>
+                        <div>
+                            <label for="direction-list">*Directions:</label>
+                        </div>
+                        <div>
+                            <div id="direction-container">
+
+                                <?php foreach ($directionList as $index => $direction): ?>
+                                    <div class="direction-item">
+                                        <input type="text" name="direction[]" class="direction-input" value="<?php echo $direction ?>" />
+
+                                        <!-- only add the remove button for additional fields -->
+                                        <?php if ($index > 0): ?>
+                                            <button type="button" class="remove-field-btn round-button button-styles inline-button" onclick="this.parentElement.remove();"><i class="fa-regular fa-trash-can"></i></button>
+                                        <?php endif; ?>
+
+                                    </div>
+                                <?php endforeach; ?>
+
+                            </div>
+                            <small id="emptyDirections" class="form-error-hide">Directions are required.</small>
+                            <div class="plus-button-container">
+                                <button class="round-button button-styles" type="button" id="add-direction-button"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <!-- hidden input field where ingredient string gets submitted -->
+                            <input type="hidden" id="directions" name="directions" />
+                        </div>
+                    </fieldset>
+
+
+
+
+
+
+
+
+
+<!--                    <fieldset>-->
+<!--                        <div>-->
+<!--                            <label for="directions">Directions:<span class="seperate"><mark>(Seperate with semicolons)</mark></span></label>-->
+<!--                        </div>-->
+<!--                        <textarea placeholder="Wash the sweet potato.." maxlength="5000" name="directions" id="directions">--><?php //echo $directions; ?><!--</textarea>-->
+<!--                    </fieldset>-->
+
+
+
+<!--                    <fieldset>-->
+<!--                        <div>-->
+<!--                            <label for="direction-list">*Directions:</label>-->
+<!--                        </div>-->
+<!--                        <div>-->
+<!--                            <div id="direction-container">-->
+<!--                                <div class="direction-item">-->
+<!--                                    <input type="text" name="direction[]" id="direction-list" class="direction-input" />-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <small id="emptyDirections" class="form-error-hide">Directions are required.</small>-->
+<!--                            <div class="plus-button-container">-->
+<!--                                <button class="round-button button-styles" type="button" id="add-direction-button"><i class="fa-solid fa-plus"></i></button>-->
+<!--                            </div>-->
+
+<!--                            <input type="hidden" id="directions" name="directions" />-->
+<!--                        </div>-->
+<!--                    </fieldset>-->
+
+
+
                     <div>
-                        <button>Save</button>
+                        <button class="button-styles save-button">Save</button>
                         <!-- to pass our primary key value to update-recipe.php -->
                         <input name="recipeId" id="recipeId" value="<?php echo $recipeId; ?>" type="hidden" />
                     </div>
@@ -177,6 +481,10 @@ $image = $recipe['image'];
             </section>
         </main>
     </div>
+    <?php
+    // disconnect from the database
+    $db = null;
+    ?>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" defer></script>
     <script src="js/main.js" defer></script>
     <script src="https://kit.fontawesome.com/36e897625c.js" crossorigin="anonymous"></script>

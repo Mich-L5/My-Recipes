@@ -198,9 +198,6 @@ else {
     $image = "placeholder";
 }
 
-
-
-
 // if any errors occurred during error-checking, alert the user with custom error message, and re-direct them to the form page
 if (!$errorFree) {
     echo '<script>alert("' . $errorMsg . '")</script>';
