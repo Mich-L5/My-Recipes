@@ -165,12 +165,12 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
         document.getElementById(addButtonId).addEventListener('click', function () {
             const container = document.getElementById(containerId);
 
-            // Create a new input field with an "X" button
+            // Create a new input field with a trash button
             const newField = document.createElement('div');
             newField.innerHTML = `
             <input type="text" name="${nameAttribute}[]" class="${inputClass}" />
             <button type="button" class="remove-field-btn round-button button-styles inline-button">
-                <i class="fa-regular fa-trash-can"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#454545"><path d="M304.62-160q-26.66 0-45.64-18.98T240-224.62V-720h-20q-8.5 0-14.25-5.76T200-740.03q0-8.51 5.75-14.24T220-760h140q0-12.38 9.19-21.58 9.19-9.19 21.58-9.19h178.46q12.39 0 21.58 9.19Q600-772.38 600-760h140q8.5 0 14.25 5.76t5.75 14.27q0 8.51-5.75 14.24T740-720h-20v495.38q0 26.66-18.98 45.64T655.38-160H304.62ZM680-720H280v495.38q0 10.77 6.92 17.7 6.93 6.92 17.7 6.92h350.76q10.77 0 17.7-6.92 6.92-6.93 6.92-17.7V-720ZM412.33-280q8.52 0 14.25-5.75t5.73-14.25v-320q0-8.5-5.76-14.25T412.28-640q-8.51 0-14.24 5.75T392.31-620v320q0 8.5 5.76 14.25 5.75 5.75 14.26 5.75Zm135.39 0q8.51 0 14.24-5.75t5.73-14.25v-320q0-8.5-5.76-14.25-5.75-5.75-14.26-5.75-8.52 0-14.25 5.75T527.69-620v320q0 8.5 5.76 14.25t14.27 5.75ZM280-720v520-520Z"/></svg>
             </button>
         `;
 
@@ -403,7 +403,7 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
 
                            // create clear file button
                            clearButton = document.createElement('a');
-                           clearButton.innerHTML = '<i class="fa-solid fa-x"></i>';
+                           clearButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#454545"><path d="M480-451.69 270.15-241.85q-5.61 5.62-13.77 6-8.15.39-14.53-6-6.39-6.38-6.39-14.15 0-7.77 6.39-14.15L451.69-480 241.85-689.85q-5.62-5.61-6-13.77-.39-8.15 6-14.53 6.38-6.39 14.15-6.39 7.77 0 14.15 6.39L480-508.31l209.85-209.84q5.61-5.62 13.77-6 8.15-.39 14.53 6 6.39 6.38 6.39 14.15 0 7.77-6.39 14.15L508.31-480l209.84 209.85q5.62 5.61 6 13.77.39 8.15-6 14.53-6.38 6.39-14.15 6.39-7.77 0-14.15-6.39L480-451.69Z"/></svg>';
                            clearButton.id = 'clearFileButton';
                            clearButton.classList.add('button-styles', 'round-button', 'clear-button');
                            uploadField.parentNode.appendChild(clearButton);

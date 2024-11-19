@@ -142,7 +142,7 @@
                             </div>
                             <small id="emptyIngredients" class="form-error-hide">Ingredients are required.</small>
                             <div class="plus-button-container">
-                                <button class="round-button button-styles" type="button" id="add-ingredient-button"><i class="fa-solid fa-plus"></i></button>
+                                <button class="round-button button-styles" type="button" id="add-ingredient-button"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#454545"><path d="M460-460H260q-8.5 0-14.25-5.76T240-480.03q0-8.51 5.75-14.24T260-500h200v-200q0-8.5 5.76-14.25t14.27-5.75q8.51 0 14.24 5.75T500-700v200h200q8.5 0 14.25 5.76t5.75 14.27q0 8.51-5.75 14.24T700-460H500v200q0 8.5-5.76 14.25T479.97-240q-8.51 0-14.24-5.75T460-260v-200Z"/></svg></button>
                             </div>
                             <!-- hidden input field where ingredient string gets submitted -->
                             <input type="hidden" id="ingredients" name="ingredients" />
@@ -161,7 +161,7 @@
                             </div>
                             <small id="emptyDirections" class="form-error-hide">Directions are required.</small>
                             <div class="plus-button-container">
-                                <button class="round-button button-styles" type="button" id="add-direction-button"><i class="fa-solid fa-plus"></i></button>
+                                <button class="round-button button-styles" type="button" id="add-direction-button"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#454545"><path d="M460-460H260q-8.5 0-14.25-5.76T240-480.03q0-8.51 5.75-14.24T260-500h200v-200q0-8.5 5.76-14.25t14.27-5.75q8.51 0 14.24 5.75T500-700v200h200q8.5 0 14.25 5.76t5.75 14.27q0 8.51-5.75 14.24T700-460H500v200q0 8.5-5.76 14.25T479.97-240q-8.51 0-14.24-5.75T460-260v-200Z"/></svg></button>
                             </div>
                             <!-- hidden input field where directions string gets submitted -->
                             <input type="hidden" id="directions" name="directions" />

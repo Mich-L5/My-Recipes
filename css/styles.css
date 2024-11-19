@@ -92,6 +92,10 @@ nav li:nth-child(2) {
     background-color: #cca8c1;
 }
 
+nav li:nth-child(2) svg {
+    margin-top: 4px;
+}
+
 nav li:nth-child(3) {
     background-color: #fcd1fd;
 }
@@ -285,9 +289,11 @@ input[type="file"]::file-selector-button:hover {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    display: inline-flex;
+    display: inline;
     justify-content: center;
     align-items: center;
+    padding: 1px;
+    line-height: 2px;
 }
 
 .clear-button {
@@ -295,6 +301,7 @@ input[type="file"]::file-selector-button:hover {
     justify-content: center;
     align-items: center;
     margin-left: 5px;
+    margin-top: -1px;
 }
 
 .save-button {
@@ -700,6 +707,11 @@ mark:hover {
     color: #454545;
 }
 
+.action-container a {
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
 .action-container i {
     font-size: 20px;
     padding-left: 10px;
@@ -720,6 +732,20 @@ mark:hover {
 
 #delete-button:hover {
     cursor: pointer;
+}
+
+#direction-container .direction-input, #ingredient-container .ingredient-input {
+    margin: 0;
+}
+
+#direction-container > div, #ingredient-container > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 13px;
+}
+
+.remove-field-btn {
+    margin-left: 5px;
 }
 
 /*** POP UP ***/
@@ -1218,6 +1244,14 @@ mark:hover {
     .action-container {
         margin-top: -100px;
     }
+
+    .plus-button-container {
+        width: 158px;
+    }
+
+    .recipe-book {
+        min-height: 650px;
+    }
 }
 
 
@@ -1326,11 +1360,6 @@ mark:hover {
         margin-top: -95px;
     }
 
-
-    /*.add-new-form button {*/
-    /*    margin-top: 0;*/
-    /*}*/
-
     .category-page h1 {
         font-size: 40px;
         margin-top: -100px;
@@ -1383,14 +1412,14 @@ mark:hover {
         font-size: 40px;
     }
 
-    #edit-recipe .recipe-book {
-        height: 740px;
-        max-height: 740px;
-    }
+    /*#edit-recipe .recipe-book {*/
+    /*    height: 740px;*/
+    /*    max-height: 740px;*/
+    /*}*/
 
-    #edit-recipe button {
-        margin-bottom: 40px;
-    }
+    /*#edit-recipe button {*/
+    /*    margin-bottom: 40px;*/
+    /*}*/
 
     .image-fieldset > div:nth-child(1), .image-fieldset > div:nth-child(2) {
        margin: 0;
