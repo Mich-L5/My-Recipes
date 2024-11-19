@@ -451,7 +451,6 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
         const prevImg = document.getElementById("previous-image");
         if (prevImg) {
             prevImg.value = "placeholder";
-            console.log("hello");
         }
     }
 
