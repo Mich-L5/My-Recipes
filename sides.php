@@ -48,8 +48,21 @@
 
                     // loop through each table row and display values in table
                     foreach ($recipes as $recipe) {
+
+                        // Generate image src
+                        $imgSrc = "";
+
+                        if ($recipe['image'] === "placeholder")
+                        {
+                            $imgSrc = "./img/placeholder.jpg";
+                        }
+                        else
+                        {
+                            $imgSrc = "data:image;base64," . $recipe['image'];
+                        }
+
                         echo '<tr>';
-                        echo '<td><a href="recipe.php?recipeId=' . $recipe['recipeId'] . '"><img class="recipe-tn" src="data:image;base64,' . $recipe['image'] . '" alt="recipe thumbnail image"></a></td>';
+                        echo '<td><a href="recipe.php?recipeId=' . $recipe['recipeId'] . '"><img class="recipe-tn" src="' . $imgSrc . '" alt="recipe thumbnail image"></a></td>';
                         echo '<td><a href="recipe.php?recipeId=' . $recipe['recipeId'] . '"><mark>' . $recipe['name'] . '</mark></a></td>';
 
                         // calculate and format the total time (prep time + cook time)
@@ -80,6 +93,7 @@
             </section>
         </main>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" defer></script>
     <script src="js/main.js" defer></script>
     <!-- https://www.kryogenix.org/code/browser/sorttable/ for column sorting-->

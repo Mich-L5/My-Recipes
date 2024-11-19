@@ -92,6 +92,10 @@ nav li:nth-child(2) {
     background-color: #cca8c1;
 }
 
+nav li:nth-child(2) svg {
+    margin-top: 4px;
+}
+
 nav li:nth-child(3) {
     background-color: #fcd1fd;
 }
@@ -157,10 +161,64 @@ nav li:hover {
     margin-top: 0;
 }
 
+/*** LOADING PAGE ***/
+/* full-screen loading overlay */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fffbbe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: all ease 1s;
+}
+
+/* loading content container */
+.loading-content {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* loading text */
+.loading-content p {
+    font-size: 30px;
+    font-weight: 100;
+    color: #454545;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+}
+
+/* rotating loading lemon icon */
+.rotating-lemon {
+    width: 40px;
+    height: 40px;
+    animation: spin 5s linear infinite;
+    margin-bottom: -5px;
+    margin-left: 10px;
+}
+
+/* lemon rotation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
 /*** RECIPE BOOK ***/
 .recipe-book {
     width: 80%;
-    height: 600px;
+    min-height: 650px;
     margin: 49px auto 0 auto;
     background-color: #FDFDFD;
     box-shadow: 3px 3px 5px -5px #0e0e0e;
@@ -169,7 +227,6 @@ nav li:hover {
 
 .category-page .recipe-book {
     height: auto !important;
-    min-height: 650px;
     margin-bottom: 60px;
 }
 
@@ -189,6 +246,94 @@ nav li:hover {
 }
 
 /*** ADD NEW! PAGE ***/
+#image {
+    width: 100px;
+}
+
+#button-container {
+    display: flex;
+    flex-direction: row;
+}
+
+input[type="file"]::file-selector-button {
+    background-color: #f3ff51;
+    color: black;
+    border: solid 1px #fbe356;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #ecf84b;
+}
+
+.button-styles {
+    background-color: #f3ff51;
+    color: black;
+    border: solid 1px #fbe356;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+}
+
+.button-styles:hover {
+    background-color: #ecf84b;
+}
+
+.round-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+    line-height: 2px;
+}
+
+.clear-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+    margin-top: -1px;
+}
+
+.save-button {
+    background-color: #90ddd1;
+    color: black;
+    border: solid 1px #57a498;
+    width: 150px;
+    height: 50px;
+    font-size: 25px;
+}
+
+.save-button:hover {
+    background-color: #78cec1;
+}
+
+#add-ingredient-button, #add-direction-button {
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+#ingredient-container > div:nth-child(2), #direction-container > div:nth-child(2) {
+    width: 230px;
+}
+
+.plus-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 60px;
+}
+
 .add-new-title {
     font-weight: normal;
     font-size: 50px;
@@ -196,8 +341,6 @@ nav li:hover {
 }
 
 #add-new-page .recipe-book {
-    min-height: 710px;
-    max-height: 710px;
     margin-bottom: 70px;
 }
 
@@ -211,9 +354,10 @@ nav li:hover {
 
 .add-new-form fieldset {
     display: flex;
-    align-items: center;
-    padding: 0px;
-    margin: -5px 0;
+    align-items: flex-start;
+    padding: 0;
+    margin: 0;
+
 }
 
 .file-format, .seperate {
@@ -223,8 +367,11 @@ nav li:hover {
 
 /* make input fields thinner and more narrow */
 .add-new-form input {
-    height: 20px;
     width: 30px;
+}
+
+.add-new-form input, .add-new-form select {
+    margin-bottom: 5px;
 }
 
 .add-new-form textarea {
@@ -233,14 +380,25 @@ nav li:hover {
 }
 
 /* readjust first input field (upload image) */
-.add-new-form fieldset:nth-child(1) input:nth-child(2) {
-    height: 27px;
+.add-new-form fieldset:nth-child(1) input {
+    /*height: 27px;*/
     width: 200px;
 }
 
 /* readjust recipe name input field */
-.add-new-form fieldset:nth-child(2) input:nth-child(2) {
-    width: 200px;
+.add-new-form fieldset:nth-child(2) input {
+    width: 180px;
+}
+
+/* readjust categories drop down menu */
+.add-new-form select {
+    width: 188px;
+}
+
+/* readjust ingredient/direction inputs */
+#ingredient-container input, #direction-container input {
+    width: 180px;
+    margin-bottom: 8px;
 }
 
 .add-new-form fieldset {
@@ -250,32 +408,46 @@ nav li:hover {
 }
 
 /* form label container */
-.add-new-form > fieldset > div {
-    padding: 15px;
+.add-new-form > fieldset > div:nth-child(1) {
+    padding: 0 15px 15px 15px;
     width: 100px;
-    margin: auto;
 }
+
+/* form labels */
+.add-new-form > fieldset > div:nth-child(1) > label {
+    display: block;
+    width: 100px;
+}
+
 
 /* form button container */
 .add-new-form > div {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 20px;
-}
-
-.add-new-form button {
-    font-size: 20px;
-    margin-top: 10px;
-}
-
-#add-new-page .recipe-book {
-    height: 640px;
+    padding: 20px 20px 40px 20px;
+    box-sizing: border-box;
 }
 
 /* add cursor: pointer on form buttons */
 .add-new-form button, .add-new-form ::-webkit-file-upload-button {
     cursor: pointer;
+}
+
+/* form errors */
+
+.form-error-hide
+{
+    display: none;
+}
+
+.form-error
+{
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 10px 0;
+    width: 100%;
+    color: red;
 }
 
 /*** HOME PAGE ***/
@@ -316,9 +488,21 @@ nav li:hover {
     border-spacing: 0 25px;
 }
 
-/* add a box shadow to each table row */
+table {
+    border-collapse: collapse;
+}
+
 .category-table-container table tr {
-    box-shadow: 0px 1px 0px 1px lightgray;
+    border-bottom: solid 1px lightgray;
+}
+
+.category-table-container table thead {
+    border-bottom: solid 5px white;
+}
+
+.category-table-container table tr td {
+    padding-top: 20px;
+    padding-bottom: 5px;
 }
 
 .category-table-container table a {
@@ -371,6 +555,13 @@ mark:hover {
 /* recipe title column width */
 .category-table-container table td:nth-child(2) {
     width: 210px;
+}
+
+.category-table-container table td:nth-child(2) a {
+    max-width: 210px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 /* all other column widths */
@@ -510,7 +701,6 @@ mark:hover {
 
 .action-container {
     display: flex;
-    flex-display: row;
     justify-content: flex-end;
     box-sizing: border-box;
     margin-top: -135px;
@@ -523,6 +713,11 @@ mark:hover {
     color: #454545;
 }
 
+.action-container a {
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
 .action-container i {
     font-size: 20px;
     padding-left: 10px;
@@ -532,18 +727,114 @@ mark:hover {
 #upload-tn {
     height: 40px;
     width: 40px;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
     object-fit: cover;
-}
-
-/* added via JS when user uploads an image */
-.img-uploaded {
-    display: none;
 }
 
 .upload-img-container {
     display: flex;
     flex-direction: column;
+}
+
+#delete-button:hover {
+    cursor: pointer;
+}
+
+#direction-container .direction-input, #ingredient-container .ingredient-input {
+    margin: 0;
+}
+
+#direction-container > div, #ingredient-container > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 13px;
+}
+
+.remove-field-btn {
+    margin-left: 5px;
+}
+
+/*** POP UP ***/
+/* overlay that dims the background */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* hidden state */
+.hidden {
+    display: none;
+}
+
+/* popup box */
+.popup {
+    width: 300px;
+    height: 300px;
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Dosis', sans-serif;
+    padding: 55px;
+    border-radius: 50%;
+    background-image: url('../img/yellow-lemon.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* OK button inside the popup */
+.popup-button {
+    margin-top: 20px;
+    width: 100px;
+    height: 50px;
+    background-color: #90ddd1;
+    color: black;
+    border: solid #57a498 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.popup-button:hover, #delete-popup-confirm:hover {
+    background-color: #78cec1;
+}
+
+.popup-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.popup-buttons a, .popup-buttons button {
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 1px 6px;
+    height: 50px;
+    box-sizing: border-box;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.popup-overlay h2 {
+    margin-bottom: -5px;
+    margin-top: 5px;
+    font-size: 30px;
+    font-family: 'Sue Ellen Francisco', cursive;
 }
 
 /************* MEDIA QUERIES *************/
@@ -553,6 +844,10 @@ mark:hover {
     /* recipe title column width */
     .category-table-container table td:nth-child(2) {
         width: 190px;
+    }
+
+    .category-table-container table td:nth-child(2) a {
+        max-width: 190px;
     }
 
     /* all other column widths */
@@ -599,6 +894,10 @@ mark:hover {
     /* recipe title column width */
     .category-table-container table td:nth-child(2) {
         width: 160px;
+    }
+
+    .category-table-container table td:nth-child(2) a {
+        max-width: 160px;
     }
 
     /* all other column widths */
@@ -688,6 +987,10 @@ mark:hover {
         width: 130px;
     }
 
+    .category-table-container table td:nth-child(2) a {
+        max-width: 130px;
+    }
+
     /* all other column widths */
     .category-table-container table td:nth-child(3), .category-table-container table td:nth-child(4) {
         width: 100px;
@@ -764,7 +1067,7 @@ mark:hover {
     }
 
     #add-new-page .recipe-book {
-        height: 655px;
+        height: auto;
     }
 
     /* recipe title column font */
@@ -838,6 +1141,10 @@ mark:hover {
         width: 100px;
     }
 
+    .category-table-container table td:nth-child(2) a {
+        max-width: 100px;
+    }
+
     /* all other column widths */
     .category-table-container table td:nth-child(3), .category-table-container table td:nth-child(4) {
         width: 80px;
@@ -909,19 +1216,32 @@ mark:hover {
     }
 
     /* readjust recipe name input field */
-    .add-new-form fieldset:nth-child(2) input:nth-child(2) {
+    .add-new-form fieldset:nth-child(2) input {
+        width: 150px;
+    }
+
+    /* readjust categories drop down menu */
+    .add-new-form select {
+        width: 158px;
+    }
+
+    #ingredient-container input, #direction-container input {
         width: 150px;
     }
 
     /* align save button */
-    .add-new-form button {
-        margin-right: 25px;
-        margin-top: 10px;
-    }
+    /*.add-new-form button {*/
+    /*    margin-right: 25px;*/
+    /*    margin-top: 10px;*/
+    /*}*/
 
     /* recipe title column width */
     .category-table-container table td:nth-child(2) {
         width: 90px;
+    }
+
+    .category-table-container table td:nth-child(2) a {
+        max-width: 90px;
     }
 
     .category-table-container table td:nth-child(2) a {
@@ -950,6 +1270,10 @@ mark:hover {
     .action-container {
         margin-top: -100px;
     }
+
+    .plus-button-container {
+        width: 158px;
+    }
 }
 
 
@@ -969,8 +1293,85 @@ mark:hover {
     .recipe-content {
         margin: 0 35px;
     }
+
 }
 
+@media screen and (max-width: 460px) {
+
+    /* readjust recipe name input field and ingredients + directions textareas */
+    .add-new-form fieldset:nth-child(2) input, .add-new-form textarea {
+        width: 120px;
+    }
+
+    /* readjust categories drop down menu */
+    .add-new-form select {
+        width: 128px;
+    }
+
+    #ingredient-container input, #direction-container input {
+        width: 120px;
+    }
+
+    .plus-button-container {
+        width: 120px;
+    }
+
+    .add-new-form {
+        width: 250px;
+    }
+
+    .add-new-form fieldset:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+
+    .add-new-form > fieldset:nth-child(1) > div:nth-child(1) > label {
+        width: 100%;
+    }
+
+    .add-new-form > fieldset:nth-child(1) > div:nth-child(1) {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .upload-img-container {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form-time-label {
+        font-size: 12px;
+    }
+
+
+    .add-new-form fieldset div {
+        margin-right: -25px;
+    }
+
+    .add-new-form fieldset:nth-child(1) input {
+        font-size: 15px;
+    }
+
+    .add-new-form fieldset:nth-child(3) select {
+        font-size: 15px;
+    }
+
+    .add-new-title {
+        margin-left: 40px;
+    }
+
+    body:has(.category-table-container) h1 {
+        margin-left: 20px;
+    }
+}
 
 @media screen and (max-width: 440px) {
 
@@ -987,48 +1388,6 @@ mark:hover {
         margin-top: -95px;
     }
 
-    .add-new-form fieldset div {
-        margin-right: -25px;
-    }
-
-    /* readjust recipe name input field and ingredients + directions textareas */
-    .add-new-form fieldset:nth-child(2) input:nth-child(2), .add-new-form textarea {
-        width: 120px;
-    }
-
-    .add-new-form {
-        width: 250px;
-    }
-
-    .add-new-form fieldset:nth-child(1) {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        width: 100%;
-        margin: -15px 10px 10px 0;
-    }
-
-    .add-new-form fieldset:nth-child(1) div {
-        width: 100%;
-    }
-
-    .add-new-form fieldset:nth-child(1) input {
-        font-size: 15px;
-    }
-
-    .add-new-form fieldset:nth-child(3) select {
-        font-size: 15px;
-    }
-
-    .add-new-form button {
-        margin-top: 0;
-    }
-
-    #add-new-page .recipe-book {
-        height: 685px;
-    }
-
     .category-page h1 {
         font-size: 40px;
         margin-top: -100px;
@@ -1037,6 +1396,10 @@ mark:hover {
     /* recipe title column width */
     .category-table-container table td:nth-child(2) {
         width: 70px;
+    }
+
+    .category-table-container table td:nth-child(2) a {
+        max-width: 70px;
     }
 
     .category-table-container table td:nth-child(2) a {
@@ -1068,10 +1431,6 @@ mark:hover {
         margin-bottom: 25px;
     }
 
-    .form-time-label {
-        font-size: 12px;
-    }
-
     .action-container i {
         font-size: 23px;
         padding-left: 12px;
@@ -1085,22 +1444,21 @@ mark:hover {
         font-size: 40px;
     }
 
-    #edit-recipe .recipe-book {
-        height: 740px;
-        max-height: 740px;
-    }
+    /*#edit-recipe .recipe-book {*/
+    /*    height: 740px;*/
+    /*    max-height: 740px;*/
+    /*}*/
 
-    #edit-recipe button {
-        margin-bottom: 40px;
-    }
-
-    .upload-img-container {
-        justify-content: center;
-        align-items: center;
-    }
+    /*#edit-recipe button {*/
+    /*    margin-bottom: 40px;*/
+    /*}*/
 
     .image-fieldset > div:nth-child(1), .image-fieldset > div:nth-child(2) {
        margin: 0;
+    }
+
+    #image {
+        margin-left: -25px;
     }
 }
 
@@ -1125,6 +1483,29 @@ mark:hover {
     .recipe-content {
         margin: 0 20px;
     }
+
+    /* popup box */
+    .popup {
+        width: 200px;
+        height: 200px;
+        font-size: 16px;
+        font-family: 'Dosis', sans-serif;
+    }
+
+    /* OK button inside the popup */
+    .popup-button {
+        margin-top: 10px;
+        width: 80px;
+        border: solid #57a498 1px;
+        font-size: 20px;
+    }
+
+    .popup-overlay h2 {
+        margin-bottom: -10px;
+        margin-top: 5px;
+        font-size: 28px;
+    }
+
 }
 
 @media screen and (max-width: 400px) {
@@ -1134,9 +1515,33 @@ mark:hover {
     }
 }
 
+@media screen and (max-width: 390px) {
+
+    /* readjust recipe name input field and ingredients + directions textareas */
+    .add-new-form fieldset:nth-child(2) input, .add-new-form textarea {
+        width: 100px;
+    }
+
+    /* readjust categories drop down menu */
+    .add-new-form select {
+        width: 108px;
+    }
+
+    #ingredient-container input, #direction-container input {
+        width: 100px;
+    }
+
+    .plus-button-container {
+        width: 100px;
+    }
+}
+
 @media screen and (max-width: 340px) {
 
     .title-image h1 {
         max-width: 140px;
     }
 }
+
+
+

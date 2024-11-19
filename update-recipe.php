@@ -11,6 +11,7 @@ if (in_array($recipeId, $restrictedRecipeIds)) {
 }
 
 // capture form inputs to vars
+$previousImg = $_POST['previous-image'];
 $name = $_POST['name'];
 $categoryId = $_POST['categoryId'];
 $servings = $_POST['servings'];
@@ -168,7 +169,7 @@ else if (strlen($directions) > 5000) {
     $errorFree = false;
 }
 
-// 9. IMAGE - if an image file has been uploaded
+// 9. IMAGE - if an image has been uploaded
 if ($_FILES && $_FILES['image']['name'] != "") {
 
     // capture the image file
@@ -203,7 +204,7 @@ if ($_FILES && $_FILES['image']['name'] != "") {
         $errorMsg = "Image format is not allowed, please try again.";
         $errorFree = false;
     } // check that image size is no larger than 2MB
-    else if ($imgFile['size'] > 2000000) {
+    else if ($imgFile['size'] > 2097152) {
         $errorMsg = "File size is too big, please try again.";
         $errorFree = false;
     } // check for any other image upload errors
@@ -212,26 +213,31 @@ if ($_FILES && $_FILES['image']['name'] != "") {
         $errorFree = false;
     }
 }
+else {
+    // if no image has been uploaded, set previous image value
+    $image = $previousImg;
+}
 
 // if any errors occured during error-checking, alert the user with custom error message, and re-direct them to the form page
 if (!$errorFree) {
     echo '<script>alert("' . $errorMsg . '")</script>';
     echo '<script>window.location.href = "edit-recipe.php?recipeId=' . $recipeId . '"</script>';
 }
-// if no errors came back and our errorFree variable still holds 'true', enter the new car entry in database
+// if no errors came back and our errorFree variable still holds 'true', save the changes to the database
 else {
 
     // connect to the database
     include './db.php';
 
     // set up SQL query
-    $sql = "UPDATE recipes SET name = :name, categoryId = :categoryId, servings = :servings, 
+    $sql = "UPDATE recipes SET image = :image, name = :name, categoryId = :categoryId, servings = :servings, 
                    prepTimeHours = :prepTimeH, prepTimeMins = :prepTimeM, cookTimeHours = :cookTimeH, 
                    cookTimeMins = :cookTimeM, rating = :rating, ingredients = :ingredients, directions = :directions
                    WHERE recipeId= :recipeId";
 
     // create pdo command and populate variables into parameters
     $cmd = $db->prepare($sql);
+    $cmd->bindParam(':image', $image, PDO::PARAM_LOB);
     $cmd->bindParam(':name', $name, PDO::PARAM_STR, 60);
     $cmd->bindParam(':categoryId', $categoryId, PDO::PARAM_INT);
     $cmd->bindParam(':servings', $servings, PDO::PARAM_INT);
@@ -247,23 +253,33 @@ else {
     // run the command
     $cmd->execute();
 
-    // if an image has been uploaded:
-    if ($_FILES && $_FILES['image']['name'] != "") {
-
-        // set up SQL query
-        $sql = "UPDATE recipes SET image = :image WHERE recipeId= :recipeId";
-
-        $cmd = $db->prepare($sql);
-        $cmd->bindParam(':image', $image, PDO::PARAM_LOB);
-        $cmd->bindParam(':recipeId', $recipeId, PDO::PARAM_INT);
-        $cmd->execute();
-    }
-
-    // show confirmation to the user that the new recipe has been saved
-    echo '<script>alert("Your recipe has been successfully saved!");</script>';
-
     // disconnect from database
     $db = null;
 
-    echo '<script>window.location.href ="home.php"</script>';
+    // link meta content to display popup success notification
+    include './meta.php';
+    echo '<title>Success!</title>';
+
+    // success notification
+    echo '<div id="generic-popup-overlay" class="popup-overlay hidden">
+            <div id="generic-popup" class="popup">
+                <h2 id="popup-title">SUCCESS!</h2>
+                <p id="popup-message">Your recipe has been successfully saved!</p>
+                <button id="popup-ok-button" class="popup-button">OK</button>
+            </div>
+          </div>';
+
+    // JS to handle showing/closing the popup
+    echo '<script>
+        document.getElementById("generic-popup-overlay").classList.remove("hidden");
+        document.getElementById("popup-ok-button").onclick = function() {
+            document.getElementById("generic-popup-overlay").classList.add("hidden");
+            window.location.href = "home.php"; 
+        };
+        document.getElementById("generic-popup-overlay").onclick = function() {
+            document.getElementById("generic-popup-overlay").classList.add("hidden");
+            window.location.href = "home.php"; 
+        };
+    </script>';
+
 }
