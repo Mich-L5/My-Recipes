@@ -701,7 +701,6 @@ mark:hover {
 
 .action-container {
     display: flex;
-    flex-display: row;
     justify-content: flex-end;
     box-sizing: border-box;
     margin-top: -135px;
