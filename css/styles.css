@@ -557,6 +557,13 @@ mark:hover {
     width: 210px;
 }
 
+.category-table-container table td:nth-child(2) a {
+    max-width: 210px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 /* all other column widths */
 .category-table-container table td:nth-child(3), .category-table-container table td:nth-child(4){
     width: 170px;
@@ -840,6 +847,10 @@ mark:hover {
         width: 190px;
     }
 
+    .category-table-container table td:nth-child(2) a {
+        max-width: 190px;
+    }
+
     /* all other column widths */
     .category-table-container table td:nth-child(3), .category-table-container table td:nth-child(4) {
         width: 150px;
@@ -884,6 +895,10 @@ mark:hover {
     /* recipe title column width */
     .category-table-container table td:nth-child(2) {
         width: 160px;
+    }
+
+    .category-table-container table td:nth-child(2) a {
+        max-width: 160px;
     }
 
     /* all other column widths */
@@ -971,6 +986,10 @@ mark:hover {
 
     .category-table-container table td:nth-child(2) {
         width: 130px;
+    }
+
+    .category-table-container table td:nth-child(2) a {
+        max-width: 130px;
     }
 
     /* all other column widths */
@@ -1123,6 +1142,10 @@ mark:hover {
         width: 100px;
     }
 
+    .category-table-container table td:nth-child(2) a {
+        max-width: 100px;
+    }
+
     /* all other column widths */
     .category-table-container table td:nth-child(3), .category-table-container table td:nth-child(4) {
         width: 80px;
@@ -1216,6 +1239,10 @@ mark:hover {
     /* recipe title column width */
     .category-table-container table td:nth-child(2) {
         width: 90px;
+    }
+
+    .category-table-container table td:nth-child(2) a {
+        max-width: 90px;
     }
 
     .category-table-container table td:nth-child(2) a {
@@ -1342,7 +1369,13 @@ mark:hover {
         font-size: 15px;
     }
 
+    .add-new-title {
+        margin-left: 40px;
+    }
 
+    body:has(.category-table-container) h1 {
+        margin-left: 20px;
+    }
 }
 
 @media screen and (max-width: 440px) {
@@ -1368,6 +1401,10 @@ mark:hover {
     /* recipe title column width */
     .category-table-container table td:nth-child(2) {
         width: 70px;
+    }
+
+    .category-table-container table td:nth-child(2) a {
+        max-width: 70px;
     }
 
     .category-table-container table td:nth-child(2) a {
@@ -1506,10 +1543,6 @@ mark:hover {
         max-width: 140px;
     }
 }
-
-
-
-
 
 
 
