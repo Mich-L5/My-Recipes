@@ -79,7 +79,7 @@ $image = $recipe['image'];
                             ?>
                             <div id="button-container">
                                 <input name="image" id="image" type="file" />
-                                <input type="hidden" name="previous-image" value="<?php echo $image; ?>">
+                                <input type="hidden" name="previous-image" id="previous-image" value="<?php echo $image; ?>">
                                 <?php
                                 if ($image !== "placeholder")
                                 {

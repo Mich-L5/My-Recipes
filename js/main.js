@@ -446,6 +446,13 @@ document.addEventListener("DOMContentLoaded",(loaded) => {
         uploadThumbnail.remove();
         clearBtn.remove();
         uploadField.value = "";
+
+        // if the previous image in the hidden field exists, set the value as placeholder
+        const prevImg = document.getElementById("previous-image");
+        if (prevImg) {
+            prevImg.value = "placeholder";
+            console.log("hello");
+        }
     }
 
 });
