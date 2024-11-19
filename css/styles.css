@@ -218,7 +218,7 @@ nav li:hover {
 /*** RECIPE BOOK ***/
 .recipe-book {
     width: 80%;
-    min-height: 600px;
+    min-height: 650px;
     margin: 49px auto 0 auto;
     background-color: #FDFDFD;
     box-shadow: 3px 3px 5px -5px #0e0e0e;
@@ -1273,10 +1273,6 @@ mark:hover {
 
     .plus-button-container {
         width: 158px;
-    }
-
-    .recipe-book {
-        min-height: 650px;
     }
 }
 
