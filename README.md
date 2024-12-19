@@ -14,7 +14,7 @@
 Recipe Book is a PHP web application that simulates a physical recipe book. Users are able to add new recipes, which are then categorized under the appropriate category tab for ease of retrievability.
 
 ## Live site
-This live site can be accessed [here]([https://yellow-mouse-694769.hostingersite.com/](https://mediumvioletred-caribou-677915.hostingersite.com/)).
+This live site can be accessed [here](https://mediumvioletred-caribou-677915.hostingersite.com/).
 
 ## Technologies
 <picture>
@@ -36,7 +36,7 @@ This live site can be accessed [here]([https://yellow-mouse-694769.hostingersite
 ## How to use
 
 ### Open the app
-Click [here]([https://yellow-mouse-694769.hostingersite.com/](https://mediumvioletred-caribou-677915.hostingersite.com/)) to open the app.
+Click [here](https://mediumvioletred-caribou-677915.hostingersite.com/) to open the app.
 
 ### Add a new recipe
 Click on the teal <picture>
