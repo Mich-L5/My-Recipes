@@ -129,8 +129,13 @@ trash can in the top right of the recipe page.
 
 ## Desktop, tablet, and mobile responsive
 The app is responsive across all three platforms (mobile, tablet, and desktop).
-
 ![Watermelon juice recipe page in three sizes: mobile, tablet, and desktop](https://github.com/user-attachments/assets/b8f20419-fd93-4d37-bade-c19111866053)
+
+## Loading screen
+A loading screen with a spinning lemon icon appears on the index page while the DOM is rendering.
+<br>
+<br>
+<img width="650" alt="Screenshot of the loading screen" src="https://github.com/user-attachments/assets/a94732ec-c7ff-4268-94b0-1dc72f2e117c" />
 
 ## Formatting (ingredients and directions)
 Recipe ingredients automatically get formatted in a bullet point list, and recipe directions automatically get formatted in a numbered list.
