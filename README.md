@@ -74,6 +74,9 @@ Fill out the form fields.
 
 <img width="650" alt="Screenshot of the Add New Recipe page" src="https://github.com/user-attachments/assets/ae94ffcd-b118-42af-8b66-6ac622cc454d" />
 
+<br>
+<br>
+
 Click
 <picture>
   <img alt="Save button" src="https://img.shields.io/badge/Save-8fddd1">
@@ -85,13 +88,22 @@ Choose a category tab (Apps, Mains, Sides, Desserts, Drinks, or Sauces).
 
 <img width="650" alt="Screenshot of the category tabs" src="https://github.com/user-attachments/assets/dfbb74da-4eb9-4981-ab92-04e9030abfdc" />
 
+<br>
+<br>
+
 Scroll to view all the recipes in the category. Additionally, you can click on any of the column headers (Recipe, Total time, Rating) to sort the recipes by column.
 
 <img width="650" alt="Screenshot of the Mains page with three recipes" src="https://github.com/user-attachments/assets/45b4187c-03a2-4221-9d6b-4f2e9cfa840e" />
 
+<br>
+<br>
+
 Click on a recipe to view the recipe details.
 
 <img width="650" alt="Screenshot of a mac & cheese recipe" src="https://github.com/user-attachments/assets/799c5386-cbbc-4d38-9f36-c588e05143c8" />
+
+<br>
+<br>
 
 ## Edit a recipe
 
