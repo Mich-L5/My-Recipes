@@ -12,7 +12,7 @@
 <br>
 <br>
 
-<img width="300" alt="ripped paper note with text 'About'" src="https://github.com/user-attachments/assets/3a8ffc91-be45-411b-9ba4-e303d43fce17">
+<img width="250" alt="ripped paper note with text 'About'" src="https://github.com/user-attachments/assets/3a8ffc91-be45-411b-9ba4-e303d43fce17">
 
 <br>
 <br>
@@ -22,9 +22,7 @@ Recipe Book is a PHP web application that simulates a physical recipe book. User
 <br>
 <br>
 
-
-
-<img width="300" alt="ripped paper note with text 'Live site'" src="https://github.com/user-attachments/assets/93c1210b-97db-4f6a-94c6-87b6e801691f">
+<img width="250" alt="ripped paper note with text 'Live site'" src="https://github.com/user-attachments/assets/93c1210b-97db-4f6a-94c6-87b6e801691f">
 
 <br>
 <br>
@@ -34,9 +32,7 @@ This live site can be accessed [here](https://mediumvioletred-caribou-677915.hos
 <br>
 <br>
 
-
-
-<img width="300" alt="ripped paper note with text 'Technologies'" src="https://github.com/user-attachments/assets/00794d6d-db7e-45f5-a875-3fdf9a15492f">
+<img width="250" alt="ripped paper note with text 'Technologies'" src="https://github.com/user-attachments/assets/00794d6d-db7e-45f5-a875-3fdf9a15492f">
 
 <br>
 <br>
@@ -59,10 +55,10 @@ This live site can be accessed [here](https://mediumvioletred-caribou-677915.hos
 
 <br>
 <br>
+<br>
+<br>
 
-
-
-<img width="300" alt="ripped paper note with text 'How to use'" src="https://github.com/user-attachments/assets/936ee2a6-b931-48be-be0e-98f16b9a8f0e">
+<img width="250" alt="ripped paper note with text 'How to use'" src="https://github.com/user-attachments/assets/936ee2a6-b931-48be-be0e-98f16b9a8f0e">
 
 ## Open the app
 
@@ -93,18 +89,14 @@ Scroll to view all the recipes in the category. Additionally, you can click on a
 
 <img width="650" alt="Screenshot of the Mains page with three recipes" src="https://github.com/user-attachments/assets/45b4187c-03a2-4221-9d6b-4f2e9cfa840e" />
 
-
 Click on a recipe to view the recipe details.
 
 <img width="650" alt="Screenshot of a mac & cheese recipe" src="https://github.com/user-attachments/assets/799c5386-cbbc-4d38-9f36-c588e05143c8" />
-
 
 ## Edit a recipe
 
 Once on the recipe page (see Find/browse recipes to view a recipe page), click the 
 pencil in the top right of the recipe page. 
-
-<img width="70" alt="edit icon" src="https://github.com/user-attachments/assets/25fcdca6-fe1a-45c8-a40f-0879c9fc66e5" />
 
 Make modifications to the recipe information.
 
@@ -118,13 +110,10 @@ Click
 Once on the recipe page (see Find/browse recipes to view a recipe page), click the 
 trash can in the top right of the recipe page. 
 
-<img width="64" alt="trash icon" src="https://github.com/user-attachments/assets/a810b280-8287-4139-8007-a64fdb9d3fa4" />
-
 <br>
 <br>
 
-
-<img width="300" alt="ripped paper note with text 'Features'" src="https://github.com/user-attachments/assets/2bd2904e-1436-4a30-834b-7f0b51fd3bc4">
+<img width="250" alt="ripped paper note with text 'Features'" src="https://github.com/user-attachments/assets/2bd2904e-1436-4a30-834b-7f0b51fd3bc4">
 
 ## Desktop, tablet, and mobile responsive
 The app is responsive across all three platforms (mobile, tablet, and desktop).
@@ -159,7 +148,7 @@ If the form contains errors or is missing values, the user receives detailed fee
 ## Categorization
 Recipes are categorized by type of dish (app, main, side, dessert, drink or sauce). When a new recipe is added, it gets added to its respective category page, and can easily be retrieved by accessing its category tab.
 
-<img width="300" alt="Categories drop down select menu" src="https://github.com/user-attachments/assets/4b09cbf8-e0bd-444e-8219-b5716c1a0026" />
+<img width="250" alt="Categories drop down select menu" src="https://github.com/user-attachments/assets/4b09cbf8-e0bd-444e-8219-b5716c1a0026" />
 
 ## Recipe sorting
 In addition to recipe categorization, recipes can be further sorted by alphabetical order, total time, and rating score, by clicking on the respective column heading.
