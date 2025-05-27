@@ -12,30 +12,15 @@
 <br>
 <br>
 
-<img width="250" alt="ripped paper note with text 'About'" src="https://github.com/user-attachments/assets/3a8ffc91-be45-411b-9ba4-e303d43fce17">
-
-<br>
-<br>
+## About
 
 Recipe Book is a PHP web application that simulates a physical recipe book. Users are able to add new recipes, which are then categorized under the appropriate category tab for ease of retrievability.
 
-<br>
-<br>
-
-<img width="250" alt="ripped paper note with text 'Live site'" src="https://github.com/user-attachments/assets/93c1210b-97db-4f6a-94c6-87b6e801691f">
-
-<br>
-<br>
+## Live site
 
 This live site can be accessed [here](https://mediumvioletred-caribou-677915.hostingersite.com/).
 
-<br>
-<br>
-
-<img width="250" alt="ripped paper note with text 'Technologies'" src="https://github.com/user-attachments/assets/00794d6d-db7e-45f5-a875-3fdf9a15492f">
-
-<br>
-<br>
+## Technologies
 
 <picture>
   <img alt="HTML badge" src="https://img.shields.io/badge/HTML-80d7ff">
@@ -53,18 +38,12 @@ This live site can be accessed [here](https://mediumvioletred-caribou-677915.hos
   <img alt="MySQL badge" src="https://img.shields.io/badge/MySQL-ffb4cf">
 </picture>
 
-<br>
-<br>
-<br>
-<br>
-
-<img width="250" alt="ripped paper note with text 'How to use'" src="https://github.com/user-attachments/assets/936ee2a6-b931-48be-be0e-98f16b9a8f0e">
-
-## Open the app
+## How to use
+### Open the app
 
 Click [here](https://mediumvioletred-caribou-677915.hostingersite.com/) to open the app.
 
-## Add a new recipe
+### Add a new recipe
 
 Click on the <picture>
   <img alt="Add New! tab" src="https://img.shields.io/badge/Add_New!-8fddd1">
@@ -82,7 +61,7 @@ Click
   <img alt="Save button" src="https://img.shields.io/badge/Save-8fddd1">
 </picture> .
 
-## Find/browse recipes
+### Find/browse recipes
 
 Choose a category tab (Apps, Mains, Sides, Desserts, Drinks, or Sauces).
 
@@ -105,7 +84,7 @@ Click on a recipe to view the recipe details.
 <br>
 <br>
 
-## Edit a recipe
+### Edit a recipe
 
 Once on the recipe page (see Find/browse recipes to view a recipe page), click the 
 pencil in the top right of the recipe page. 
@@ -117,60 +96,56 @@ Click
   <img alt="Save button" src="https://img.shields.io/badge/Save-9fdfdf">
 </picture> .
 
-## Delete a recipe
+### Delete a recipe
 
 Once on the recipe page (see Find/browse recipes to view a recipe page), click the 
 trash can in the top right of the recipe page. 
 
-<br>
-<br>
-
-<img width="250" alt="ripped paper note with text 'Features'" src="https://github.com/user-attachments/assets/2bd2904e-1436-4a30-834b-7f0b51fd3bc4">
-
-## Desktop, tablet, and mobile responsive
+## Features
+### Desktop, tablet, and mobile responsive
 The app is responsive across all three platforms (mobile, tablet, and desktop).
 ![Watermelon juice recipe page in three sizes: mobile, tablet, and desktop](https://github.com/user-attachments/assets/b8f20419-fd93-4d37-bade-c19111866053)
 
-## Loading screen
+### Loading screen
 A loading screen with a spinning lemon icon appears on the index page while the DOM is rendering.
 <br>
 <br>
 <img width="650" alt="Screenshot of the loading screen" src="https://github.com/user-attachments/assets/a94732ec-c7ff-4268-94b0-1dc72f2e117c" />
 
-## Formatting (ingredients and directions)
+### Formatting (ingredients and directions)
 Recipe ingredients automatically get formatted in a bullet point list, and recipe directions automatically get formatted in a numbered list.
 
 <img width="800" alt="Screenshot of recipe ingredients and directions in edit mode and read mode" src="https://github.com/user-attachments/assets/c1b00def-cafb-4e52-9104-8fa12d061360" />
 
-## Confirm delete prompt
+### Confirm delete prompt
 When the delete button on a recipe is clicked, a popup window appears to confirm the deletion.
 
 <img width="400" alt="Screenshot of the confirm delete prompt" src="https://github.com/user-attachments/assets/4eba600f-96a5-4b36-bc02-375e4eb9d204" />
 
-## Dynamic photo upload preview
+### Dynamic photo upload preview
 When a recipe photo is uploaded/erased, the photo preview is dynamically updated.
 
 <img width="400" alt="Screenshot of the upload photo section in the receipe form" src="https://github.com/user-attachments/assets/3e3b278a-328e-4c01-a6d5-7b917cf3094e" />
 
-## Placeholder image
+### Placeholder image
 If no image is uploaded for a recipe, a placeholder image is used for the recipe.
 
 <img width="650" alt="Screenshot of a cheese pizza recipe with a placeholder image" src="https://github.com/user-attachments/assets/8f7ce0ac-aced-42ce-9a45-efc5118c570c" />
 
-## Form error feedback
+### Form error feedback
 If the form contains errors or is missing values, the user receives detailed feedback before the form is submitted. Error checking on the backend is also performed.
 
 <img width="450" alt="Screenshot of a recipe form with errors" src="https://github.com/user-attachments/assets/97e0a3e3-10b5-41d5-86b6-035696e660a3" />
 
-## Categorization
+### Categorization
 Recipes are categorized by type of dish (app, main, side, dessert, drink or sauce). When a new recipe is added, it gets added to its respective category page, and can easily be retrieved by accessing its category tab.
 
 <img width="250" alt="Categories drop down select menu" src="https://github.com/user-attachments/assets/4b09cbf8-e0bd-444e-8219-b5716c1a0026" />
 
-## Recipe sorting
+### Recipe sorting
 In addition to recipe categorization, recipes can be further sorted by alphabetical order, total time, and rating score, by clicking on the respective column heading.
 
-## Recipe total time calculation
+### Recipe total time calculation
 The recipe total time is automatically calculated based on its prep time and cook time. The total time gets displayed in the recipe list, and can be used as a sorting parameter.
 
 
