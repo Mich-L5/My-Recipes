@@ -14,7 +14,7 @@
 
 ## About
 
-Recipe Book is a PHP web application that simulates a physical recipe book. Users are able to add new recipes, which are then categorized under the appropriate category tab for ease of retrievability.
+Recipe Book is a PHP web application that simulates a physical recipe book. Users can add, edit, delete, and view recipes organized by category.
 
 ## Live site
 
@@ -23,19 +23,19 @@ This live site can be accessed [here](https://mediumvioletred-caribou-677915.hos
 ## Technologies
 
 <picture>
-  <img alt="HTML badge" src="https://img.shields.io/badge/HTML-80d7ff">
+  <img alt="HTML badge" src="https://img.shields.io/badge/HTML-fdf45d">
 </picture>
 <picture>
-  <img alt="CSS badge" src="https://img.shields.io/badge/CSS-c1ff83">
+  <img alt="CSS badge" src="https://img.shields.io/badge/CSS-fdf45d">
 </picture>
 <picture>
   <img alt="JS badge" src="https://img.shields.io/badge/JavaScript-fdf45d">
 </picture>
 <picture>
-  <img alt="PHP badge" src="https://img.shields.io/badge/PHP-ffba84">
+  <img alt="PHP badge" src="https://img.shields.io/badge/PHP-fdf45d">
 </picture>
 <picture>
-  <img alt="MySQL badge" src="https://img.shields.io/badge/MySQL-ffb4cf">
+  <img alt="MySQL badge" src="https://img.shields.io/badge/MySQL-fdf45d">
 </picture>
 
 ## How to use
@@ -49,7 +49,7 @@ Click on the <picture>
   <img alt="Add New! tab" src="https://img.shields.io/badge/Add_New!-8fddd1">
 </picture> tab.
 
-Fill out the form fields.
+Fill out the recipe fields.
 
 <img width="650" alt="Screenshot of the Add New Recipe page" src="https://github.com/user-attachments/assets/ae94ffcd-b118-42af-8b66-6ac622cc454d" />
 
@@ -63,7 +63,7 @@ Click
 
 ### Find/browse recipes
 
-Choose a category tab (Apps, Mains, Sides, Desserts, Drinks, or Sauces).
+Choose a category tab (<img alt="Apps tab" src="https://img.shields.io/badge/Apps-F5D4FA">, <img alt="Mains tab" src="https://img.shields.io/badge/Mains-93D6FB">, <img alt="Sides tab" src="https://img.shields.io/badge/Sides-CEFC92">, <img alt="Desserts tab" src="https://img.shields.io/badge/Desserts-F6FD70">, <img alt="Drinks tab" src="https://img.shields.io/badge/Drinks-F5BC8C">, <img alt="Sauces tab" src="https://img.shields.io/badge/Sauces-F4B8CE">)
 
 <img width="650" alt="Screenshot of the category tabs" src="https://github.com/user-attachments/assets/dfbb74da-4eb9-4981-ab92-04e9030abfdc" />
 
